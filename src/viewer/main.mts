@@ -1,6 +1,6 @@
 import type { Architecture, ActivityEvent, Module, Relationship, Constraint } from '../contracts/models.mjs';
 import { routeArchitecture } from './routing.mjs';
-import * as BirdviewI18n from './i18n.mjs';
+import * as BirdifyI18n from './i18n.mjs';
 import { mountConstraintCanvas, type ConstraintCanvas } from './constraint-canvas.mjs';
 import type { ConstraintFreshness, ConstraintGraph } from '../constraint-types.mjs';
 declare const DATA: {
@@ -50,18 +50,18 @@ const roles = {
   security: { tone: 'rose', icon: 'shield-check', label: '安全' },
   generic: { tone: 'slate', icon: 'box', label: '通用模块' }
 };
-const { uiTranslations } = BirdviewI18n;
-const availableLanguages = BirdviewI18n.availableLanguages(map);
+const { uiTranslations } = BirdifyI18n;
+const availableLanguages = BirdifyI18n.availableLanguages(map);
 let storedLanguage = null;
-try { storedLanguage = localStorage.getItem('birdview-language'); } catch {}
+try { storedLanguage = localStorage.getItem('birdify-language'); } catch {}
 const requestedLanguage = new URLSearchParams(location.hash.slice(1)).get('lang');
-let language = BirdviewI18n.selectLanguage(map.language, availableLanguages, storedLanguage, requestedLanguage);
-const isChinese = () => BirdviewI18n.isChinese(language);
-const t = (text: string) => BirdviewI18n.translate(text, language);
+let language = BirdifyI18n.selectLanguage(map.language, availableLanguages, storedLanguage, requestedLanguage);
+const isChinese = () => BirdifyI18n.isChinese(language);
+const t = (text: string) => BirdifyI18n.translate(text, language);
 function localized(item: { openQuestions: string[]; translations?: Record<string, {openQuestions?: string[]}> }, field: 'openQuestions'): string[];
-function localized<K extends BirdviewI18n.TextField>(item: Partial<Record<K, string>> & {translations?: Record<string, Partial<Record<K, string>>>}, field: K): string;
-function localized(item: object, field: keyof BirdviewI18n.LocalizedText): string | string[] {
-  return BirdviewI18n.localized(item, field, language);
+function localized<K extends BirdifyI18n.TextField>(item: Partial<Record<K, string>> & {translations?: Record<string, Partial<Record<K, string>>>}, field: K): string;
+function localized(item: object, field: keyof BirdifyI18n.LocalizedText): string | string[] {
+  return BirdifyI18n.localized(item, field, language);
 }
 const staticLabels: { node: Node; source: string }[] = [];
 const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -94,7 +94,7 @@ function applyLanguage() {
   for (const { node, source } of staticLabels) node.textContent = t(source);
   for (const { node, attr, source } of staticAttributes) node.setAttribute(attr, t(source));
   $('project').textContent = localized(map.project, 'name');
-  document.title = `${localized(map.project, 'name')} | Birdview`;
+  document.title = `${localized(map.project, 'name')} | Birdify`;
   const count = map.modules.filter((module) => module.status === 'uncertain').length;
   $('uncertainty').textContent = isChinese() ? `${count} 个模块待确认` : `${count} uncertain modules`;
   $('uncertainty').hidden = count === 0;
@@ -143,7 +143,7 @@ function applyLanguage() {
 }
 languageSelect.onchange = () => {
   language = languageSelect.value;
-  try { localStorage.setItem('birdview-language', language); } catch {}
+  try { localStorage.setItem('birdify-language', language); } catch {}
   const hash = new URLSearchParams(location.hash.slice(1));
   hash.set('lang', language);
   try { history.replaceState(null, '', `#${hash}`); } catch {}
@@ -156,7 +156,7 @@ brandImage.src = brandLogo;
 brandImage.alt = '';
 $('brand-icon').replaceChildren(brandImage);
 $('project').textContent = map.project.name;
-document.title = `${map.project.name} | Birdview`;
+document.title = `${map.project.name} | Birdify`;
 $('identity').textContent = `${map.project.id} / ${map.mapId} / v${map.revision}`;
 $('uncertainty').textContent = `${map.modules.filter((module) => module.status === 'uncertain').length} 个模块待确认`;
 function themeButton() {
@@ -167,7 +167,7 @@ function themeButton() {
 $('theme').onclick = () => {
   const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('birdview-theme', theme); } catch {}
+  try { localStorage.setItem('birdify-theme', theme); } catch {}
   themeButton();
 };
 themeButton();
@@ -962,7 +962,7 @@ function updateConstraints() {
 
 applyLanguage();
 // A versioned browser preference, independent of map revisions and activity history.
-const guideKey = 'birdview-guide-v1';
+const guideKey = 'birdify-guide-v1';
 const guideLaunch = document.createElement('button');
 guideLaunch.id = 'guide-launch';
 query('.header-actions').append(guideLaunch);

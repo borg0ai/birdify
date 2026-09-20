@@ -7,13 +7,13 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const cli = path.join(root, 'scripts/render.mjs');
+const cli = path.join(root, 'birdify/scripts/render.mjs');
 
 test('render CLI preserves existing output on invalid input and runs outside the repository', t => {
-  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-render-test-'));
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-render-test-'));
   t.after(() => fs.rmSync(fixture, { recursive: true, force: true }));
   const run = (...args: string[]) => spawnSync(process.execPath, [cli, ...args], { cwd: fixture, encoding: 'utf8' });
-  const map = path.join(root, 'examples/architecture.json');
+  const map = path.join(root, 'birdify/examples/architecture.json');
   const output = path.join(fixture, 'map.html');
   fs.writeFileSync(output, 'keep previous output');
   const invalid = path.join(fixture, 'invalid.json');
@@ -44,6 +44,6 @@ test('render CLI preserves existing output on invalid input and runs outside the
   const html = fs.readFileSync(nested, 'utf8');
   assert.match(html, /"simulation":true/);
   assert.match(html, /data:image\/png;base64,/);
-  assert.doesNotMatch(html, /\/\* BIRDVIEW_[A-Z_]+ \*\//);
+  assert.doesNotMatch(html, /\/\* BIRDIFY_[A-Z_]+ \*\//);
   assert.equal(run().status, 1);
 });

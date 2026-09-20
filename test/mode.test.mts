@@ -6,9 +6,9 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const cli = fileURLToPath(new URL('../scripts/birdview.mjs', import.meta.url));
+const cli = fileURLToPath(new URL('../birdify/scripts/birdify.mjs', import.meta.url));
 function project(t: TestContext) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-mode-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-mode-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   return root;
 }
@@ -16,25 +16,13 @@ function run(root: string, ...args: string[]) {
   return spawnSync(process.execPath, [cli, 'mode', ...args, '--project', root], { encoding: 'utf8' });
 }
 
-test('Claude mode preserves its rules and leaves AGENTS.md untouched; DeepSeek uses AGENTS.md', (t) => {
+test('generic mode management preserves user rules and uses AGENTS.md', (t) => {
   const root = project(t);
   const agents = path.join(root, 'AGENTS.md');
-  const claude = path.join(root, 'CLAUDE.md');
   fs.writeFileSync(agents, 'Existing agent rules\n');
-  fs.writeFileSync(claude, '\uFEFF# Claude rules\r\n');
-  assert.equal(run(root, 'on-demand', '--agent', 'claude-code').status, 0);
-  assert.equal(fs.readFileSync(agents, 'utf8'), 'Existing agent rules\n');
-  const original = fs.readFileSync(claude, 'utf8');
-  assert.ok(original.startsWith('\uFEFF# Claude rules\r\n'));
-  assert.match(run(root, '--agent', 'claude-code').stdout, /^on-demand/);
-  assert.equal(run(root, 'on-demand', '--agent', 'claude-code').status, 0);
-  assert.equal(fs.readFileSync(claude, 'utf8'), original);
-  assert.equal(run(root, 'on-demand', '--agent', 'deepseek').status, 0);
-  assert.match(fs.readFileSync(agents, 'utf8'), /Birdview mode: on-demand/);
-  assert.equal(run(root, 'on-demand', '--agent', 'unknown').status, 1);
-  fs.writeFileSync(claude, '<!-- birdview:mode:start -->');
-  assert.equal(run(root, 'on-demand', '--agent', 'claude-code').status, 1);
-  assert.equal(fs.readFileSync(claude, 'utf8'), '<!-- birdview:mode:start -->');
+  assert.equal(run(root, 'on-demand').status, 0);
+  assert.match(fs.readFileSync(agents, 'utf8'), /Birdify mode: on-demand/);
+  assert.equal(fs.existsSync(path.join(root, 'CUSTOM-HOST.md')), false);
 });
 
 test('doctor renders in memory from another working directory without writing', (t) => {
@@ -57,13 +45,13 @@ test('default mode is read-only; explicit selection creates a project rule', (t)
 test('foundation survives mode switches; setup upgrades legacy on-demand without enabling maps', (t) => {
   const root = project(t);
   const file = path.join(root, 'AGENTS.md');
-  fs.writeFileSync(file, '# User rules\n<!-- birdview:mode:start -->\nBirdview mode: on-demand\nlegacy\n<!-- birdview:mode:end -->\nKeep this.');
+  fs.writeFileSync(file, '# User rules\n<!-- birdify:mode:start -->\nBirdify mode: on-demand\nlegacy\n<!-- birdify:mode:end -->\nKeep this.');
   assert.match(run(root).stdout, /Foundation: not installed/);
   const setup = () => spawnSync(process.execPath, [cli, 'setup', '--project', root], { encoding: 'utf8' });
   assert.equal(setup().status, 0);
   const installed = fs.readFileSync(file, 'utf8');
-  assert.match(installed, /Birdview mode: on-demand/);
-  assert.match(installed, /even when the Birdview skill is not activated/);
+  assert.match(installed, /Birdify mode: on-demand/);
+  assert.match(installed, /even when the Birdify skill is not activated/);
   assert.match(installed, /do not require reading the skill/);
   assert.match(run(root).stdout, /Foundation: on/);
   assert.equal(setup().status, 0);
@@ -78,26 +66,26 @@ test('foundation survives mode switches; setup upgrades legacy on-demand without
   const before = fs.readFileSync(file, 'utf8');
   const uninstall = () => spawnSync(process.execPath, [cli, 'uninstall', '--project', root], { encoding: 'utf8' });
   assert.equal(uninstall().status, 0);
-  assert.equal(fs.readFileSync(file, 'utf8'), before.replace(/<!-- birdview:mode:start -->[\s\S]*?<!-- birdview:mode:end -->/, ''));
+  assert.equal(fs.readFileSync(file, 'utf8'), before.replace(/<!-- birdify:mode:start -->[\s\S]*?<!-- birdify:mode:end -->/, ''));
   assert.equal(uninstall().status, 0);
   assert.match(run(root).stdout, /Foundation: not installed/);
 });
 
-test('setup and uninstall preserve host boundaries and reject damaged files', (t) => {
+test('setup and uninstall preserve user boundaries and reject damaged files', (t) => {
   const root = project(t);
   const agents = path.join(root, 'AGENTS.md');
   fs.writeFileSync(agents, 'User rules');
-  const invoke = (command: string, agent: string) => spawnSync(process.execPath, [cli, command, '--project', root, '--agent', agent], { encoding: 'utf8' });
-  assert.equal(invoke('setup', 'claude-code').status, 0);
-  assert.match(run(root, '--agent', 'claude-code').stdout, /Foundation: on/);
-  assert.equal(fs.readFileSync(agents, 'utf8'), 'User rules');
-  assert.equal(invoke('uninstall', 'claude-code').status, 0);
-  assert.equal(invoke('setup', 'deepseek').status, 0);
+  const invoke = (command: string) => spawnSync(process.execPath, [cli, command, '--project', root], { encoding: 'utf8' });
+  assert.equal(invoke('setup').status, 0);
+  assert.match(fs.readFileSync(agents, 'utf8'), /^User rules\n/);
+  assert.match(fs.readFileSync(agents, 'utf8'), /Birdify foundation: on/);
+  assert.equal(invoke('uninstall').status, 0);
+  assert.equal(invoke('setup').status, 0);
   assert.match(run(root).stdout, /Foundation: on/);
-  fs.writeFileSync(agents, '<!-- birdview:mode:start -->');
+  fs.writeFileSync(agents, '<!-- birdify:mode:start -->');
   for (const command of ['setup', 'uninstall']) {
-    assert.equal(invoke(command, 'codex').status, 1);
-    assert.equal(fs.readFileSync(agents, 'utf8'), '<!-- birdview:mode:start -->');
+    assert.equal(invoke(command).status, 1);
+    assert.equal(fs.readFileSync(agents, 'utf8'), '<!-- birdify:mode:start -->');
   }
 });
 
@@ -118,7 +106,7 @@ test('switching preserves surrounding UTF-8 text, BOM and CRLF; repeat is idempo
   assert.match(run(root).stdout, /^on-demand\n/);
   assert.equal(run(root, 'on-demand').status, 0);
   assert.equal(fs.readFileSync(file, 'utf8'), manual);
-  assert.equal(manual.split('<!-- birdview:mode:start -->').length, 2);
+  assert.equal(manual.split('<!-- birdify:mode:start -->').length, 2);
   const local = spawnSync(process.execPath, [cli, 'mode'], { cwd: root, encoding: 'utf8' });
   assert.equal(local.status, 0);
   assert.match(local.stdout, /^on-demand\n/);
@@ -127,7 +115,7 @@ test('switching preserves surrounding UTF-8 text, BOM and CRLF; repeat is idempo
 test('malformed, duplicate blocks and invalid arguments fail without writing', (t) => {
   const root = project(t);
   const file = path.join(root, 'AGENTS.md');
-  for (const original of ['user\n<!-- birdview:mode:start -->', '<!-- birdview:mode:end -->\n<!-- birdview:mode:start -->', '<!-- birdview:mode:start -->\nunknown\n<!-- birdview:mode:end -->']) {
+  for (const original of ['user\n<!-- birdify:mode:start -->', '<!-- birdify:mode:end -->\n<!-- birdify:mode:start -->', '<!-- birdify:mode:start -->\nunknown\n<!-- birdify:mode:end -->']) {
     fs.writeFileSync(file, original);
     assert.equal(run(root, 'on-demand').status, 1);
     assert.equal(fs.readFileSync(file, 'utf8'), original);

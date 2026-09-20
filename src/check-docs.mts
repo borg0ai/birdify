@@ -3,9 +3,10 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
-// Source: src/check-docs.mts. Regenerate scripts/check-docs.mjs with npm run build.
+// Source: src/check-docs.mts. Regenerate .build-tools/check-docs.mjs with pnpm run build.
 
-const root = fileURLToPath(new URL('../', import.meta.url));
+const outputRoot = fileURLToPath(new URL('../', import.meta.url));
+const root = outputRoot;
 const files: string[] = [];
 function collect(directory: string, recursive: boolean): void {
   for (const entry of fs.readdirSync(path.join(root, directory), { withFileTypes: true })) {
@@ -15,7 +16,10 @@ function collect(directory: string, recursive: boolean): void {
   }
 }
 collect('', false);
-for (const directory of ['references', 'docs', 'examples', '.github']) collect(directory, true);
+if (fs.existsSync(path.join(root, 'birdify'))) collect('birdify', false);
+for (const directory of ['birdify/references', 'birdify/examples', 'docs', '.github']) {
+  if (fs.existsSync(path.join(root, directory))) collect(directory, true);
+}
 const hashes: Record<string, string> = {};
 const errors: string[] = [];
 for (const file of files.sort()) {

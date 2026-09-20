@@ -6,23 +6,23 @@ Status: first automated comparison batch started on 2026-09-17; results and inde
 
 ## Experiment
 
-- Round one: A loads no Birdview; B uses fixed v0.2.1 in auto mode. Hold exact model version, reasoning effort, host, tools, network policy, OS and dependencies constant. Disable other optional skills in both arms.
+- Round one: A loads no Birdify; B uses fixed v0.2.1 in auto mode. Hold exact model version, reasoning effort, host, tools, network policy, OS and dependencies constant. Disable other optional skills in both arms.
 - Six tasks, three independent runs per task per arm: 36 runs. First use a separate unscored practice task to validate isolation, logging and scoring; adjust budgets only before scored runs.
 - Use clean independent checkouts, fresh sessions, separate user configuration and temporary directories. On-demand mode alone is not a control. Disable shared memory, old maps, other runs' artifacts and external answer searches. Retain identical necessary project instructions.
 - B loads its skill from a separate read-only directory, not editable target source. Record skill commit and file hashes; A cannot access that directory.
 - Approved execution budget: 30 minutes per run with no token cap; record input, output and cached tokens, including mapping and context reads. Score the last state on timeout and record it; do not silently extend time limits. Unavailable usage is null, never zero. The initial 60,000-token proposal was removed with user authorization after the unscored pilot.
-- Freeze identical task prompts without arm labels, implementation locations or hidden tests. Only B's host enables Birdview. Prepare necessary clarification answers in advance, apply identical response rules and retain exchanges.
+- Freeze identical task prompts without arm labels, implementation locations or hidden tests. Only B's host enables Birdify. Prepare necessary clarification answers in advance, apply identical response rules and retain exchanges.
 - Freeze random seed and order before running. Randomize A/B order within each task/repetition and interleave runs. Stop the batch if the model version changes rather than pooling versions.
-- This local Codex session already has Birdview exposure through skills and history. It cannot serve as either measured run; validate runner isolation first.
+- This local Codex session already has Birdify exposure through skills and history. It cannot serve as either measured run; validate runner isolation first.
 
 ## Source baselines and contamination
 
 | Project | Starting commit | Role |
 | --- | --- | --- |
-| Birdview | f8b6f372683ee55febaa352b2f150576690df112 | Three harness calibration tasks; report separately, not primary effectiveness evidence |
+| Birdify | f8b6f372683ee55febaa352b2f150576690df112 | Three harness calibration tasks; report separately, not primary effectiveness evidence |
 | DeepSeek Harness | 7a0b7682b6690f0aa2d93438c4d526b38ab45777 | Three external-project tasks; preliminary evidence from only one project |
 
-Birdview contains SKILL.md, workflow references and renderers: not installing the skill cannot remove this contamination. Do not delete essential source to improve results. Add a third project without Birdview content before discussing cross-project effectiveness. Public-source tasks may also have pretraining contamination.
+Birdify contains SKILL.md, workflow references and renderers: not installing the skill cannot remove this contamination. Do not delete essential source to improve results. Add a third project without Birdify content before discussing cross-project effectiveness. Public-source tasks may also have pretraining contamination.
 
 ## Six task cards
 
@@ -30,10 +30,10 @@ The requirements below can be given to the model; acceptance outlines are evalua
 
 ### B1: CLI help (small-change overhead)
 
-Prompt: Add top-level --help and -h to the Birdview CLI, listing doctor, mode and agent options with successful exit. Unknown commands must still fail. Help must not modify project files.
+Prompt: Add top-level --help and -h to the Birdify CLI, listing doctor, mode and agent options with successful exit. Unknown commands must still fail. Help must not modify project files.
 
 Acceptance: both aliases exit 0 and list supported commands/agents; temporary project files remain byte-identical; unknown command exits nonzero; existing mode tests pass.
-Source basis, withheld from the model: scripts/birdview.mjs and test/mode.test.mjs.
+Source basis, withheld from the model: scripts/birdify.mjs and test/mode.test.mjs.
 
 ### B2: BOM input compatibility (edge handling)
 

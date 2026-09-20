@@ -7,12 +7,12 @@ import { checkArchitecture, checkActivity } from '../src/contracts/parse.mjs';
 const read = (file: string): Record<string, unknown> => JSON.parse(fs.readFileSync(new URL(file, import.meta.url), 'utf8'));
 const old = new Ajv2020({ allErrors: true, strict: true, formats: { 'date-time': true } });
 old.addSchema(read('../test/fixtures/contracts-v1/architecture.schema.json'));
-const oldMap = old.getSchema('urn:birdview:architecture:1');
+const oldMap = old.getSchema('urn:birdify:architecture:1');
 const oldEvent = old.compile(read('../test/fixtures/contracts-v1/activity.schema.json'));
 const generated = new Ajv2020({ allErrors: true, strict: true, formats: { 'date-time': true } });
-generated.addSchema(read('../schemas/architecture.schema.json'));
-const generatedMap = generated.getSchema('urn:birdview:architecture:1');
-const generatedEvent = generated.compile(read('../schemas/activity.schema.json'));
+generated.addSchema(read('../birdify/schemas/architecture.schema.json'));
+const generatedMap = generated.getSchema('urn:birdify:architecture:1');
+const generatedEvent = generated.compile(read('../birdify/schemas/activity.schema.json'));
 
 function* mutations(value: unknown, path: string[] = []): Generator<[string[], unknown]> {
   yield [path, null];
@@ -38,8 +38,8 @@ function* mutations(value: unknown, path: string[] = []): Generator<[string[], u
 assert.ok(oldMap && generatedMap);
 
 test('typed runtime and exported schemas preserve v1 acceptance without mutating inputs', () => {
-  const maps = ['architecture', 'bilingual.architecture', 'system.architecture'].map(name => read(`../examples/${name}.json`));
-  const events: unknown[] = ['activity.jsonl', 'harness.activity.jsonl'].flatMap(name => fs.readFileSync(new URL(`../examples/${name}`, import.meta.url), 'utf8').trim().split(/\r?\n/).map(line => JSON.parse(line)));
+  const maps = ['architecture', 'bilingual.architecture', 'system.architecture'].map(name => read(`../birdify/examples/${name}.json`));
+  const events: unknown[] = ['activity.jsonl', 'harness.activity.jsonl'].flatMap(name => fs.readFileSync(new URL(`../birdify/examples/${name}`, import.meta.url), 'utf8').trim().split(/\r?\n/).map(line => JSON.parse(line)));
   let compared = 0;
   const comparisons: [unknown[], ValidateFunction, (value: unknown) => boolean, ValidateFunction][] = [[maps, oldMap, checkArchitecture, generatedMap], [events, oldEvent, checkActivity, generatedEvent]];
   for (const [fixtures, previous, current, exchange] of comparisons) {
@@ -76,7 +76,7 @@ test('legacy schema anchors remain available to external references', () => {
   const defs = read('../test/fixtures/contracts-v1/architecture.schema.json').$defs;
   assert.ok(defs && typeof defs === 'object');
   for (const name of Object.keys(defs)) {
-    assert.ok(generated.getSchema(`urn:birdview:architecture:1#/$defs/${name}`));
+    assert.ok(generated.getSchema(`urn:birdify:architecture:1#/$defs/${name}`));
   }
-  assert.ok(generated.getSchema('urn:birdview:activity:1#/$defs/paths'));
+  assert.ok(generated.getSchema('urn:birdify:activity:1#/$defs/paths'));
 });

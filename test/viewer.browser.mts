@@ -7,13 +7,13 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { renderArchitecture } from '../src/render.mjs';
 
-// Set BIRDVIEW_PLAYWRIGHT_PATH to a local Playwright module if not installed here.
-const { chromium }: typeof import('playwright') = await import(process.env.BIRDVIEW_PLAYWRIGHT_PATH
-  ? pathToFileURL(process.env.BIRDVIEW_PLAYWRIGHT_PATH).href : 'playwright');
-const read = (name: string) => fs.readFileSync(new URL(`../examples/${name}`, import.meta.url), 'utf8');
+// Set BIRDIFY_PLAYWRIGHT_PATH to a local Playwright module if not installed here.
+const { chromium }: typeof import('playwright') = await import(process.env.BIRDIFY_PLAYWRIGHT_PATH
+  ? pathToFileURL(process.env.BIRDIFY_PLAYWRIGHT_PATH).href : 'playwright');
+const read = (name: string) => fs.readFileSync(new URL(`../birdify/examples/${name}`, import.meta.url), 'utf8');
 const map = architecture(read('system.architecture.json'));
 const events = activity(read('harness.activity.jsonl'));
-const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-views-'));
+const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-views-'));
 const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });

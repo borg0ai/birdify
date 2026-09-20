@@ -5,7 +5,7 @@ import { checkArchitecture as mapSchema, checkActivity as eventSchema } from './
 import type { Static } from '@sinclair/typebox';
 import type { Constraint, Module, Relationship, mapTranslation, mapTranslations, mapEvidenceList } from './contracts/models.mjs';
 
-// Source: src/validate.mts. Regenerate scripts/validate.mjs with npm run build.
+// Source: src/validate.mts. Regenerate scripts/validate.mjs with pnpm run build.
 export interface Diagnostic { code: string; location: string; message: string }
 export interface ValidationOptions { requireBilingual?: boolean; requireRoles?: boolean }
 export type ValidationResult = { ok: false; errors: Diagnostic[] } | {

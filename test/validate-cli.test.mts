@@ -7,14 +7,14 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const cli = path.join(root, 'scripts/validate.mjs');
-const map = path.join(root, 'examples/architecture.json');
+const cli = path.join(root, 'birdify/scripts/validate.mjs');
+const map = path.join(root, 'birdify/examples/architecture.json');
 
 test('validator CLI validates outside the repository and reports malformed input as JSON', t => {
-  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-validator-test-'));
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-validator-test-'));
   t.after(() => fs.rmSync(fixture, { recursive: true, force: true }));
   const run = (...args: string[]) => spawnSync(process.execPath, [cli, ...args], { cwd: fixture, encoding: 'utf8' });
-  const valid = run(map, path.join(root, 'examples/activity.jsonl'));
+  const valid = run(map, path.join(root, 'birdify/examples/activity.jsonl'));
   assert.equal(valid.status, 0, valid.stdout + valid.stderr);
   assert.match(valid.stdout, /"ok": true/);
   assert.equal(valid.stderr, '');

@@ -6,7 +6,7 @@ import type { ConstraintCatalog, ConstraintGraph, ConstraintGraphNode, Constrain
 
 const assets = fileURLToPath(new URL('../assets/', import.meta.url));
 export function buildConstraintGraph(catalog: ConstraintCatalog, { view = 'rules', sourceHref }: { view?: 'rules' | 'sources'; sourceHref?: string } = {}): ConstraintGraph {
-  if (catalog.schema !== 'birdview.constraint-catalog/v1' || !catalog.project?.name || !Array.isArray(catalog.sources)
+  if (catalog.schema !== 'birdify.constraint-catalog/v1' || !catalog.project?.name || !Array.isArray(catalog.sources)
     || !catalog.coverage || !Array.isArray(catalog.references)) throw new Error('Invalid constraint catalog');
   if (view === 'rules') return buildRuleGraph(catalog as ReviewedConstraintCatalog, sourceHref);
   if (view !== 'sources') throw new Error('Unknown constraint view');
@@ -62,13 +62,13 @@ export function buildConstraintGraph(catalog: ConstraintCatalog, { view = 'rules
     add(rule.id, source.id, rule.name, rule.condition,
       `# ${rule.name}\n\n${rule.explanation}\n\n## 适用条件\n\n${rule.condition}\n\n适用性：${rule.applicability}\n\n## 原文\n\n${quote}\n\n## 验证计划\n\n${rule.verification}\n\n尚未验证实现；规则适用性不等于合规结果。`);
   }
-  return { schema: 'birdview.constraint-view/v1', mode: 'sources', title: catalog.project.name,
+  return { schema: 'birdify.constraint-view/v1', mode: 'sources', title: catalog.project.name,
     revision, scope: introduction, nodes, documents };
 }
 
 export function renderConstraintCatalog(catalog: ConstraintCatalog, _shell?: string, options: { view?: 'rules' | 'sources'; sourceHref?: string } = {}): string {
   const payload = buildConstraintGraph(catalog, options);
-  // The optional shell argument is retained for callers; rendering always uses Birdview assets.
+  // The optional shell argument is retained for callers; rendering always uses Birdify assets.
   const read = (file: string): string => fs.readFileSync(path.join(assets, file), 'utf8').replace(/\r\n?/g, '\n');
   return read('constraint-page.html')
     .replace('<head>', () => '<head><!--\n' + fs.readFileSync(new URL('../LICENSE', import.meta.url), 'utf8') + '\n-->')

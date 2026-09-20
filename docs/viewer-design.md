@@ -1,4 +1,4 @@
-# Birdview viewer design
+# Birdify viewer design
 
 [中文](viewer-design.zh.md)
 
@@ -15,7 +15,7 @@ the initial view. Keep the standalone HTML delivery and existing language suppor
 
 ## Architecture meaning
 
-Birdview's existing local/external kind describes code ownership. An external
+Birdify's existing local/external kind describes code ownership. An external
 database can still be inside a product's deployment. Do not derive a system or
 trust boundary from kind, directory names or screen position alone.
 
@@ -27,7 +27,7 @@ render the original flat map; do not invent membership for visual appeal.
 
 ## Composition
 
-- Compact header: Birdview, project name, language and theme. Move map revision
+- Compact header: Birdify, project name, language and theme. Move map revision
   into secondary metadata and remove the large duplicate project title band.
 - Canvas toolbar: architecture/changes/comparison views, fit, zoom and flow toggle.
   Without activity records, present architecture only; no inactive view controls.

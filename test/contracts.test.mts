@@ -9,11 +9,11 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { validate } from '../src/validate.mjs';
 
-const originalMap = architecture(fs.readFileSync(new URL('../examples/architecture.json', import.meta.url), 'utf8'));
-const originalEvents = activity(fs.readFileSync(new URL('../examples/activity.jsonl', import.meta.url), 'utf8'));
+const originalMap = architecture(fs.readFileSync(new URL('../birdify/examples/architecture.json', import.meta.url), 'utf8'));
+const originalEvents = activity(fs.readFileSync(new URL('../birdify/examples/activity.jsonl', import.meta.url), 'utf8'));
 
-const constraintMap = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
-const constraintEvents = activity(fs.readFileSync(new URL('../examples/harness.activity.jsonl', import.meta.url), 'utf8'));
+const constraintMap = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
+const constraintEvents = activity(fs.readFileSync(new URL('../birdify/examples/harness.activity.jsonl', import.meta.url), 'utf8'));
 test('constraint example is bilingual and legacy maps remain valid', () => {
   assert.equal(validate(constraintMap, constraintEvents, { requireBilingual: true }).ok, true);
   assert.equal(validate(originalMap, originalEvents).ok, true);
@@ -153,7 +153,7 @@ test('generic roles require reasons in authoring mode and insufficient evidence 
 });
 
 test('generic assessment translations are checked without translating classification enums', () => {
-  const map = architecture(fs.readFileSync(new URL('../examples/bilingual.architecture.json', import.meta.url), 'utf8'));
+  const map = architecture(fs.readFileSync(new URL('../birdify/examples/bilingual.architecture.json', import.meta.url), 'utf8'));
   const node = present(map.modules[0]);
   node.role = 'generic';
   node.roleAssessment = { basis: 'out-of-taxonomy', note: 'Domain-specific responsibility.' };
@@ -166,13 +166,13 @@ test('generic assessment translations are checked without translating classifica
 });
 
 test('CLI authoring flag enforces roles and returns review warnings', (t) => {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-roles-'));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-roles-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));
   const file = path.join(dir, 'map.json');
   const map = structuredClone(originalMap);
   map.modules.forEach(node => { delete node.role; });
   fs.writeFileSync(file, JSON.stringify(map));
-  const cli = fileURLToPath(new URL('../scripts/validate.mjs', import.meta.url));
+  const cli = fileURLToPath(new URL('../birdify/scripts/validate.mjs', import.meta.url));
   const legacy = spawnSync(process.execPath, [cli, file], { encoding: 'utf8' });
   assert.equal(legacy.status, 0);
   const strict = spawnSync(process.execPath, [cli, file, '--authoring'], { encoding: 'utf8' });

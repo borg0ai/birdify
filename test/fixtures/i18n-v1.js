@@ -25,7 +25,7 @@ for (const item of [map.project, ...map.modules, ...map.relationships, ...(map.g
 }
 let language = map.language || 'zh';
 try {
-  const stored = localStorage.getItem('birdview-language');
+  const stored = localStorage.getItem('birdify-language');
   if (availableLanguages.has(stored)) language = stored;
 } catch {}
 const requestedLanguage = new URLSearchParams(location.hash.slice(1)).get('lang');
@@ -64,7 +64,7 @@ function applyLanguage() {
   for (const { node, source } of staticLabels) node.textContent = t(source);
   for (const { node, attr, source } of staticAttributes) node.setAttribute(attr, t(source));
   $('project').textContent = localized(map.project, 'name');
-  document.title = `${localized(map.project, 'name')} | Birdview`;
+  document.title = `${localized(map.project, 'name')} | Birdify`;
   const count = map.modules.filter((module) => module.status === 'uncertain').length;
   $('uncertainty').textContent = isChinese() ? `${count} 个模块待确认` : `${count} uncertain modules`;
   $('uncertainty').hidden = count === 0;
@@ -113,7 +113,7 @@ function applyLanguage() {
 }
 languageSelect.onchange = () => {
   language = languageSelect.value;
-  try { localStorage.setItem('birdview-language', language); } catch {}
+  try { localStorage.setItem('birdify-language', language); } catch {}
   const hash = new URLSearchParams(location.hash.slice(1));
   hash.set('lang', language);
   try { history.replaceState(null, '', `#${hash}`); } catch {}

@@ -10,9 +10,19 @@
     "forceConsistentCasingInFileNames": true,
     "newLine": "lf",
     "rootDir": "src",
-    "outDir": "scripts",
+    "outDir": "birdify/scripts",
     "types": ["node"]
   },
   "include": ["src/**/*.mts"],
-  "exclude": ["src/viewer/**", "src/site/**"]
+  "exclude": [
+    "src/viewer/**",
+    "src/site/**",
+    "src/build-tests.mts",
+    "src/build-viewer.mts",
+    "src/bundle-runtime.mts",
+    "src/check-build.mts",
+    "src/check-docs.mts",
+    "src/check-install.mts",
+    "src/contracts/export.mts"
+  ]
 }

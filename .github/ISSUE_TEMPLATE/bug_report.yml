@@ -14,7 +14,7 @@ body:
     id: environment
     attributes:
       label: Environment / 运行环境
-      description: "OS, Node.js, browser, agent client and Birdview mode (if relevant). / 操作系统、Node.js、浏览器，以及相关的 Agent 客户端和 Birdview 模式。"
+      description: "OS, Node.js, browser, agent client and Birdify mode (if relevant). / 操作系统、Node.js、浏览器，以及相关的 Agent 客户端和 Birdify 模式。"
     validations:
       required: true
   - type: textarea

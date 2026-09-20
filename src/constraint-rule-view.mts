@@ -114,6 +114,6 @@ export function buildRuleGraph(catalog: ReviewedConstraintCatalog, sourceHref?: 
     documents[id] = { body: `# ${source.path}\n\n类型：${source.kind || 'reference'}\n\n记录作用域：${source.scope ?? '按任务与引用判断'}\n\n来源审查状态：${source.applicability || 'unreviewed'}\n\n${rules.length ? rules.map(rule => `- ${rule.title}`).join('\n') : '尚未提炼规则；不代表不存在约束。'}\n\n## 原文 / Source\n\n${source.text.split('\n').map(line => '> ' + line).join('\n')}` };
     directoryNodes.push(...rules.map(rule => ({ ...rule, parent: id })));
   }
-  return { schema: 'birdview.constraint-view/v1', mode: 'rules', title: catalog.project.name,
+  return { schema: 'birdify.constraint-view/v1', mode: 'rules', title: catalog.project.name,
     revision: catalog.project.revision, scope: coverage, ...(sourceHref ? { sourceHref } : {}), roles: constraintRoles, nodes, directoryNodes, documents };
 }

@@ -8,14 +8,23 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
+test('distributable skill package excludes development source', () => {
+  const packageRoot = path.join(root, 'birdify');
+  const forbidden = ['src', 'test', 'tsconfig.json', 'tsconfig.types.json', 'tsconfig.viewer.json', 'tsconfig.test.json'];
+  for (const relative of forbidden) assert.equal(fs.existsSync(path.join(packageRoot, relative)), false, relative);
+  assert.equal(fs.existsSync(path.join(packageRoot, 'package.json')), false);
+  assert.equal(fs.existsSync(path.join(packageRoot, 'package-lock.json')), false);
+  assert.equal(fs.existsSync(path.join(packageRoot, 'pnpm-lock.yaml')), false);
+});
+
 test('documentation checker detects drift and invalid records without overwriting them', t => {
-  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-docs-test-'));
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-docs-test-'));
   t.after(() => fs.rmSync(fixture, { recursive: true, force: true }));
   for (const directory of ['scripts', 'references', 'docs', 'examples', '.github']) {
     fs.mkdirSync(path.join(fixture, directory));
   }
   const checker = path.join(fixture, 'scripts/check-docs.mjs');
-  fs.copyFileSync(path.join(root, 'scripts/check-docs.mjs'), checker);
+  fs.copyFileSync(path.join(root, '.build-tools/check-docs.mjs'), checker);
   fs.writeFileSync(path.join(fixture, 'README.md'), '# Example\n\n[中文](README.zh.md)\n');
   fs.writeFileSync(path.join(fixture, 'README.zh.md'), '# 示例\n\n[English](README.md)\n');
   const run = (...args: string[]) => spawnSync(process.execPath, [checker, ...args], { encoding: 'utf8', cwd: os.tmpdir() });
@@ -38,13 +47,13 @@ test('documentation checker detects drift and invalid records without overwritin
 });
 
 test('build checker compares fresh compiler output and detects missing or stale artifacts', t => {
-  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-build-test-'));
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-build-test-'));
   t.after(() => fs.rmSync(fixture, { recursive: true, force: true }));
   for (const directory of ['src/contracts', 'scripts/contracts', 'node_modules/typescript/bin', 'assets', 'docs', 'schemas', 'scripts/viewer']) {
     fs.mkdirSync(path.join(fixture, directory), { recursive: true });
   }
   const checker = path.join(fixture, 'scripts/check-build.mjs');
-  fs.copyFileSync(path.join(root, 'scripts/check-build.mjs'), checker);
+  fs.copyFileSync(path.join(root, '.build-tools/check-build.mjs'), checker);
   fs.copyFileSync(checker, path.join(fixture, 'src/check-build.mjs'));
   const staticArtifacts = ['scripts/viewer/routing.mjs', 'scripts/viewer/i18n.mjs', 'assets/viewer.js', 'assets/constraint-canvas.js', 'assets/theme.js', 'docs/site.js', 'schemas/activity.schema.json', 'schemas/architecture.schema.json'];
   for (const file of staticArtifacts) fs.writeFileSync(path.join(fixture, file), '');

@@ -12,9 +12,9 @@
 
 ## 基线与工作隔离
 
-- `e04b808` 已将模式 CLI 迁入 `src/birdview.mts`，生成 `scripts/birdview.mjs`，具备严格检查、构建一致性和 CI 接入。
+- `e04b808` 已将模式 CLI 迁入 `src/birdify.mts`，生成 `birdify/scripts/birdify.mjs`，具备严格检查、构建一致性和 CI 接入。
 - 首批临时声明 `src/render.d.mts` 在 Issue #12 中由真实的 `src/render.mts` 实现替代。
-- 工作区还有独立的约束、网站与评测工作，不属于本次迁移。不得暂存、覆盖或撤销这些内容。迁移 `scripts/render.mjs`、`scripts/validate.mjs`、Schema、`package.json` 等共享文件前先协调归属。
+- 工作区还有独立的约束、网站与评测工作，不属于本次迁移。不得暂存、覆盖或撤销这些内容。迁移 `birdify/scripts/render.mjs`、`birdify/scripts/validate.mjs` 和 Schema 等共享文件前先协调归属。
 - 每阶段开始前记录基准提交、相关未提交改动、负责文件及当前通过的命令。不能把其他任务未完成的代码标为迁移回归。
 
 ## 目标结构与技术决策
@@ -26,9 +26,9 @@ src/
   node/              CLI、渲染、Git 检查和仓库工具
   viewer/            浏览器入口、交互、状态和 DOM 代码
 test/                 TypeScript 单元、集成和浏览器测试
-scripts/*.mjs         分发的 Node 入口和配套产物
-assets/viewer.js      内嵌到独立 HTML 的浏览器构建产物
-schemas/*.json        如消费者仍需要，保留生成的交换契约
+birdify/scripts/*.mjs         分发的 Node 入口和配套产物
+birdify/assets/viewer.js      内嵌到独立 HTML 的浏览器构建产物
+birdify/schemas/*.json        如消费者仍需要，保留生成的交换契约
 ```
 
 仅在输出映射就绪后将现有 CLI 移入目标结构，全程保持公开路径可用。Node ESM 与浏览器 DOM 使用独立 TypeScript 配置；通过显式导入共享领域类型，不使用隐式全局变量。
@@ -78,7 +78,7 @@ schemas/*.json        如消费者仍需要，保留生成的交换契约
 ### 4. 完成工具、测试与分发
 
 - 迁移剩余受维护工具、浏览器测试及网站、模板中的执行逻辑，不重写第三方代码。编译后的测试放在 Git 忽略的目录中，浏览器测试使用构建产物。
-- 编译器与打包器保持开发依赖。发布安装检查包括必需 JS、运行时依赖、资源、生成 Schema 和许可证声明。
+- 编译器与打包器保持开发依赖。发布安装检查包括内联运行时 JS、资源、生成 Schema 和许可证声明；安装后的技能不应要求安装依赖。
 - 扩展 `check:build` 覆盖全部生成产物，包括新增和删除的输出。维护明确输出清单，不能清理任意路径，也不能将生成物清理与源码删除混在一起。
 - 避免循环启动依赖：npm 命令须能先构建 TS 版本的构建检查工具，或随包提供并验证它生成的 JS。
 
@@ -116,17 +116,17 @@ schemas/*.json        如消费者仍需要，保留生成的交换契约
 
 以下批次记录按当时状态保留；当前状态以上表和最后的验收记录为准。
 
-浏览器完成批次（#18）：原有执行顺序现在位于 `src/viewer/main.mts`，显式导入路由及翻译，生成 `assets/viewer.js`。DOM 访问通过运行时检查收窄，可选节点仍保持可选。视图模式、指引恢复、约束及活动数据均有类型，没有使用 any 或关闭检查。旧脚本片段已删除。Chromium 通过主视图、指引、约束和固定视口检查，涵盖状态／焦点恢复；24 组桌面／窄屏、语言／主题／视图截图逐字节一致。CSS 未变。指引测试改为检查渲染后的 DOM 状态，不再读取全局变量。剩余工作：网站／模板内联执行逻辑、其余测试和分发清理。
+浏览器完成批次（#18）：原有执行顺序现在位于 `src/viewer/main.mts`，显式导入路由及翻译，生成 `birdify/assets/viewer.js`。DOM 访问通过运行时检查收窄，可选节点仍保持可选。视图模式、指引恢复、约束及活动数据均有类型，没有使用 any 或关闭检查。旧脚本片段已删除。Chromium 通过主视图、指引、约束和固定视口检查，涵盖状态／焦点恢复；24 组桌面／窄屏、语言／主题／视图截图逐字节一致。CSS 未变。指引测试改为检查渲染后的 DOM 状态，不再读取全局变量。剩余工作：网站／模板内联执行逻辑、其余测试和分发清理。
 
 翻译核心批次（#16）：将未改文案的 UI 词典、语言发现、URL／存储／默认语言选择及文本／数组回退迁入 `src/viewer/i18n.mts`。DOM 适配层保留原有更新顺序和样式。直接模块测试覆盖优先级、中文子语言标签、缺失翻译、空译文、问题数组，以及旧词典／示例对照。本地类型检查、构建／产物检查及 80 项测试通过。本批次不代表整个 DOM 翻译层已完成迁移。
 
-路由批次（#14）：`src/viewer/routing.mts` 导出类型化几何，保留尺寸、通道选择、代价和转角半径。现有视图通过单个 `BirdviewRouting` 接口访问生成的 IIFE，待主视图后续迁移。直接 ESM 测试与冻结的迁移前实现逐项对照坐标和 SVG 路径，涵盖反向边、自环、障碍物、空布局及三个示例地图。本地类型检查、产物检查及 77 项测试通过。Chromium 的 24 组截图逐字节一致（中英文、明暗主题、1440×900／390×844、架构／更改／对照），无页面错误；仅截图期间禁用动画。这证明静态视觉一致，不等于穷尽交互覆盖。CSS 和 HTML 模板未修改，示例仅改变生成的脚本内容。合并仍以 Windows/Linux、Node 18/24 CI 为门槛。
+路由批次（#14）：`src/viewer/routing.mts` 导出类型化几何，保留尺寸、通道选择、代价和转角半径。现有视图通过单个 `BirdifyRouting` 接口访问生成的 IIFE，待主视图后续迁移。直接 ESM 测试与冻结的迁移前实现逐项对照坐标和 SVG 路径，涵盖反向边、自环、障碍物、空布局及三个示例地图。本地类型检查、产物检查及 77 项测试通过。Chromium 的 24 组截图逐字节一致（中英文、明暗主题、1440×900／390×844、架构／更改／对照），无页面错误；仅截图期间禁用动画。这证明静态视觉一致，不等于穷尽交互覆盖。CSS 和 HTML 模板未修改，示例仅改变生成的脚本内容。合并仍以 Windows/Linux、Node 18/24 CI 为门槛。
 
 渲染器批次（#12）：`src/render.mts` 替代临时声明并生成原有 CLI。本地类型检查、构建／产物对照及 76 项测试通过。重新生成的受版本控制示例逐字节一致。TypeScript CLI 测试确认非法地图／JSONL 不覆盖已有输出，拒绝输入输出碰撞和非 HTML 输出，并能在仓库外生成资源完整内嵌的页面。浏览器脚本未变，未重跑浏览器交互检查。合并仍以 Windows/Linux、Node 18/24 CI 为门槛。其他任务待提交的约束检查工作不属于本批次。
 
-校验器批次（#10）：`src/validate.mts` 维护语义校验和 CLI，生成原有的 `scripts/validate.mjs` 入口。外部地图／事件数据通过 Schema 校验前保持 unknown。诊断、选项、翻译字段、约束和协作锁都有类型。已有语义／渲染测试与新增 TypeScript CLI 测试覆盖 Schema 拒绝、非法 JSONL、用法错误及仓库外执行。浏览器代码和其他待提交约束扩展不属于本批次。
+校验器批次（#10）：`src/validate.mts` 维护语义校验和 CLI，生成原有的 `birdify/scripts/validate.mjs` 入口。外部地图／事件数据通过 Schema 校验前保持 unknown。诊断、选项、翻译字段、约束和协作锁都有类型。已有语义／渲染测试与新增 TypeScript CLI 测试覆盖 Schema 拒绝、非法 JSONL、用法错误及仓库外执行。浏览器代码和其他待提交约束扩展不属于本批次。
 
-阶段 1 清单：负责 `src/contracts/`、生成的 `scripts/contracts/`、Schema 导出与构建检查、契约对照及类型测试。共享的 `schemas/`、`scripts/validate.mjs` 和包文件仅接入迁移。未提交的约束新增内容保留在原工作区，不纳入本 PR。变异数据对照运行时、导出 Schema 与迁移前 Schema 的接受结果，并检查输入不被修改，不等于穷尽证明等价。本批次不迁移浏览器代码或冻结的公开评测，跨平台执行仍是 CI 门槛。
+阶段 1 清单：负责 `src/contracts/`、生成的 `birdify/scripts/contracts/`、Schema 导出与构建检查、契约对照及类型测试。共享的 `birdify/schemas/`、`birdify/scripts/validate.mjs` 仅接入迁移。未提交的约束新增内容保留在原工作区，不纳入本 PR。变异数据对照运行时、导出 Schema 与迁移前 Schema 的接受结果，并检查输入不被修改，不等于穷尽证明等价。本批次不迁移浏览器代码或冻结的公开评测，跨平台执行仍是 CI 门槛。
 
 阶段 1 在 PR 集成前的快照验证：独立的已提交快照通过类型检查、构建、产物对照及 72 项测试。独立 PR 包含 23 对文档。本批次仅改变契约，未执行浏览器测试。合并前必须通过 PR 的 Windows/Linux、Node 18/24 矩阵。
 
@@ -134,8 +134,8 @@ schemas/*.json        如消费者仍需要，保留生成的交换契约
 
 网站／启动批次（#20）：网站语言切换与安装／复制流程已迁入 `src/site/main.mts`，模板主题启动逻辑由 `src/viewer/theme.mts` 生成。本地浏览器对照覆盖 12 组桌面／窄屏、语言和 Agent 组合：整页截图及命令一致，复制成功／失败均验证且无页面错误。现有样式与文字未改。其余测试迁移和干净分发审计随后单独进行。
 
-最终迁移门槛（#22）：所有受维护测试源码均已使用严格 TypeScript。类型化数据加载器在使用前校验 JSON；故意制造非法输入的变异仍由运行时测试覆盖。测试编译到被忽略的 `.test-build/`，导入实际分发 JS，保留 CLI 入口判断。本地通过 80 项测试、全部五组 Chromium 测试（查看器、指引、约束、视口、网站）、类型检查、可复现构建、示例、文档及已提交源码归档安装。归档使用新安装依赖，构建前执行 doctor 以及 Codex、Claude Code、DeepSeek 的 setup/uninstall，再复现产物。npm audit 报告零漏洞。本批次演示产物没有变化。
+当前迁移门槛：所有受维护测试源码使用严格 TypeScript；类型化数据加载器在使用前校验 JSON；故意制造非法输入的变异仍由运行时测试覆盖。测试编译到被忽略的 `.test-build/`，导入实际分发 JS，保留 CLI 入口判断。发布包内联运行时 JS 和资源，编译器、打包器与测试留在 `birdify/` 外。本地已覆盖类型检查、可复现构建、85 项单元测试、示例、文档和打包运行烟测；浏览器与已提交归档检查仍是发布候选门槛。
 
-`build-artifacts.json` 是明确的分发清单：scripts/assets/docs 中每个 JS 文件均从 `src/**/*.mts` 生成；交换 Schema 从 TypeBox 契约生成。仅保留的手写 JS 是 `test/fixtures/routing-v1.js` 和 `i18n-v1.js`，属于冻结的旧版对照数据。没有作为过渡源码的 JS 实现或测试。CI 门槛覆盖 Windows/Linux、Node 18/24、源码归档安装，以及 Linux Node 24 Chromium。此前批次已建立静态视觉一致性，这不等于证明所有交互。原始脏工作区和进行中的评测快照不在本次范围内。此次迁移不创建标签或发布版本。
+`build-artifacts.json` 是明确的分发清单：birdify/scripts, birdify/assets and birdify/docs 中每个 JS 文件均从 `src/**/*.mts` 生成；交换 Schema 从 TypeBox 契约生成。仅保留的手写 JS 是 `test/fixtures/routing-v1.js` 和 `i18n-v1.js`，属于冻结的旧版对照数据。没有作为过渡源码的 JS 实现或测试。CI 门槛覆盖 Windows/Linux、Node 18/24、源码归档安装，以及 Linux Node 24 Chromium。此前批次已建立静态视觉一致性，这不等于证明所有交互。原始脏工作区和进行中的评测快照不在本次范围内。此次迁移不创建标签或发布版本。
 
-最终代码提交 `a8fb911` 的 [CI 验收](https://github.com/Qiuner/birdview/actions/runs/35326765780) 全部通过：Windows/Linux、Node 18/24 均完成单元测试、文档／示例及干净归档安装检查；Linux Chromium 的五组浏览器测试通过。迁移由关联 Issue #22 的 PR #23 交付。
+最终代码提交 `a8fb911` 的 [CI 验收](https://github.com/Qiuner/birdify/actions/runs/35326765780) 全部通过：Windows/Linux、Node 18/24 均完成单元测试、文档／示例及干净归档安装检查；Linux Chromium 的五组浏览器测试通过。迁移由关联 Issue #22 的 PR #23 交付。

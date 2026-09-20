@@ -4,7 +4,9 @@ import { fileURLToPath } from 'node:url';
 import { build } from 'esbuild';
 import { spawnSync } from 'node:child_process';
 
-const root = fileURLToPath(new URL('../', import.meta.url));
+const outputRoot = fileURLToPath(new URL('../', import.meta.url));
+const root = fs.existsSync(path.join(outputRoot, 'birdify')) ? outputRoot : path.resolve(outputRoot, '..');
+const packageRoot = path.join(root, 'birdify');
 const entries = fs.readdirSync(path.join(root, 'test')).filter(file => file.endsWith('.test.mts') || file.endsWith('.browser.mts'));
 await build({
   absWorkingDir: root, entryPoints: entries.map(file => `test/${file}`),
@@ -13,7 +15,7 @@ await build({
   // Test the distributed modules; bundling CLI entries would change import.meta.url
   // and accidentally execute their main guards in the test process.
   plugins: [{ name: 'distributed-source', setup(builder) {
-    builder.onResolve({ filter: /^\.\.\/src\// }, args => ({ path: args.path.replace('../src/', '../scripts/'), external: true }));
+    builder.onResolve({ filter: /^\.\.\/src\// }, args => ({ path: path.join(packageRoot, 'scripts', args.path.replace('../src/', '')), external: true }));
   } }],
 });
 

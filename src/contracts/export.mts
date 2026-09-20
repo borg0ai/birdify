@@ -12,13 +12,13 @@ const architectureDefinitions = {
 
 // Export data-only exchange schemas; TypeBox metadata is not serialized.
 for (const [name, schema, id] of [
-  ['architecture', architectureSchema, 'urn:birdview:architecture:1'],
-  ['activity', activitySchema, 'urn:birdview:activity:1']
+  ['architecture', architectureSchema, 'urn:birdify:architecture:1'],
+  ['activity', activitySchema, 'urn:birdify:activity:1']
 ] as const) {
-  const file = new URL(`../../schemas/${name}.schema.json`, import.meta.url);
+  const file = new URL(`../../birdify/schemas/${name}.schema.json`, import.meta.url);
   const $defs = name === 'architecture' ? architectureDefinitions : { paths: models.eventPaths };
   const text = JSON.stringify({ $schema: 'https://json-schema.org/draft/2020-12/schema', $id: id, ...schema, $defs }, null, 2) + '\n';
   if (process.argv.includes('--check')) {
-    if (fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n') !== text) throw new Error(`Stale ${name} schema: run npm run build.`);
+    if (fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n') !== text) throw new Error(`Stale ${name} schema: run pnpm run build.`);
   } else fs.writeFileSync(file, text);
 }

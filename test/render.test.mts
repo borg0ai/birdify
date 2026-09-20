@@ -7,8 +7,8 @@ import { routeArchitecture } from '../src/viewer/routing.mjs';
 import { renderArchitecture } from '../src/render.mjs';
 import { validate } from '../src/validate.mjs';
 
-const example = architecture(fs.readFileSync(new URL('../examples/architecture.json', import.meta.url), 'utf8'));
-const bilingual = architecture(fs.readFileSync(new URL('../examples/bilingual.architecture.json', import.meta.url), 'utf8'));
+const example = architecture(fs.readFileSync(new URL('../birdify/examples/architecture.json', import.meta.url), 'utf8'));
+const bilingual = architecture(fs.readFileSync(new URL('../birdify/examples/bilingual.architecture.json', import.meta.url), 'utf8'));
 
 test('rendered HTML is identical across LF and CRLF text assets', (t) => {
   const read = fs.readFileSync;
@@ -23,12 +23,12 @@ test('rendered HTML is identical across LF and CRLF text assets', (t) => {
   assert.ok(!unix.includes('\r'));
 });
 test('activity rendering validates binding and transitions before delivery', () => {
-  const map = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
-  const events = activity(fs.readFileSync(new URL('../examples/harness.activity.jsonl', import.meta.url), 'utf8'));
+  const map = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
+  const events = activity(fs.readFileSync(new URL('../birdify/examples/harness.activity.jsonl', import.meta.url), 'utf8'));
   const html = renderArchitecture(map, events, { simulation: true });
   assert.ok(html.includes('tool-timeout'));
   assert.ok(html.includes('"simulation":true'));
-  assert.ok(!html.includes('/* BIRDVIEW_'));
+  assert.ok(!html.includes('/* BIRDIFY_'));
   assert.match(html, /<link rel="icon" type="image\/png" href="data:image\/png;base64,/);
   assert.match(html, /"brandLogo":"data:image\/png;base64,/);
   assert.ok(html.includes(fs.readFileSync(new URL('../LICENSE', import.meta.url), 'utf8').replace(/\r\n?/g, '\n')));
@@ -75,7 +75,7 @@ test('typed routing preserves exact legacy coordinates and SVG paths', () => {
     assert.deepEqual(routeArchitecture([...relations].reverse(), positions), structuredClone(legacyRouting([...relations].reverse(), positions)));
   }
   for (const file of ['architecture.json', 'system.architecture.json', 'bilingual.architecture.json']) {
-    const map = architecture(fs.readFileSync(new URL(`../examples/${file}`, import.meta.url), 'utf8'));
+    const map = architecture(fs.readFileSync(new URL(`../birdify/examples/${file}`, import.meta.url), 'utf8'));
     const positions = new Map(map.modules.map(node => [node.id, { x: 28 + node.layout.column * 204, y: 30 + node.layout.row * 128 }]));
     assert.deepEqual(routeArchitecture(map.relationships, positions), structuredClone(legacyRouting(map.relationships, positions)));
   }
@@ -144,7 +144,7 @@ test('renderer rejects invalid maps before generating HTML', () => {
   assert.throws(() => renderArchitecture(map), /unknown-endpoint/);
 });
 test('group roles allow explicit semantics and preserve unclassified maps', () => {
-  const map = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
+  const map = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
   for (const role of ['interaction', 'runtime', 'external-services', 'generic'] as const) {
     present(present(map.groups)[0]).role = role;
     assert.equal(validate(map).ok, true);
@@ -182,5 +182,5 @@ test('renderer embeds project data without allowing script termination', () => {
   assert.ok(!html.includes(map.project.name));
   assert.ok(html.includes('\\u003c/script>'));
   assert.ok(html.includes('const DATA = '));
-  assert.ok(!html.includes('/* BIRDVIEW_'));
+  assert.ok(!html.includes('/* BIRDIFY_'));
 });

@@ -1,25 +1,19 @@
 {
-  "name": "birdview",
-  "version": "0.3.0",
+  "name": "birdify-dev",
   "private": true,
-  "license": "MIT",
-  "author": "Qiuner",
   "type": "module",
-  "bin": { "birdview": "scripts/birdview.mjs" },
-  "description": "Architecture-first visibility into agent-declared coding changes.",
-  "engines": {
-    "node": ">=18"
-  },
+  "packageManager": "pnpm@10.27.0",
   "scripts": {
     "typecheck": "tsc --project tsconfig.types.json && tsc --project tsconfig.viewer.json",
-    "build": "tsc && node scripts/build-viewer.mjs && node scripts/contracts/export.mjs",
-    "check:build": "node scripts/check-build.mjs && node scripts/build-viewer.mjs --check",
-    "build:demo": "node scripts/render.mjs examples/system.architecture.json examples/harness-activity.html examples/harness.activity.jsonl --simulation",
-    "validate:examples": "node scripts/validate.mjs examples/architecture.json examples/activity.jsonl",
-    "test": "npm run build:tests -- --unit",
-    "build:tests": "tsc --project tsconfig.test.json && node scripts/build-tests.mjs",
-    "test:browser": "npm run build:tests -- --browser",
-    "check:install": "node scripts/check-install.mjs"
+    "build": "tsc --project tsconfig.json && tsc --project tsconfig.tools.json && node .build-tools/bundle-runtime.mjs --from birdify/scripts --to birdify/scripts && node .build-tools/build-viewer.mjs && node .build-tools/contracts/export.mjs",
+    "check:build": "node .build-tools/check-build.mjs && node .build-tools/build-viewer.mjs --check",
+    "check:docs": "node .build-tools/check-docs.mjs",
+    "build:demo": "node birdify/scripts/render.mjs birdify/examples/system.architecture.json birdify/examples/harness-activity.html birdify/examples/harness.activity.jsonl --simulation",
+    "validate:examples": "node birdify/scripts/validate.mjs birdify/examples/architecture.json birdify/examples/activity.jsonl",
+    "test": "pnpm run build:tests --unit",
+    "build:tests": "tsc --project tsconfig.test.json && node .build-tools/build-tests.mjs",
+    "test:browser": "pnpm run build:tests --browser",
+    "check:install": "node .build-tools/check-install.mjs"
   },
   "devDependencies": {
     "@sinclair/typebox": "0.34.41",

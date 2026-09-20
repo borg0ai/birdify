@@ -8,10 +8,10 @@ import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { renderArchitecture, type RenderOptions } from '../src/render.mjs';
 
-const { chromium }: typeof import('playwright') = await import(process.env.BIRDVIEW_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDVIEW_PLAYWRIGHT_PATH).href : 'playwright');
-const map = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
-const events = activity(fs.readFileSync(new URL('../examples/harness.activity.jsonl', import.meta.url), 'utf8'));
-const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-constraints-'));
+const { chromium }: typeof import('playwright') = await import(process.env.BIRDIFY_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDIFY_PLAYWRIGHT_PATH).href : 'playwright');
+const map = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
+const events = activity(fs.readFileSync(new URL('../birdify/examples/harness.activity.jsonl', import.meta.url), 'utf8'));
+const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-constraints-'));
 const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -119,7 +119,7 @@ try {
   assert.equal(await page.locator('.constraint-source img').count(), 0);
   await page.locator('.constraint-detail .constraint-module-link').click();
   assert.equal(await page.locator('[data-constraint="honest-verification"]').getAttribute('aria-pressed'), 'true');
-  const legacy = architecture(fs.readFileSync(new URL('../examples/architecture.json', import.meta.url), 'utf8'));
+  const legacy = architecture(fs.readFileSync(new URL('../birdify/examples/architecture.json', import.meta.url), 'utf8'));
   await load(legacy, []);
   await page.locator('#show-constraints').click();
   assert.match(present(await page.locator('#constraints-panel').textContent()), /未记录本地约束检查/);
@@ -127,8 +127,8 @@ try {
   fs.mkdirSync(repository);
   const git = (...args: string[]): string => execFileSync('git', args, { cwd: repository, encoding: 'utf8', windowsHide: true }).trim();
   git('init', '-q');
-  git('config', 'user.name', 'Birdview test');
-  git('config', 'user.email', 'birdview@example.invalid');
+  git('config', 'user.name', 'Birdify test');
+  git('config', 'user.email', 'birdify@example.invalid');
   git('config', 'commit.gpgsign', 'false');
   git('config', 'core.hooksPath', path.join(repository, 'no-hooks'));
   fs.writeFileSync(path.join(repository, 'rules.md'), 'Wait for children.\n');

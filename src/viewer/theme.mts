@@ -1,1 +1,1 @@
-try { if (localStorage.getItem('birdview-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch {}
+try { if (localStorage.getItem('birdify-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch {}

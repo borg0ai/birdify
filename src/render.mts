@@ -13,7 +13,7 @@ export interface RenderOptions {
   constraintCatalog?: ReviewedConstraintCatalog;
   constraintSourceHref?: string;
 }
-// Source: src/render.mts. Regenerate scripts/render.mjs with npm run build.
+// Source: src/render.mts. Regenerate scripts/render.mjs with pnpm run build.
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = (file: string): string => fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n?/g, '\n');
 const dataUrl = (file: string, type: string): string => `data:${type};base64,${fs.readFileSync(path.join(root, file)).toString('base64')}`;
@@ -22,7 +22,7 @@ export function renderArchitecture(map: unknown, events: readonly unknown[] = []
   const result = validate(map, events);
   if (!result.ok) throw new Error(JSON.stringify(result.errors));
   const architecture = map as Architecture;
-  const icons = Object.fromEntries(['sun', 'moon', 'layers', 'database', 'zoom-in', 'zoom-out', 'maximize', 'scan', 'x', 'panel-right', 'panels-top-left', 'code', 'zap', 'list-ordered', 'shield-check', 'box', 'skip-forward', 'columns-2', 'chevron-left', 'chevron-right'].map((name) => [name, read(`node_modules/lucide-static/icons/${name}.svg`)]));
+  const icons = Object.fromEntries(['sun', 'moon', 'layers', 'database', 'zoom-in', 'zoom-out', 'maximize', 'scan', 'x', 'panel-right', 'panels-top-left', 'code', 'zap', 'list-ordered', 'shield-check', 'box', 'skip-forward', 'columns-2', 'chevron-left', 'chevron-right'].map((name) => [name, read(`assets/icons/${name}.svg`)]));
   const brandLogo = dataUrl('assets/brand/logo-192.png', 'image/png');
   const constraintFreshness: ConstraintFreshness | undefined = repository ? inspectConstraintFreshness(architecture, repository) : undefined;
   let constraintView: { graph: ConstraintGraph; snapshot: string; scope: string; rules: Array<{ id: string; modules: string[] }> } | undefined;
@@ -38,14 +38,14 @@ export function renderArchitecture(map: unknown, events: readonly unknown[] = []
   }
   const data = JSON.stringify({ map: architecture, icons, events, simulation, brandLogo, constraintFreshness, constraintView }).replace(/</g, '\\u003c');
   return read('assets/architecture.html')
-    .replace('/* BIRDVIEW_THEME */', () => read('assets/theme.js'))
+    .replace('/* BIRDIFY_THEME */', () => read('assets/theme.js'))
     .replace('<head>', () => `<head>\n<!--\n${read('LICENSE')}\n${read('THIRD_PARTY_NOTICES')}\n-->`)
-    .replace('/* BIRDVIEW_FAVICON */', () => dataUrl('assets/brand/favicon-32.png', 'image/png'))
-    .replace('/* BIRDVIEW_CSS */', () => read('assets/demo.css'))
-    .replace('/* BIRDVIEW_DATA */', () => `const DATA = ${data};`)
-    .replace('/* BIRDVIEW_JS */', () => read('assets/viewer.js'))
-    .replace('/* BIRDVIEW_GUIDE_CSS */', () => read('assets/architecture-guide.css'))
-    .replace('/* BIRDVIEW_CONSTRAINTS_CSS */', () => read('assets/architecture-constraints.css') + (constraintView ? `\n${read('assets/constraint-canvas.css')}\n${read('assets/architecture-constraint-view.css')}` : ''));
+    .replace('/* BIRDIFY_FAVICON */', () => dataUrl('assets/brand/favicon-32.png', 'image/png'))
+    .replace('/* BIRDIFY_CSS */', () => read('assets/demo.css'))
+    .replace('/* BIRDIFY_DATA */', () => `const DATA = ${data};`)
+    .replace('/* BIRDIFY_JS */', () => read('assets/viewer.js'))
+    .replace('/* BIRDIFY_GUIDE_CSS */', () => read('assets/architecture-guide.css'))
+    .replace('/* BIRDIFY_CONSTRAINTS_CSS */', () => read('assets/architecture-constraints.css') + (constraintView ? `\n${read('assets/constraint-canvas.css')}\n${read('assets/architecture-constraint-view.css')}` : ''));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

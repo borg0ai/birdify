@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:birdview:architecture:1",
+  "$id": "urn:birdify:architecture:1",
   "type": "object", "additionalProperties": false,
   "required": ["schemaVersion", "mapId", "revision", "project", "modules", "relationships"],
   "properties": {

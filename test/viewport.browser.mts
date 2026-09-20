@@ -6,10 +6,10 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { renderArchitecture } from '../src/render.mjs';
 
-const { chromium }: typeof import('playwright') = await import(process.env.BIRDVIEW_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDVIEW_PLAYWRIGHT_PATH).href : 'playwright');
-const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-viewport-'));
-const map = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
-const events = activity(fs.readFileSync(new URL('../examples/harness.activity.jsonl', import.meta.url), 'utf8'));
+const { chromium }: typeof import('playwright') = await import(process.env.BIRDIFY_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDIFY_PLAYWRIGHT_PATH).href : 'playwright');
+const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-viewport-'));
+const map = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
+const events = activity(fs.readFileSync(new URL('../birdify/examples/harness.activity.jsonl', import.meta.url), 'utf8'));
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();

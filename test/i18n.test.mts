@@ -40,7 +40,7 @@ test('translations match pre-migration examples and catalog', () => {
   const oldCatalog: unknown = vm.runInNewContext(source.slice(0,source.indexOf('const availableLanguages'))+'\nuiTranslations');
   assert.deepEqual(uiTranslations,structuredClone(oldCatalog));
   for (const file of ['architecture.json','system.architecture.json','bilingual.architecture.json']) {
-    const map = architecture(fs.readFileSync(new URL(`../examples/${file}`,import.meta.url),'utf8'));
+    const map = architecture(fs.readFileSync(new URL(`../birdify/examples/${file}`,import.meta.url),'utf8'));
     const old: unknown = vm.runInNewContext(source.slice(source.indexOf('const availableLanguages'),source.indexOf('let language'))+'\n[...availableLanguages]',{map});
     assert.deepEqual([...availableLanguages(map)],structuredClone(old));
     for (const item of [map.project,...map.modules,...map.relationships,...(map.groups||[]),...(map.constraints||[])]) {

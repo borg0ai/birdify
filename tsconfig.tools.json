@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": ".build-tools"
+  },
+  "exclude": [],
+  "include": [
+    "src/build-tests.mts",
+    "src/build-viewer.mts",
+    "src/bundle-runtime.mts",
+    "src/check-build.mts",
+    "src/check-docs.mts",
+    "src/check-install.mts",
+    "src/contracts/export.mts"
+  ]
+}

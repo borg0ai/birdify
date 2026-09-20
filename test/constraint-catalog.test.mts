@@ -14,11 +14,10 @@ import { renderArchitecture } from '../src/render.mjs';
 import type { ConstraintGraph, ConstraintRule } from '../src/constraint-types.mjs';
 
 test('discovers reference closure, records exclusions, ignores fenced examples and separates review', () => {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-catalog-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-catalog-'));
   try {
     const files = {
       'AGENTS.md': '# Rules\n\n[Policy](docs/policy.md)\n[Missing](missing.md)\n[Fixture](tests/fixtures/AGENTS.md)\n[Old](docs/archived/old.md)\n',
-      'CLAUDE.md': 'AGENTS.md',
       'docs/policy.md': '# Policy\n## Invariant\nAlways check.\n[Root](../AGENTS.md)\n[中文](policy.zh.md)\n```md\n## Not a section\n[Fake](fake.md)\n```\n',
       'docs/policy.zh.md': '# 规范\n',
       'tests/fixtures/AGENTS.md': '# Fixture rules\n',
@@ -31,8 +30,6 @@ test('discovers reference closure, records exclusions, ignores fenced examples a
     }
     const git = (...args: string[]): string => execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', windowsHide: true });
     git('init', '-q'); git('add', '.');
-    const aliasHash = git('hash-object', 'CLAUDE.md').trim();
-    git('update-index', '--cacheinfo', `120000,${aliasHash},CLAUDE.md`);
     git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', '-c', 'commit.gpgsign=false', 'commit', '-qm', 'fixture');
     fs.writeFileSync(path.join(root, 'AGENTS.md'), '# Uncommitted replacement');
     const rootAlias = process.platform === 'win32' ? root.replace(/^([A-Z]):/, (_, drive: string) => `${drive.toLowerCase()}:`) : root;
@@ -41,8 +38,7 @@ test('discovers reference closure, records exclusions, ignores fenced examples a
     const catalog = discoverConstraints(root, { title: '</script><script>bad()</script>' });
     assert.equal(catalog.sources.length, 3);
     assert.equal(catalog.coverage.semanticReview, 'pending');
-    assert.equal(catalog.coverage.excluded.length, 4);
-    assert.equal(catalog.coverage.excluded.find(item => item.path === 'CLAUDE.md')?.target, 'AGENTS.md');
+    assert.equal(catalog.coverage.excluded.length, 3);
     assert.equal(catalog.coverage.unresolved.length, 1);
     assert.equal(catalog.sources.find(source => source.path === 'docs/policy.md')?.sections.length, 2);
     assert.ok(catalog.sources.find(source => source.path === 'AGENTS.md')?.text.includes('[Policy]'));
@@ -53,7 +49,7 @@ test('discovers reference closure, records exclusions, ignores fenced examples a
     assert.throws(() => renderConstraintCatalog(catalog, shell), /requires reviewed rules/);
     const html = renderConstraintCatalog(catalog, shell, { view: 'sources' });
     assert.ok(!html.includes('<script>bad()'));
-    const payload = JSON.parse(html.match(/id="birdview-constraint-data">([\s\S]*?)<\/script>/)?.[1] ?? 'null') as ConstraintGraph;
+    const payload = JSON.parse(html.match(/id="birdify-constraint-data">([\s\S]*?)<\/script>/)?.[1] ?? 'null') as ConstraintGraph;
     assert.equal(payload.title, catalog.project.name);
     assert.ok(payload.nodes.every(node => node.kind === 'source' && node.role === 'generic'));
     assert.ok(payload.documents.project?.body.includes('missing.md'));
@@ -61,7 +57,7 @@ test('discovers reference closure, records exclusions, ignores fenced examples a
       topic: { id: 'checks', name: '检查证据' }, rules: [{ id: 'rule-check', name: '执行相关检查', anchor: 'Always check.',
         condition: '发生改动时', explanation: '执行与改动相关的检查。', verification: '核对命令和退出码。' }] }] };
     const reviewed = compileConstraintRules(catalog, selection);
-    const map = JSON.parse(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
+    const map = JSON.parse(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
     const integrated = { ...reviewed, project: { ...reviewed.project, name: map.project.name } };
     const combined = renderArchitecture(map, [], { constraintCatalog: integrated });
     assert.ok(combined.includes('project-views'));
@@ -79,14 +75,14 @@ test('discovers reference closure, records exclusions, ignores fenced examples a
     assert.equal(reviewed.rules[0]!.line, 3);
     assert.throws(() => compileConstraintRules(catalog, { ...selection, revision: 'wrong' }), /snapshot differ/);
     const ruleHtml = renderConstraintCatalog(reviewed, shell, { sourceHref: 'rules.sources.html' });
-    const rulePayload = JSON.parse(ruleHtml.match(/id="birdview-constraint-data">([\s\S]*?)<\/script>/)?.[1] ?? 'null') as ConstraintGraph;
+    const rulePayload = JSON.parse(ruleHtml.match(/id="birdify-constraint-data">([\s\S]*?)<\/script>/)?.[1] ?? 'null') as ConstraintGraph;
     assert.equal(rulePayload.nodes.length, 4);
     assert.ok(rulePayload.documents['rule-check']?.body.includes('> Always check.'));
     assert.ok(!rulePayload.nodes.some(node => node.title === 'AGENTS.md'));
     assert.ok(ruleHtml.includes('cv-legend'));
     assert.ok(!ruleHtml.includes('<iframe'));
     assert.ok(ruleHtml.includes('--cv-role-accent'));
-    const architecture = fs.readFileSync(new URL('../assets/architecture.html', import.meta.url), 'utf8');
+    const architecture = fs.readFileSync(new URL('../birdify/assets/architecture.html', import.meta.url), 'utf8');
     for (const role of Object.values(constraintRoles)) {
       for (const token of [...role.dark, ...role.light]) assert.ok(architecture.includes(token), `Architecture palette missing ${token}`);
     }

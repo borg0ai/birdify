@@ -8,11 +8,11 @@ import { pathToFileURL } from 'node:url';
 import { renderArchitecture } from '../src/render.mjs';
 import { renderConstraintCatalog } from '../src/render-constraints.mjs';
 
-const { chromium }: typeof import('playwright') = await import(process.env.BIRDVIEW_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDVIEW_PLAYWRIGHT_PATH).href : 'playwright');
-const map = architecture(fs.readFileSync(new URL('../examples/system.architecture.json', import.meta.url), 'utf8'));
+const { chromium }: typeof import('playwright') = await import(process.env.BIRDIFY_PLAYWRIGHT_PATH ? pathToFileURL(process.env.BIRDIFY_PLAYWRIGHT_PATH).href : 'playwright');
+const map = architecture(fs.readFileSync(new URL('../birdify/examples/system.architecture.json', import.meta.url), 'utf8'));
 const revision = 'a'.repeat(40);
 const catalog: ReviewedConstraintCatalog = {
-  schema: 'birdview.constraint-catalog/v1',
+  schema: 'birdify.constraint-catalog/v1',
   project: { name: map.project.name, revision },
   coverage: { checkedAt: '2026-09-20', snapshot: revision, shallow: false, entries: ['AGENTS.md'], checkedPaths: ['AGENTS.md'], excluded: [], unresolved: [], uninspectedPaths: [], semanticReview: 'complete', limitations: [] },
   references: [],
@@ -21,7 +21,7 @@ const catalog: ReviewedConstraintCatalog = {
   sources: [{ id: 'root-agents', kind: 'instruction', path: 'AGENTS.md', scope: '.', discoveredFrom: null, applicability: 'reviewed', text: 'Check work.', sections: [], history: { complete: true, version: 1, lastEdited: '2026-09-20', commit: revision } }],
   rules: [0, 1].map(index => ({ id: `check-${index}`, name: `检查${index}`, category: 'testing', sourcePath: 'AGENTS.md', line: 1, endLine: 1, condition: '修改时', explanation: '执行检查', verification: '检查输出', applicability: 'conditional' as const, modules: index === 0 ? [map.modules[0]!.id] : [] })),
 };
-const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-integrated-'));
+const output = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-integrated-'));
 const file = path.join(output, 'index.html');
 fs.writeFileSync(file, renderArchitecture(map, [], { constraintCatalog: catalog }));
 const browser = await chromium.launch({ headless: true });

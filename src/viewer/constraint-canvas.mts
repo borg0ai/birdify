@@ -1,4 +1,4 @@
-// Birdview's constraint canvas. No external runtime or copied frontend components.
+// Birdify's constraint canvas. No external runtime or copied frontend components.
 import type { ConstraintGraph, ConstraintGraphNode, ConstraintRole } from '../constraint-types.mjs';
 
 export interface ConstraintCanvas {
@@ -125,7 +125,7 @@ export function mountConstraintCanvas(container: HTMLElement, data: ConstraintGr
   function roleStyle(node: Pick<ConstraintGraphNode, 'role'>, target: HTMLElement): void {
     const role = data.roles?.[node.role || 'generic'];
     if (!role) return;
-    // Both palettes are owned by Birdview; colors encode role, never compliance.
+    // Both palettes are owned by Birdify; colors encode role, never compliance.
     const light = document.documentElement.dataset.theme === 'light';
     const colors = light ? role.light : role.dark;
     ['accent', 'bg', 'border'].forEach((key, index) => target.style.setProperty(`--cv-role-${key}`, colors[index]!));

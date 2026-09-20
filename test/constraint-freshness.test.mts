@@ -9,12 +9,12 @@ import { architecture } from './fixtures.mjs';
 import { inspectConstraintFreshness } from '../src/constraint-freshness.mjs';
 
 function fixture(t: TestContext) {
-  const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'birdview-freshness-'));
+  const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-freshness-'));
   t.after(() => fs.rmSync(repository, { recursive: true, force: true }));
   const git = (...args: string[]): string => execFileSync('git', args, { cwd: repository, encoding: 'utf8', windowsHide: true }).trim();
   git('init', '-q');
-  git('config', 'user.name', 'Birdview test');
-  git('config', 'user.email', 'birdview@example.invalid');
+  git('config', 'user.name', 'Birdify test');
+  git('config', 'user.email', 'birdify@example.invalid');
   git('config', 'core.autocrlf', 'false');
   git('config', 'commit.gpgsign', 'false');
   git('config', 'core.hooksPath', path.join(repository, 'no-hooks'));
@@ -22,7 +22,7 @@ function fixture(t: TestContext) {
   fs.writeFileSync(path.join(repository, 'worker.ts'), 'export const worker = 1;\n');
   git('add', '.');
   git('commit', '-qm', 'Fixture baseline');
-  const map = architecture(fs.readFileSync(new URL('../examples/architecture.json', import.meta.url), 'utf8'));
+  const map = architecture(fs.readFileSync(new URL('../birdify/examples/architecture.json', import.meta.url), 'utf8'));
   map.constraints = [{ id: 'cleanup', name: 'Wait for cleanup', note: 'Applies to child work.', explanation: 'Cancellation must finish before returning.', origin: 'local', strength: 'required', applicability: 'applicable', scope: 'project', modules: [], relationships: [], evidence: [{ path: 'rules.md', note: 'Lifecycle rule.', quote: 'Wait for children.' }], code: [{ path: 'worker.ts', symbol: 'worker', note: 'Worker implementation.' }], baselineCommit: git('rev-parse', 'HEAD'), verification: 'Check cancellation.' }];
   const inspect = (root = repository) => inspectConstraintFreshness(map, root).rules.cleanup!;
   return { repository, git, map, inspect };

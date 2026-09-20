@@ -66,7 +66,7 @@ export interface ConstraintRule {
 }
 
 export interface ConstraintCatalog {
-  schema: 'birdview.constraint-catalog/v1';
+  schema: 'birdify.constraint-catalog/v1';
   project: { name: string; revision: string };
   coverage: {
     checkedAt: string;
@@ -123,7 +123,7 @@ export interface ConstraintGraphNode {
   lastEdited?: string;
 }
 export interface ConstraintGraph {
-  schema: 'birdview.constraint-view/v1';
+  schema: 'birdify.constraint-view/v1';
   mode: 'rules' | 'sources';
   title: string;
   revision: string;

@@ -21,7 +21,7 @@ export function discoverConstraints(repository: string, { title, maxSources = 10
   const modes = new Map<string, string>(tree.map(entry => [entry.slice(entry.indexOf('\t') + 1), entry.slice(0, 6)]));
   const files = [...modes.keys()];
   const tracked = new Set(files);
-  const entries = files.filter(file => /(^|\/)(AGENTS|CLAUDE|GEMINI|SKILL)\.md$/.test(file)
+    const entries = files.filter(file => /(^|\/)(AGENTS|GEMINI|SKILL)\.md$/.test(file)
     || /^(CONTRIBUTING\.md|\.github\/copilot-instructions\.md|\.cursor\/rules\/.*\.mdc)$/.test(file));
   const excluded = new Map<string, { path: string; reason: string; target?: string }>();
   const exclusion = (file: string): string | null => {
@@ -119,7 +119,7 @@ export function discoverConstraints(repository: string, { title, maxSources = 10
     }
   }
   const checked = new Set(sources.map(source => source.path));
-  return { schema: 'birdview.constraint-catalog/v1', project: { name: title || path.basename(path.resolve(repository)), revision },
+  return { schema: 'birdify.constraint-catalog/v1', project: { name: title || path.basename(path.resolve(repository)), revision },
     coverage: { checkedAt: new Date().toISOString(), snapshot: 'committed-HEAD', shallow,
       entries, checkedPaths: [...checked], excluded: [...excluded.values()], unresolved,
       uninspectedPaths: queue.filter(item => !inspected.has(item.file)).map(item => item.file),
