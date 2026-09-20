@@ -11,13 +11,13 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
-    await page.goto(new URL('../docs/index.html', import.meta.url).href);
+    await page.goto(new URL('../apps/site/dist/index.html', import.meta.url).href);
     for (const lang of ['en', 'zh']) {
       if (lang === 'zh') await page.locator('#language').click();
       assert.equal(await page.locator('html').getAttribute('lang'), lang === 'zh' ? 'zh-CN' : 'en');
       const root = '$HOME/.agents/skills/birdify';
       const install = present(await page.locator('#install-command').textContent());
-      assert.equal(install, 'npx skills add Qiuner/birdify --skill birdify --global --copy --yes');
+      assert.equal(install, 'npx skills add borg0ai/birdify --skill birdify --global --copy --yes');
       assert.equal(await page.locator('#check-command').textContent(), `node "${root}/scripts/birdify.mjs" doctor`);
         assert.match(present(await page.locator('#install-guide').getAttribute('href')), lang === 'zh' ? /installation\.zh\.md$/ : /installation\.md$/);
         await page.evaluate(() => Object.defineProperty(navigator, 'clipboard', { configurable: true, value: {

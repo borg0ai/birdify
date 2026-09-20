@@ -19,6 +19,21 @@ pnpm run check:docs
 
 ## 包边界
 
+安装载荷是 `birdify/`。完整仓库归档还包含开发文件，不等于技能安装包。
+
+| 位置 | 用途 | 随技能分发 |
+| --- | --- | --- |
+| `birdify/SKILL*.md`、`birdify/references/` | 触发与使用说明 | 是 |
+| `birdify/scripts/` | 安装用户使用的命令：诊断、项目模式、校验、渲染和约束处理 | 是 |
+| `birdify/assets/`、`birdify/schemas/`、`birdify/examples/` | 查看器资源、数据契约和使用示例 | 是 |
+| `birdify/skill-release.json`、许可证与声明 | 发布身份和再分发条款 | 是 |
+| `src/` | 编译为运行文件或内部工具的可编辑源码 | 否 |
+| `tools/`、`config/` | 内部工具与开发元数据，包括构建产物清单 | 否 |
+| `.build-tools/`、`.test-build/`、`test/`、`node_modules/` | 生成的工具、测试和开发依赖 | 否 |
+| `apps/`、`docs/`、`.spec/`、`.github/`、根目录清单与指南 | 网站、仓库文档、提案和 CI | 否 |
+
+小型内部工具统一归入 `tools/*.mjs`，通过 Node 直接运行，无需 TypeScript 编译。类型化 Schema 导出工具位于 `tools/contracts/`。发布包结构校验由位于发布目录外的 `tools/validate-skill.mjs` 执行，架构数据校验器 `birdify/scripts/validate.mjs` 仍作为用户命令随技能分发。`src/` 内的源码直接编译至 `birdify/scripts/`，无需向终端用户暴露内部构建脚本。
+
 `birdify/SKILL.md` 是技能入口。TypeScript 源码在 `src/`，生成后的运行命令在 `birdify/scripts/`，查看器资源在 `birdify/assets/`；Schema、示例和参考文档在 `birdify/` 内，测试在 `test/`。不得新增宿主专属安装分支或旧品牌别名。
 
 生成 JavaScript 和 Schema 必须从 TypeScript 重新生成：

@@ -2,4 +2,8 @@
 
 RFC proposals and delivery status.
 
-| 0001 | [Birdify generic skill package and npx skills migration](rfc/0001-birdify-skill-package.md) | Approved |
+| 0001 | [Birdify generic skill package and npx skills migration](rfc/completed/0001-birdify-skill-package.md) | Implemented |
+| 0002 | [Skill release-boundary validation and metadata hygiene](rfc/completed/0002-skill-release-boundary-validation.md) | Implemented |
+| 0003 | [Internal tooling layout](rfc/completed/0003-internal-tooling-layout.md) | Implemented |
+| 0004 | [Direct schema export without tool compilation](rfc/0004-direct-schema-export.md) | Draft |
+| 0005 | [Build only the selected test suite](rfc/0005-selective-test-build.md) | Draft |

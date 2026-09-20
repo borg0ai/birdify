@@ -22,7 +22,6 @@
   "assets/theme.js",
   "assets/constraint-canvas.js",
   "assets/viewer.js",
-  "docs/site.js",
   "schemas/activity.schema.json",
   "schemas/architecture.schema.json",
   "scripts/birdify.mjs",

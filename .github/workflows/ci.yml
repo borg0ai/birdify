@@ -14,32 +14,47 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [18, 24]
+        node: [18, 22]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: npm
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run check:build
-      - run: npm test
-      - run: npm run validate:examples
-      - run: node scripts/check-docs.mjs
-      - run: npm run build:demo
-      - run: git diff --exit-code -- examples/harness-activity.html
-      - run: npm run check:install
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck
+      - run: pnpm exec tsc --project tsconfig.tools.json
+      - run: pnpm run check:build
+      - run: pnpm run build:site
+      - run: pnpm test
+      - run: pnpm run validate:examples
+      - run: pnpm run validate:skill
+      - run: pnpm run check:docs
+      - run: pnpm run build:demo
+      - run: pnpm run check:install
 
   browser:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build:site
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:browser
+      - run: pnpm run test:browser

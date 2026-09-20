@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "skillId": "birdify",
   "channel": "development",
-  "version": "0.1.1",
+  "version": "0.1.1-dev.0",
   "source": {
-    "repository": "https://github.com/Qiuner/birdify"
+    "repository": "https://github.com/borg0ai/birdify"
   },
-  "updateManifestUrl": "https://qiuner.github.io/birdify/skill-updates/birdify/stable.json"
+  "updateManifestUrl": "https://borg0ai.github.io/birdify/skill-updates/birdify/stable.json"
 }

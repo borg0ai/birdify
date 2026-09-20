@@ -4,7 +4,7 @@ function query(selector: string, root: ParentNode = document): HTMLElement { con
     const copy = { zh: { html: '<p class="eyebrow">架构优先 · 为 Agent 准备</p><h1>别再让 AI 闭着眼睛写代码。<em>推翻默认流程。</em></h1><p class="lede">古法编程最后的优势是感知架构——Birdify 彻底终结了这个理由。<br>编程的未来只剩两件事：约束与架构。</p>', nav: 'English', title: 'Birdify — 推翻默认编码流程' }, en: { html: '<p class="eyebrow">ARCHITECTURE FIRST · AGENT READY</p><h1>Stop letting AI code blind. <em>Change the flow.</em></h1><p class="lede">The last advantage of coding by hand was architectural awareness—Birdify has eliminated that reason entirely.<br>The future of programming comes down to just two things: constraints and architecture.</p>', nav: '中文', title: 'Birdify — Change the coding flow' } };
     const language = query('#language'); const hero = query('.hero-copy'); let zh = false;
     language.addEventListener('click', () => { zh = !zh; const next = zh ? copy.zh : copy.en; query('.eyebrow', hero).outerHTML = required(next.html.match(/<p[^>]*>[\s\S]*?<\/p>/))[0]; query('h1', hero).outerHTML = required(next.html.match(/<h1>[\s\S]*?<\/h1>/))[0]; query('.lede', hero).outerHTML = required(next.html.match(/<p class="lede">[\s\S]*?<\/p>/))[0]; language.textContent = next.nav; document.title = next.title; document.documentElement.lang = zh ? 'zh-CN' : 'en'; });
-  
+
 const installText = {
   en: {
     cta: 'Install Skill', title: 'Install Birdify', intro: 'Run these commands in PowerShell or a macOS/Linux shell.',

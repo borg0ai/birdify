@@ -60,7 +60,7 @@ Omit `--constraints` only for an explicit architecture-only request or a disclos
 
 The renderer validates JSON and emits self-contained HTML requiring no server/network assets. Do not handcraft a substitute viewer or deliver a fictional demo as the project's map.
 
-Open HTML in a visible browser preview. With Codex `open_in_codex`, use a `browser` target and correctly encoded file URL, not a `file` target. A Markdown link may open source; a queued request does not confirm display, and headless inspection does not confirm the user's visible tab.
+Open HTML in a visible browser preview. With a browser-capable host, use its visible browser target and correctly encoded file URL, not a source-file target. A Markdown link may open source; a queued request does not confirm display, and headless inspection does not confirm the user's visible tab.
 
 Review the final HTML at the available user viewport:
 

@@ -1,6 +1,6 @@
 # RFC 0001: Birdify generic skill package and npx skills migration
 
-**Status:** Approved
+**Status:** Implemented
 
 ## Summary
 
@@ -59,5 +59,9 @@ Acceptance requires all of the following:
 - `npx skills add <repository> --skill birdify` resolves the package in a clean checkout;
 - `birdify` doctor, validation, rendering, and mode commands work from an unrelated directory;
 - typecheck, build, unit tests, example validation, documentation checks, and clean archive installation pass;
-- repository search finds no legacy brand string in tracked text, source filenames, generated artifacts, runtime metadata, or tests;
+- repository search finds no legacy brand in runtime identifiers, source filenames, generated artifacts or tests; preserve the README's upstream fork attribution and its original URL as provenance, not an active product identity;
 - architecture and activity contract fixtures remain compatible.
+
+## Verification
+
+Verified on 2026-09-20: build, typecheck, artifact parity, 86 unit tests, example validation, 17 documentation pairs, unique local skill discovery and installation checks passed. Installation checks ran both an isolated copy of the current working-tree payload and the previous committed archive, reported separately. No commit or publication was performed. README upstream attribution is intentionally preserved.

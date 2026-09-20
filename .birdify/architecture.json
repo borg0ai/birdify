@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "mapId": "birdify-architecture",
+  "revision": 1,
+  "language": "en",
+  "project": {
+    "id": "birdify",
+    "name": "Birdify - Architecture-first Visibility for AI Coding Agents",
+    "translations": {
+      "zh": {
+        "name": "Birdify - 面向 AI 编程智能体的架构优先可视化工具"
+      }
+    }
+  },
+  "modules": [
+    {
+      "id": "cli",
+      "role": "backend",
+      "name": "Birdify CLI & Doctor",
+      "kind": "local",
+      "responsibility": "Command-line entry point for mode management, installation setup, runtime verification (doctor), and diagnostic checks.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/scripts/birdify.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "src/birdify.mts"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "birdify/scripts/birdify.mjs",
+          "symbol": "main",
+          "note": "CLI command dispatcher for mode, setup, uninstall, and doctor commands.",
+          "translations": {
+            "zh": {
+              "note": "用于 mode、setup、uninstall 与 doctor 命令的命令行入口分发器。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "Birdify 命令行与体检工具",
+          "responsibility": "命令行管理入口，负责模式设置、安装初始化、运行时体检与诊断。"
+        }
+      },
+      "layout": {
+        "row": 0,
+        "column": 0
+      }
+    },
+    {
+      "id": "validator",
+      "role": "backend",
+      "name": "Schema & Graph Validator",
+      "kind": "local",
+      "responsibility": "Validates architecture JSON and activity JSONL against JSON Schemas and cross-record semantic invariants.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/scripts/validate.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "src/validate.mts"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "birdify/scripts/validate.mjs",
+          "symbol": "validate",
+          "note": "Validates JSON Schema conformity and cross-record invariants (e.g. sequence, targets, path safety).",
+          "translations": {
+            "zh": {
+              "note": "校验 JSON Schema 规范及跨记录语义不变量（如序号、目标、路径安全）。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "模式与图校验器",
+          "responsibility": "校验架构 JSON 与活动 JSONL 的 Schema 规范及跨记录语义不变量。"
+        }
+      },
+      "layout": {
+        "row": 0,
+        "column": 1
+      }
+    },
+    {
+      "id": "contracts",
+      "role": "database",
+      "name": "Data Contracts & Schemas",
+      "kind": "local",
+      "responsibility": "Defines TypeBox schemas and exports JSON Schemas for architecture, activity timeline, and constraints.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/schemas/architecture.schema.json"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/schemas/activity.schema.json"
+        },
+        {
+          "kind": "file",
+          "path": "src/contracts/models.mts"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/contracts/models.mts",
+          "symbol": "Architecture",
+          "note": "TypeBox source definition of the canonical Birdify architecture contract.",
+          "translations": {
+            "zh": {
+              "note": "Birdify 标准架构契约的 TypeBox 源码定义。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "数据契约与模式规范",
+          "responsibility": "定义 TypeBox 契约模型并导出架构图、活动记录与约束规则的 JSON Schema。"
+        }
+      },
+      "layout": {
+        "row": 0,
+        "column": 2
+      }
+    },
+    {
+      "id": "renderer",
+      "role": "backend",
+      "name": "HTML Snapshot Renderer",
+      "kind": "local",
+      "responsibility": "Validates inputs, embeds graph data and viewer scripts into self-contained, zero-dependency HTML snapshots.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/scripts/render.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "src/render.mts"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/assets/architecture.html"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "birdify/scripts/render.mjs",
+          "symbol": "render",
+          "note": "Combines template HTML, CSS, client scripts and validated architecture JSON into a single file.",
+          "translations": {
+            "zh": {
+              "note": "将 HTML 模板、CSS、前端脚本与已校验架构 JSON 合成单文件 HTML。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "HTML 快照渲染器",
+          "responsibility": "校验输入并将图数据与前端脚本打包为零依赖的单文件独立 HTML 快照。"
+        }
+      },
+      "layout": {
+        "row": 1,
+        "column": 0
+      }
+    },
+    {
+      "id": "constraint-engine",
+      "role": "backend",
+      "name": "Constraint Engine",
+      "kind": "local",
+      "responsibility": "Discovers, compiles, checks freshness, and tracks history of repository constraints and local instruction rules.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/scripts/discover-constraints.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/scripts/compile-constraint-rules.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/scripts/render-constraints.mjs"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "birdify/scripts/discover-constraints.mjs",
+          "symbol": "discover",
+          "note": "Discovers effective instructions and rule sections across project markdown files.",
+          "translations": {
+            "zh": {
+              "note": "在项目 Markdown 文件中检索并提取生效指令与约束规则。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "约束规则引擎",
+          "responsibility": "检索、编译、检查时效性并追踪仓库约束规则与本地指令历史。"
+        }
+      },
+      "layout": {
+        "row": 1,
+        "column": 1
+      }
+    },
+    {
+      "id": "viewer-ui",
+      "role": "frontend",
+      "name": "Viewer UI & Canvas",
+      "kind": "local",
+      "responsibility": "Interactive browser visualization with card routing, dark/light themes, relationship filters, and dual-language controls.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "birdify/assets/viewer.js"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/assets/theme.js"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/assets/constraint-canvas.js"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "birdify/assets/viewer.js",
+          "symbol": "init",
+          "note": "Client-side runtime handling SVG route rendering, selection, inspector panel, and filters.",
+          "translations": {
+            "zh": {
+              "note": "负责 SVG 路由连线渲染、模块选中、侧边详情面板与筛选的前端运行时。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "查看器界面与画布",
+          "responsibility": "交互式浏览器可视化画布，支持连线路由、明暗主题、关系筛选与双语切换。"
+        }
+      },
+      "layout": {
+        "row": 2,
+        "column": 0
+      }
+    },
+    {
+      "id": "site-app",
+      "role": "frontend",
+      "name": "Landing Site Application",
+      "kind": "local",
+      "responsibility": "Static product showcase website and documentation portal built for GitHub Pages deployment.",
+      "ownership": [
+        {
+          "kind": "file",
+          "path": "apps/site/index.html"
+        },
+        {
+          "kind": "file",
+          "path": "apps/site/src/main.mts"
+        },
+        {
+          "kind": "file",
+          "path": "apps/site/site.css"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "apps/site/src/main.mts",
+          "symbol": "main",
+          "note": "Client runtime script for language switching, installer copy buttons, and theme toggling on the product site.",
+          "translations": {
+            "zh": {
+              "note": "官网前端交互脚本，支持中英文切换、安装命令复制与主题切换。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "name": "官网与发布站点应用",
+          "responsibility": "用于 GitHub Pages 部署的静态产品介绍页面与文档门户应用。"
+        }
+      },
+      "layout": {
+        "row": 2,
+        "column": 1
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-cli-to-validator",
+      "from": "cli",
+      "to": "validator",
+      "kind": "request",
+      "visibility": "overview",
+      "label": "validates inputs",
+      "evidence": [
+        {
+          "path": "birdify/scripts/birdify.mjs",
+          "symbol": "doctor",
+          "note": "CLI runs doctor command using validator script.",
+          "translations": {
+            "zh": {
+              "note": "CLI doctor 命令调用校验器脚本验证安装。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "调用校验"
+        }
+      }
+    },
+    {
+      "id": "rel-cli-to-renderer",
+      "from": "cli",
+      "to": "renderer",
+      "kind": "control",
+      "visibility": "overview",
+      "label": "triggers render",
+      "evidence": [
+        {
+          "path": "birdify/scripts/birdify.mjs",
+          "symbol": "render",
+          "note": "CLI triggers renderer for generating previews.",
+          "translations": {
+            "zh": {
+              "note": "CLI 触发渲染器生成架构预览。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "触发渲染"
+        }
+      }
+    },
+    {
+      "id": "rel-renderer-to-validator",
+      "from": "renderer",
+      "to": "validator",
+      "kind": "request",
+      "visibility": "overview",
+      "label": "verifies schema",
+      "evidence": [
+        {
+          "path": "birdify/scripts/render.mjs",
+          "symbol": "validate",
+          "note": "Renderer verifies schema validity before emitting HTML.",
+          "translations": {
+            "zh": {
+              "note": "渲染器在输出 HTML 前校验架构数据规范。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "校验数据规范"
+        }
+      }
+    },
+    {
+      "id": "rel-renderer-to-viewer-ui",
+      "from": "renderer",
+      "to": "viewer-ui",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "embeds UI assets",
+      "evidence": [
+        {
+          "path": "birdify/scripts/render.mjs",
+          "symbol": "render",
+          "note": "Renderer bundles viewer JS, styles, and SVG icons into standalone HTML.",
+          "translations": {
+            "zh": {
+              "note": "渲染器将查看器 JS、样式与 SVG 图标打包进独立 HTML。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "内嵌前端资源"
+        }
+      }
+    },
+    {
+      "id": "rel-renderer-to-contracts",
+      "from": "renderer",
+      "to": "contracts",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "reads data models",
+      "evidence": [
+        {
+          "path": "birdify/scripts/render.mjs",
+          "symbol": "imports",
+          "note": "Renderer imports schema contracts for validating models.",
+          "translations": {
+            "zh": {
+              "note": "渲染器引入数据契约以校验数据模型。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "读取数据模型"
+        }
+      }
+    },
+    {
+      "id": "rel-validator-to-contracts",
+      "from": "validator",
+      "to": "contracts",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "enforces contracts",
+      "evidence": [
+        {
+          "path": "birdify/scripts/validate.mjs",
+          "symbol": "imports",
+          "note": "Validator loads JSON Schema contracts.",
+          "translations": {
+            "zh": {
+              "note": "校验器加载 JSON Schema 契约定义。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "依据契约校验"
+        }
+      }
+    },
+    {
+      "id": "rel-constraint-to-renderer",
+      "from": "constraint-engine",
+      "to": "renderer",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "provides rule graph",
+      "evidence": [
+        {
+          "path": "birdify/scripts/render-constraints.mjs",
+          "symbol": "render",
+          "note": "Constraint renderer formats rule catalog into interactive canvas view.",
+          "translations": {
+            "zh": {
+              "note": "约束渲染器将规则目录排版为交互式画布视图。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "提供规则图谱"
+        }
+      }
+    },
+    {
+      "id": "rel-site-to-viewer-ui",
+      "from": "site-app",
+      "to": "viewer-ui",
+      "kind": "dependency",
+      "visibility": "detail",
+      "label": "shares brand styling",
+      "evidence": [
+        {
+          "path": "apps/site/site.css",
+          "symbol": "styles",
+          "note": "Site styling matches viewer color scheme and brand tokens.",
+          "translations": {
+            "zh": {
+              "note": "网站样式与查看器采用统一的设计系统与品牌色彩。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "共用设计规范"
+        }
+      }
+    }
+  ]
+}

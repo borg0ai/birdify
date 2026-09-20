@@ -19,6 +19,21 @@ For viewer or renderer changes, run `pnpm run build:demo`, review the tracked de
 
 ## Package boundary
 
+The installable payload is `birdify/`. A full repository archive also contains development files; it is not the skill payload.
+
+| Location | Purpose | Ships with skill |
+| --- | --- | --- |
+| `birdify/SKILL*.md`, `birdify/references/` | Activation and usage instructions | Yes |
+| `birdify/scripts/` | Commands used by installed users: doctor, project modes, validation, rendering and constraints | Yes |
+| `birdify/assets/`, `birdify/schemas/`, `birdify/examples/` | Viewer resources, data contracts and usage examples | Yes |
+| `birdify/skill-release.json`, licenses and notices | Release identity and redistribution terms | Yes |
+| `src/` | Editable source compiled into runtime files or internal tools | No |
+| `tools/`, `config/` | Internal tools and development metadata, including the artifact inventory | No |
+| `.build-tools/`, `.test-build/`, `test/`, `node_modules/` | Generated tooling, tests and development dependencies | No |
+| `apps/`, `docs/`, `.spec/`, `.github/`, root manifests and guides | Website, repository documentation, proposals and CI | No |
+
+Small internal tools belong in `tools/*.mjs` and run directly with Node. They need no TypeScript compilation. The typed schema exporter lives under `tools/contracts/`. Release packaging validation is executed via `tools/validate-skill.mjs` outside the shipped skill. Architecture-data validation (`birdify/scripts/validate.mjs`) remains a shipped user command. Runtime source in `src/` compiles cleanly to `birdify/scripts/` for end users without exposing internal build tools.
+
 `birdify/SKILL.md` is the skill entrypoint. TypeScript source lives in `src/`; generated runtime commands live in `birdify/scripts/`; viewer assets live in `birdify/assets/`; schemas, examples and references stay inside `birdify/`; tests live in `test/`. Do not add host-specific installation branches or legacy brand aliases.
 
 Generated JavaScript and schemas must be regenerated from TypeScript:

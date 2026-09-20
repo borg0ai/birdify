@@ -1,6 +1,8 @@
-name: Deploy project site
+name: Deploy GitHub Pages
 
 on:
+  release:
+    types: [published]
   push:
     branches: [main]
   workflow_dispatch:
@@ -15,16 +17,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm run build:site
+
       - uses: actions/configure-pages@v5
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: apps/site/dist
+
       - id: deployment
         uses: actions/deploy-pages@v4

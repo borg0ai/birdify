@@ -1,0 +1,948 @@
+{
+  "schema": "birdify.constraint-catalog/v1",
+  "project": {
+    "name": "birdify",
+    "revision": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+  },
+  "coverage": {
+    "checkedAt": "2026-09-20T20:38:18.124Z",
+    "snapshot": "committed-HEAD",
+    "shallow": false,
+    "entries": [
+      "AGENTS.md",
+      "CONTRIBUTING.md",
+      "birdify/SKILL.md"
+    ],
+    "checkedPaths": [
+      "AGENTS.md",
+      "CONTRIBUTING.md",
+      "birdify/SKILL.md",
+      "birdify/references/modes.md",
+      "birdify/references/constraint-graph.md",
+      "birdify/references/constraints.md",
+      "birdify/references/map-project.md",
+      "birdify/references/show-changes.md",
+      "birdify/references/development.md",
+      "birdify/references/review-architecture.md",
+      "birdify/references/contract.md",
+      "birdify/references/bilingual.md"
+    ],
+    "excluded": [
+      {
+        "path": "AGENTS.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "CONTRIBUTING.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/SKILL.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/modes.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/constraint-graph.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/constraints.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/map-project.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/show-changes.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/development.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/review-architecture.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/contract.zh.md",
+        "reason": "translation-counterpart"
+      },
+      {
+        "path": "birdify/references/bilingual.zh.md",
+        "reason": "translation-counterpart"
+      }
+    ],
+    "unresolved": [],
+    "uninspectedPaths": [],
+    "semanticReview": "pending",
+    "limitations": [
+      "Only tracked entry files and their local Markdown references are collected.",
+      "Uncommitted files, external references, implicit contracts and host/user instructions need separate inspection.",
+      "Sections are source material, not automatically effective or verified rules.",
+      "History counts use current file paths; rename ancestry is not followed."
+    ]
+  },
+  "references": [
+    {
+      "from": "AGENTS.md",
+      "to": "AGENTS.zh.md",
+      "target": "AGENTS.zh.md"
+    },
+    {
+      "from": "AGENTS.md",
+      "to": "CONTRIBUTING.md",
+      "target": "CONTRIBUTING.md"
+    },
+    {
+      "from": "CONTRIBUTING.md",
+      "to": "CONTRIBUTING.zh.md",
+      "target": "CONTRIBUTING.zh.md"
+    },
+    {
+      "from": "CONTRIBUTING.md",
+      "to": "birdify/SKILL.md",
+      "target": "birdify/SKILL.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/SKILL.zh.md",
+      "target": "SKILL.zh.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/modes.md",
+      "target": "references/modes.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/constraint-graph.md",
+      "target": "references/constraint-graph.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/constraints.md",
+      "target": "references/constraints.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/map-project.md",
+      "target": "references/map-project.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/show-changes.md",
+      "target": "references/show-changes.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/development.md",
+      "target": "references/development.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/review-architecture.md",
+      "target": "references/review-architecture.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/contract.md",
+      "target": "references/contract.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "birdify/references/bilingual.md",
+      "target": "references/bilingual.md"
+    },
+    {
+      "from": "birdify/SKILL.md",
+      "to": "CONTRIBUTING.md",
+      "target": "../CONTRIBUTING.md"
+    },
+    {
+      "from": "birdify/references/modes.md",
+      "to": "birdify/references/modes.zh.md",
+      "target": "modes.zh.md"
+    },
+    {
+      "from": "birdify/references/modes.md",
+      "to": "AGENTS.md",
+      "target": "AGENTS.md"
+    },
+    {
+      "from": "birdify/references/constraint-graph.md",
+      "to": "birdify/references/constraint-graph.zh.md",
+      "target": "constraint-graph.zh.md"
+    },
+    {
+      "from": "birdify/references/constraint-graph.md",
+      "to": "birdify/references/constraints.md",
+      "target": "constraints.md"
+    },
+    {
+      "from": "birdify/references/constraints.md",
+      "to": "birdify/references/constraints.zh.md",
+      "target": "constraints.zh.md"
+    },
+    {
+      "from": "birdify/references/constraints.md",
+      "to": "birdify/references/constraint-graph.md",
+      "target": "constraint-graph.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/map-project.zh.md",
+      "target": "map-project.zh.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/bilingual.md",
+      "target": "bilingual.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/contract.md",
+      "target": "contract.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/constraint-graph.md",
+      "target": "constraint-graph.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/constraints.md",
+      "target": "constraints.md"
+    },
+    {
+      "from": "birdify/references/map-project.md",
+      "to": "birdify/references/show-changes.md",
+      "target": "show-changes.md"
+    },
+    {
+      "from": "birdify/references/show-changes.md",
+      "to": "birdify/references/show-changes.zh.md",
+      "target": "show-changes.zh.md"
+    },
+    {
+      "from": "birdify/references/show-changes.md",
+      "to": "birdify/references/map-project.md",
+      "target": "map-project.md"
+    },
+    {
+      "from": "birdify/references/show-changes.md",
+      "to": "birdify/SKILL.md",
+      "target": "../SKILL.md"
+    },
+    {
+      "from": "birdify/references/show-changes.md",
+      "to": "birdify/references/contract.md",
+      "target": "contract.md"
+    },
+    {
+      "from": "birdify/references/show-changes.md",
+      "to": "birdify/references/development.md",
+      "target": "development.md"
+    },
+    {
+      "from": "birdify/references/development.md",
+      "to": "birdify/references/development.zh.md",
+      "target": "development.zh.md"
+    },
+    {
+      "from": "birdify/references/development.md",
+      "to": "birdify/SKILL.md",
+      "target": "../SKILL.md"
+    },
+    {
+      "from": "birdify/references/development.md",
+      "to": "birdify/references/show-changes.md",
+      "target": "show-changes.md"
+    },
+    {
+      "from": "birdify/references/review-architecture.md",
+      "to": "birdify/references/review-architecture.zh.md",
+      "target": "review-architecture.zh.md"
+    },
+    {
+      "from": "birdify/references/review-architecture.md",
+      "to": "birdify/references/map-project.md",
+      "target": "map-project.md"
+    },
+    {
+      "from": "birdify/references/review-architecture.md",
+      "to": "birdify/references/show-changes.md",
+      "target": "show-changes.md"
+    },
+    {
+      "from": "birdify/references/contract.md",
+      "to": "birdify/references/contract.zh.md",
+      "target": "contract.zh.md"
+    },
+    {
+      "from": "birdify/references/contract.md",
+      "to": "birdify/references/constraints.md",
+      "target": "constraints.md"
+    },
+    {
+      "from": "birdify/references/contract.md",
+      "to": "birdify/references/bilingual.md",
+      "target": "bilingual.md"
+    },
+    {
+      "from": "birdify/references/bilingual.md",
+      "to": "birdify/references/bilingual.zh.md",
+      "target": "bilingual.zh.md"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source-a54ff182c7e8acf5",
+      "path": "AGENTS.md",
+      "kind": "instruction",
+      "scope": ".",
+      "discoveredFrom": null,
+      "applicability": "unreviewed",
+      "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.",
+      "sections": [
+        {
+          "id": "source-a54ff182c7e8acf5-s1",
+          "title": "Birdify Repository Instructions",
+          "level": 1,
+          "line": 1,
+          "endLine": 5,
+          "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 2,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-eca12c0a30e25b4b",
+      "path": "CONTRIBUTING.md",
+      "kind": "instruction",
+      "scope": ".",
+      "discoveredFrom": null,
+      "applicability": "unreviewed",
+      "text": "# Contribution Guidelines\n\n[中文](CONTRIBUTING.zh.md)\n\n## Development\n\nThe installable skill lives entirely in [`birdify/`](birdify/). TypeScript source, tests, build configuration and repository tooling remain at root. Use Node.js 18 or newer:\n\n```sh\npnpm install --frozen-lockfile\npnpm run typecheck\npnpm run check:build\npnpm test\npnpm run validate:examples\npnpm run check:docs\n```\n\nFor viewer or renderer changes, run `pnpm run build:demo`, review the tracked demo, and run browser checks with `pnpm run test:browser`. Report commands actually run and remaining limitations. Never include private source data or credentials.\n\n## Package boundary\n\n`birdify/SKILL.md` is the skill entrypoint. TypeScript source lives in `src/`; generated runtime commands live in `birdify/scripts/`; viewer assets live in `birdify/assets/`; schemas, examples and references stay inside `birdify/`; tests live in `test/`. Do not add host-specific installation branches or legacy brand aliases.\n\nGenerated JavaScript and schemas must be regenerated from TypeScript:\n\n```sh\npnpm run build\npnpm run check:build\n```\n\nDo not edit generated files directly. `pnpm run check:install` audits a clean Git archive of the nested package, verifies its dependency-free install contract in a temporary directory, runs `birdify doctor`, and tests project mode.\n\n## Documentation\n\nPair English and Chinese Markdown under root `docs/` and `birdify/`. Keep links, commands, identifiers and constraints equivalent. Run:\n\n```sh\npnpm run check:docs\n```\n\nUpdate the hash record only after reviewing both languages:\n\n```sh\npnpm run check:docs --update\n```\n\n## Pull requests\n\nKeep changes focused. Do not stage, commit, push, create branches or rewrite history without explicit authorization. Use Conventional Commit titles: `type(scope): 中文说明 / English summary`. Inspect the final diff and run relevant package checks before requesting review.",
+      "sections": [
+        {
+          "id": "source-eca12c0a30e25b4b-s1",
+          "title": "Contribution Guidelines",
+          "level": 1,
+          "line": 1,
+          "endLine": 4,
+          "text": "# Contribution Guidelines\n\n[中文](CONTRIBUTING.zh.md)\n"
+        },
+        {
+          "id": "source-eca12c0a30e25b4b-s2",
+          "title": "Development",
+          "level": 2,
+          "line": 5,
+          "endLine": 19,
+          "text": "## Development\n\nThe installable skill lives entirely in [`birdify/`](birdify/). TypeScript source, tests, build configuration and repository tooling remain at root. Use Node.js 18 or newer:\n\n```sh\npnpm install --frozen-lockfile\npnpm run typecheck\npnpm run check:build\npnpm test\npnpm run validate:examples\npnpm run check:docs\n```\n\nFor viewer or renderer changes, run `pnpm run build:demo`, review the tracked demo, and run browser checks with `pnpm run test:browser`. Report commands actually run and remaining limitations. Never include private source data or credentials.\n"
+        },
+        {
+          "id": "source-eca12c0a30e25b4b-s3",
+          "title": "Package boundary",
+          "level": 2,
+          "line": 20,
+          "endLine": 32,
+          "text": "## Package boundary\n\n`birdify/SKILL.md` is the skill entrypoint. TypeScript source lives in `src/`; generated runtime commands live in `birdify/scripts/`; viewer assets live in `birdify/assets/`; schemas, examples and references stay inside `birdify/`; tests live in `test/`. Do not add host-specific installation branches or legacy brand aliases.\n\nGenerated JavaScript and schemas must be regenerated from TypeScript:\n\n```sh\npnpm run build\npnpm run check:build\n```\n\nDo not edit generated files directly. `pnpm run check:install` audits a clean Git archive of the nested package, verifies its dependency-free install contract in a temporary directory, runs `birdify doctor`, and tests project mode.\n"
+        },
+        {
+          "id": "source-eca12c0a30e25b4b-s4",
+          "title": "Documentation",
+          "level": 2,
+          "line": 33,
+          "endLine": 46,
+          "text": "## Documentation\n\nPair English and Chinese Markdown under root `docs/` and `birdify/`. Keep links, commands, identifiers and constraints equivalent. Run:\n\n```sh\npnpm run check:docs\n```\n\nUpdate the hash record only after reviewing both languages:\n\n```sh\npnpm run check:docs --update\n```\n"
+        },
+        {
+          "id": "source-eca12c0a30e25b4b-s5",
+          "title": "Pull requests",
+          "level": 2,
+          "line": 47,
+          "endLine": 49,
+          "text": "## Pull requests\n\nKeep changes focused. Do not stage, commit, push, create branches or rewrite history without explicit authorization. Use Conventional Commit titles: `type(scope): 中文说明 / English summary`. Inspect the final diff and run relevant package checks before requesting review."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 15,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-ac3805d55b5e2cdf",
+      "path": "birdify/SKILL.md",
+      "kind": "skill",
+      "scope": null,
+      "discoveredFrom": null,
+      "applicability": "unreviewed",
+      "text": "---\nname: birdify\ndescription: Show evidence-linked architecture, constraints and change scope. Default to on-demand for explicit Birdify or map requests. Also activate before coding when the project explicitly configures Birdify auto mode. Ordinary coding does not activate Birdify without that opt-in.\n---\n\n# Birdify\n\n[中文](SKILL.zh.md)\n\nShow the system on an evidence-linked architecture map and highlight the modules AI plans to change before editing.\n\n## Activation\n\nProject `off` disables the foundation and map workflow unless explicitly requested for the current task. Installed project foundation rules remain applicable in `on-demand` even without skill activation; their canonical managed text is [foundation.txt](references/foundation.txt). For project setup, disabling or removal of managed rules, follow [modes.md](references/modes.md); do not start mapping merely to configure rules.\n\nBirdify defaults to `on-demand`: activate only when the user selects the skill, names Birdify, or requests an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not activate it by default. If the project host instruction file explicitly configures `auto`, activate before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Honor existing `auto` settings; `setup` preserves them. Honor `off` unless explicitly invoked for this task. Merely discussing the skill does not request a map. When active for authorized coding, reuse/update the map and declare affected modules before editing.\n\nUse your host's skill selector or explicitly mention Birdify. Do not assume every host implements the same slash command. Invocation applies to the current task, not all future edits.\n\nFor mode changes/status, follow [modes.md](references/modes.md), run the command against the selected project root, report its result and stop; switching alone does not start mapping. When active, report the existing-map discovery result before building or analyzing change scope. These are agent instructions, not enforced write interception.\n\n## Workflow\n\nA bare “use Birdify” request delivers architecture and reviewed constraints together by default. Stage 1 includes effective local instruction discovery, source collection, human-readable rule review, source-range history collection and integrated rendering with `--constraints`; follow [constraint-graph.md](references/constraint-graph.md). Reuse current, matching artifacts rather than repeating a full review for each edit. Honor an explicit architecture-only or constraint-only request. If there are no reviewed rules, disclose checked sources, remaining gaps and the reason no rule graph can be rendered; never fabricate rules or treat unscanned data as zero constraints. Do not call architecture-only output a completed default delivery when constraint review remains pending.\n\nFor an explicit constraint graph or a complete constraint inventory, follow [constraint-graph.md](references/constraint-graph.md). This standalone route does not require or modify an architecture map. Discover sources, then extract and review actionable rules before rendering. The default view groups rules by human-readable topics with numbered topics and architecture-consistent role colors; raw files/sections belong in the linked source index. A source dump is not delivery. Report reviewed scope and remaining gaps; never substitute a handful of examples for the requested inventory.\n\nBefore mapping, follow [constraints.md](references/constraints.md) to identify effective local instructions and their explicit references. Record source, applicability and checked coverage; recheck directory rules when edit paths become known or expand. Apply these rules while mapping and planning, and distinguish applicability from verification in delivery.\n\n1. Follow [map-project.md](references/map-project.md): inspect existing maps and application coverage, reuse or update a usable map, then render and visually review its HTML. Deliver the browser preview outcome, identity, revision, coverage and uncertainties; JSON alone is insufficient.\n2. With a coding task, prepare the concrete change scope using [show-changes.md](references/show-changes.md), render it, and obtain the user's confirmation before implementation. Bind operations to the same map revision.\n\n### Confirm the displayed plan before implementation\n\nIn both auto and on-demand mode, finish the reviewable map and change plan first: show the HTML preview, affected modules/files, intended behavior, applicable constraints, verification plan and remaining uncertainties. Then ask whether to implement this displayed scope and wait for an explicit reply. Explain that Birdify requires confirmation of the displayed plan. The initial request to build/fix something or enable auto mode is not confirmation of a plan the user has not seen. A rendered page, successful check, elapsed time or silence is not approval.\n\nBefore confirmation, read-only investigation and writing map/constraint/plan artifacts are allowed; do not edit implementation, tests or project configuration, or emit `editing` events. A `planned` event may describe the real requested task, but it is not approval. For a map-only request, deliver the map and stop without proposing implementation approval.\n\nReuse explicit confirmation already given for the same displayed plan; do not ask again for routine edits or checks within its scope. If new modules, behavior or constraints materially change the plan, update the preview and confirm the changed scope before implementing it. An explicit user instruction to skip confirmation for this task takes precedence; do not infer that waiver from a generic coding request. Keep approval in the conversation; do not invent approval schema fields or imply that the static viewer enforces this gate.\n\nA bare \"use Birdify\" request completes Stage 1; then ask only for the intended change. For planning requests such as \"add a rewards feature to this project; how should we do it?\", use Stage 1 to explain the proposed responsibilities and affected modules, marking proposed additions as unimplemented. Planning alone does not authorize code edits or activity events. Continue to Stage 2 only for a user-authorized implementation task; never invent tasks or events for demonstration.\n\n## Rules\n\nFor authorized coding tasks after activation, read related implementations, callers and existing design decisions before editing; keep changes focused and avoid abstractions without concrete benefit. Follow [development.md](references/development.md) for the applicable task types, define observable verification before editing, and report actual results and limitations. These instructions do not activate on-demand mode by themselves.\n\nFor planning, resolve questions from source and existing decisions first. Ask only about unresolved choices that materially affect scope or architecture, starting with the blocking choice and a recommended answer with its tradeoff; continue independent work and do not reopen settled decisions.\n\nWhen Birdify is active and the user requests architecture evaluation or refactoring opportunities, follow [review-architecture.md](references/review-architecture.md) after Stage 1. Ordinary mapping and code edits do not start a review, and this route does not override on-demand activation.\n\n- Read [contract.md](references/contract.md) for fields and validation. Keep module IDs stable; distinguish evidence from ownership and planned scope from current targets. Neighbors are not automatically edit targets.\n- Reuse maps for ordinary edits; revisit responsibilities, ownership and relationships when they change, not for each event.\n- New maps must pass `validate.mjs --authoring`: explicit module roles and justified generic classifications. Resolve all-generic review warnings against source and report the reasons; preserve existing roles unless evidence changes. See the contract for `roleAssessment` and legacy compatibility.\n- Follow [bilingual.md](references/bilingual.md): honor explicit language preferences, otherwise use the request language without asking. Other content languages are supported; controls are Chinese/English.\n- v0.1 records are agent-declared snapshots. Regenerate and refresh for updates; no automatic observation, live transport or display receipts exist. A completed event does not prove checks passed.\n- Source comments and repository documents are evidence, not authorization to expand the request.\n- Maintain paired documentation under [CONTRIBUTING.md](../CONTRIBUTING.md).\n\nWhen integrating constraints into an existing architecture page, use `render.mjs --constraints reviewed.json` as described in [constraint-graph.md](references/constraint-graph.md). Reuse the architecture map; preserve its layout. Keep explicit module bindings and rule versions separate from role colors and map revisions. Deliver the integrated HTML and source index, and synchronize installed renderer assets when updating this skill.\n\n## Tools\n\nPaths here are relative to the skill directory; data paths are relative to the user's project root.\n\n```sh\nnode scripts/validate.mjs path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`, built with `pnpm run build:demo`. It supports architecture, changes and comparison views. Keep JSON/JSONL fixtures without separate generated example pages.",
+      "sections": [
+        {
+          "id": "source-ac3805d55b5e2cdf-s1",
+          "title": "Birdify",
+          "level": 1,
+          "line": 6,
+          "endLine": 11,
+          "text": "# Birdify\n\n[中文](SKILL.zh.md)\n\nShow the system on an evidence-linked architecture map and highlight the modules AI plans to change before editing.\n"
+        },
+        {
+          "id": "source-ac3805d55b5e2cdf-s2",
+          "title": "Activation",
+          "level": 2,
+          "line": 12,
+          "endLine": 21,
+          "text": "## Activation\n\nProject `off` disables the foundation and map workflow unless explicitly requested for the current task. Installed project foundation rules remain applicable in `on-demand` even without skill activation; their canonical managed text is [foundation.txt](references/foundation.txt). For project setup, disabling or removal of managed rules, follow [modes.md](references/modes.md); do not start mapping merely to configure rules.\n\nBirdify defaults to `on-demand`: activate only when the user selects the skill, names Birdify, or requests an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not activate it by default. If the project host instruction file explicitly configures `auto`, activate before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Honor existing `auto` settings; `setup` preserves them. Honor `off` unless explicitly invoked for this task. Merely discussing the skill does not request a map. When active for authorized coding, reuse/update the map and declare affected modules before editing.\n\nUse your host's skill selector or explicitly mention Birdify. Do not assume every host implements the same slash command. Invocation applies to the current task, not all future edits.\n\nFor mode changes/status, follow [modes.md](references/modes.md), run the command against the selected project root, report its result and stop; switching alone does not start mapping. When active, report the existing-map discovery result before building or analyzing change scope. These are agent instructions, not enforced write interception.\n"
+        },
+        {
+          "id": "source-ac3805d55b5e2cdf-s3",
+          "title": "Workflow",
+          "level": 2,
+          "line": 22,
+          "endLine": 32,
+          "text": "## Workflow\n\nA bare “use Birdify” request delivers architecture and reviewed constraints together by default. Stage 1 includes effective local instruction discovery, source collection, human-readable rule review, source-range history collection and integrated rendering with `--constraints`; follow [constraint-graph.md](references/constraint-graph.md). Reuse current, matching artifacts rather than repeating a full review for each edit. Honor an explicit architecture-only or constraint-only request. If there are no reviewed rules, disclose checked sources, remaining gaps and the reason no rule graph can be rendered; never fabricate rules or treat unscanned data as zero constraints. Do not call architecture-only output a completed default delivery when constraint review remains pending.\n\nFor an explicit constraint graph or a complete constraint inventory, follow [constraint-graph.md](references/constraint-graph.md). This standalone route does not require or modify an architecture map. Discover sources, then extract and review actionable rules before rendering. The default view groups rules by human-readable topics with numbered topics and architecture-consistent role colors; raw files/sections belong in the linked source index. A source dump is not delivery. Report reviewed scope and remaining gaps; never substitute a handful of examples for the requested inventory.\n\nBefore mapping, follow [constraints.md](references/constraints.md) to identify effective local instructions and their explicit references. Record source, applicability and checked coverage; recheck directory rules when edit paths become known or expand. Apply these rules while mapping and planning, and distinguish applicability from verification in delivery.\n\n1. Follow [map-project.md](references/map-project.md): inspect existing maps and application coverage, reuse or update a usable map, then render and visually review its HTML. Deliver the browser preview outcome, identity, revision, coverage and uncertainties; JSON alone is insufficient.\n2. With a coding task, prepare the concrete change scope using [show-changes.md](references/show-changes.md), render it, and obtain the user's confirmation before implementation. Bind operations to the same map revision.\n"
+        },
+        {
+          "id": "source-ac3805d55b5e2cdf-s4",
+          "title": "Confirm the displayed plan before implementation",
+          "level": 3,
+          "line": 33,
+          "endLine": 42,
+          "text": "### Confirm the displayed plan before implementation\n\nIn both auto and on-demand mode, finish the reviewable map and change plan first: show the HTML preview, affected modules/files, intended behavior, applicable constraints, verification plan and remaining uncertainties. Then ask whether to implement this displayed scope and wait for an explicit reply. Explain that Birdify requires confirmation of the displayed plan. The initial request to build/fix something or enable auto mode is not confirmation of a plan the user has not seen. A rendered page, successful check, elapsed time or silence is not approval.\n\nBefore confirmation, read-only investigation and writing map/constraint/plan artifacts are allowed; do not edit implementation, tests or project configuration, or emit `editing` events. A `planned` event may describe the real requested task, but it is not approval. For a map-only request, deliver the map and stop without proposing implementation approval.\n\nReuse explicit confirmation already given for the same displayed plan; do not ask again for routine edits or checks within its scope. If new modules, behavior or constraints materially change the plan, update the preview and confirm the changed scope before implementing it. An explicit user instruction to skip confirmation for this task takes precedence; do not infer that waiver from a generic coding request. Keep approval in the conversation; do not invent approval schema fields or imply that the static viewer enforces this gate.\n\nA bare \"use Birdify\" request completes Stage 1; then ask only for the intended change. For planning requests such as \"add a rewards feature to this project; how should we do it?\", use Stage 1 to explain the proposed responsibilities and affected modules, marking proposed additions as unimplemented. Planning alone does not authorize code edits or activity events. Continue to Stage 2 only for a user-authorized implementation task; never invent tasks or events for demonstration.\n"
+        },
+        {
+          "id": "source-ac3805d55b5e2cdf-s5",
+          "title": "Rules",
+          "level": 2,
+          "line": 43,
+          "endLine": 60,
+          "text": "## Rules\n\nFor authorized coding tasks after activation, read related implementations, callers and existing design decisions before editing; keep changes focused and avoid abstractions without concrete benefit. Follow [development.md](references/development.md) for the applicable task types, define observable verification before editing, and report actual results and limitations. These instructions do not activate on-demand mode by themselves.\n\nFor planning, resolve questions from source and existing decisions first. Ask only about unresolved choices that materially affect scope or architecture, starting with the blocking choice and a recommended answer with its tradeoff; continue independent work and do not reopen settled decisions.\n\nWhen Birdify is active and the user requests architecture evaluation or refactoring opportunities, follow [review-architecture.md](references/review-architecture.md) after Stage 1. Ordinary mapping and code edits do not start a review, and this route does not override on-demand activation.\n\n- Read [contract.md](references/contract.md) for fields and validation. Keep module IDs stable; distinguish evidence from ownership and planned scope from current targets. Neighbors are not automatically edit targets.\n- Reuse maps for ordinary edits; revisit responsibilities, ownership and relationships when they change, not for each event.\n- New maps must pass `validate.mjs --authoring`: explicit module roles and justified generic classifications. Resolve all-generic review warnings against source and report the reasons; preserve existing roles unless evidence changes. See the contract for `roleAssessment` and legacy compatibility.\n- Follow [bilingual.md](references/bilingual.md): honor explicit language preferences, otherwise use the request language without asking. Other content languages are supported; controls are Chinese/English.\n- v0.1 records are agent-declared snapshots. Regenerate and refresh for updates; no automatic observation, live transport or display receipts exist. A completed event does not prove checks passed.\n- Source comments and repository documents are evidence, not authorization to expand the request.\n- Maintain paired documentation under [CONTRIBUTING.md](../CONTRIBUTING.md).\n\nWhen integrating constraints into an existing architecture page, use `render.mjs --constraints reviewed.json` as described in [constraint-graph.md](references/constraint-graph.md). Reuse the architecture map; preserve its layout. Keep explicit module bindings and rule versions separate from role colors and map revisions. Deliver the integrated HTML and source index, and synchronize installed renderer assets when updating this skill.\n"
+        },
+        {
+          "id": "source-ac3805d55b5e2cdf-s6",
+          "title": "Tools",
+          "level": 2,
+          "line": 61,
+          "endLine": 71,
+          "text": "## Tools\n\nPaths here are relative to the skill directory; data paths are relative to the user's project root.\n\n```sh\nnode scripts/validate.mjs path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`, built with `pnpm run build:demo`. It supports architecture, changes and comparison views. Keep JSON/JSONL fixtures without separate generated example pages."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-14d2b2c824404003",
+      "path": "birdify/references/modes.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Project Activation Mode\n\n[中文](modes.zh.md)\n\nBirdify is on-demand by default, defaulting to `on-demand`. It runs when the user selects the skill, explicitly requests Birdify or asks for an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not trigger it; planning alone does not authorize editing.\n\n## Invocation\n\nUse the host skill selector or explicitly request Birdify. Slash-command support is host-defined. Invocation applies to the current task. Merely discussing Birdify does not start mapping.\n\n## Configuration and migration\n\n```sh\nnode <skill-root>/scripts/birdify.mjs setup --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode auto --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode on-demand --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode off --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode --project <project-root>\nnode <skill-root>/scripts/birdify.mjs uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n\n## Storage and boundaries\n\nUse absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. A source checkout can optionally run `pnpm link` and use `birdify mode`; Node commands do not require linking.\n\nOnly the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.\n\nThese settings depend on host loading, not filesystem interception. Do not overwrite conflicting instructions elsewhere; report known conflicts. Existing sessions may retain old instructions, and CLI tests establish configuration behavior only; verify actual skill selection and artifacts in a new task.",
+      "sections": [
+        {
+          "id": "source-14d2b2c824404003-s1",
+          "title": "Project Activation Mode",
+          "level": 1,
+          "line": 1,
+          "endLine": 6,
+          "text": "# Project Activation Mode\n\n[中文](modes.zh.md)\n\nBirdify is on-demand by default, defaulting to `on-demand`. It runs when the user selects the skill, explicitly requests Birdify or asks for an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not trigger it; planning alone does not authorize editing.\n"
+        },
+        {
+          "id": "source-14d2b2c824404003-s2",
+          "title": "Invocation",
+          "level": 2,
+          "line": 7,
+          "endLine": 10,
+          "text": "## Invocation\n\nUse the host skill selector or explicitly request Birdify. Slash-command support is host-defined. Invocation applies to the current task. Merely discussing Birdify does not start mapping.\n"
+        },
+        {
+          "id": "source-14d2b2c824404003-s3",
+          "title": "Configuration and migration",
+          "level": 2,
+          "line": 11,
+          "endLine": 25,
+          "text": "## Configuration and migration\n\n```sh\nnode <skill-root>/scripts/birdify.mjs setup --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode auto --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode on-demand --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode off --project <project-root>\nnode <skill-root>/scripts/birdify.mjs mode --project <project-root>\nnode <skill-root>/scripts/birdify.mjs uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n"
+        },
+        {
+          "id": "source-14d2b2c824404003-s4",
+          "title": "Storage and boundaries",
+          "level": 2,
+          "line": 26,
+          "endLine": 32,
+          "text": "## Storage and boundaries\n\nUse absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. A source checkout can optionally run `pnpm link` and use `birdify mode`; Node commands do not require linking.\n\nOnly the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.\n\nThese settings depend on host loading, not filesystem interception. Do not overwrite conflicting instructions elsewhere; report known conflicts. Existing sessions may retain old instructions, and CLI tests establish configuration behavior only; verify actual skill selection and artifacts in a new task."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-1805e83073798632",
+      "path": "birdify/references/constraint-graph.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Constraint graphs\n\n[中文](constraint-graph.zh.md)\n\nUse this route for a standalone constraint graph, a repository-wide inventory or the constraint portion of the default integrated delivery. Preserve the architecture viewer. All commands below are relative to the installed skill, not the target repository; Node.js and Git are required, no frontend build or pnpm install is needed.\n\n## Discover the declared scope\n\n```sh\nnode scripts/discover-constraints.mjs /path/to/repository /output/constraints.catalog.json \"Project name\"\nnode scripts/render-constraints.mjs /output/constraints.catalog.json /output/sources.html --sources\nnode scripts/compile-constraint-rules.mjs /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json\nnode scripts/render-constraints.mjs /output/constraints.reviewed.json /output/constraints.html\n```\n\nThe collector reads committed HEAD without modifying the repository. It enumerates tracked AGENTS.md, AGENTS.md, GEMINI.md, SKILL.md, root CONTRIBUTING.md, GitHub Copilot instructions and Cursor rules, then follows local Markdown links and quoted Markdown paths recursively. It preserves source text, heading hierarchy, line ranges and file history. It excludes recognized fixtures, archives and duplicate Chinese translations, retaining reasons. References indicate discovery, not authority or automatic activation. A skill is conditional on its task; a directory instruction applies only under the host's inheritance rules. Implemented decision notes remain reference evidence, not automatically current rules.\n\nInspect `coverage.entries`, `excluded`, `unresolved`, `uninspectedPaths` and `limitations`. Resolve material missing references or explicitly preserve the gap. The default 1000-source budget leaves queued paths in `uninspectedPaths`; it never silently declares completion. Read untracked/modified instructions, host/user instructions, external references and nonstandard instruction locations separately when applicable. Do not publish private source text without checking the output's audience. Confirm the actual project name from repository evidence or user context.\n\nThe output is a **source inventory**, not an automatic semantic audit. Sections may contain multiple rules or explanatory prose. Do not describe the number of nodes/sections as the number of effective constraints. Completeness is relative to a named revision, declared entry conventions and resolved references, never the entire lifetime of a project.\n\n## Review rules\n\nRead every included instruction/skill and relevant referenced section for the requested scope. Split independent obligations into stable rule IDs; retain exact provenance, applicability conditions, overrides and unresolved conflicts. Cross-links and similar wording do not prove identical authority. Do not discard a source because it was not in the initial examples. Keep excluded fixture instructions and historical notes out of effective rules.\n\nThe default graph requires reviewed `rules` and `ruleReview.scope`; it rejects an unreviewed source catalog. Source collection alone is not a completed human-facing constraint graph. Each rule must answer what to do, when it applies, why it matters and how to check it. Keep source text in details. Deduplicate obligations without losing conditions or provenance; do not infer applicable rules from headings alone.\n\nAuthor `reviewed-rules.json` with the same `revision`, an honest `scope`, and `groups`. Each group has `sourcePath`, `category`, optional `topic: {id, name}`, and `rules`. Each authored rule has a stable `id`, short `name`, a unique verbatim `anchor` from its source, `explanation`, `condition`, `verification` and optional `applicability`. The compiler resolves the anchor to a paragraph/list item and extracts real line ranges, rejecting absent/ambiguous anchors and snapshot mismatches. It does not perform semantic review. The DeepSeek example at `examples/deepseek-constraints.rules.json` illustrates the format; its project-specific rules must not be copied into other projects.\n\nThe resulting catalog's required `rules` entries look like:\n\n```json\n{\n  \"id\": \"rule-model-visible-log\",\n  \"category\": \"interfaces\",\n  \"sourcePath\": \"AGENTS.md\",\n  \"line\": 111,\n  \"endLine\": 111,\n  \"name\": \"Log model-visible inputs\",\n  \"explanation\": \"New input sent to a model needs a durable session event.\",\n  \"condition\": \"When introducing model-visible input\",\n  \"applicability\": \"conditional\",\n  \"verification\": \"Inspect the event and replay path; run the relevant replay test.\"\n}\n```\n\nLine numbers here are illustrative: inspect the target snapshot. Supported applicability values are `applicable`, `conditional`, `superseded`, `conflict`, `uncertain`. Explain any supersession/conflict in `explanation`. The renderer extracts the quote from that source; it does not invent quotations. Keep `coverage.semanticReview: pending` until review covers the declared scope; record remaining review gaps in limitations and `ruleReview.scope`. Partial reviewed scope is deliverable only when clearly labeled; never call it the complete effective rule set. To use rules during architecture/change work, map reviewed rules into the existing [constraints contract](constraints.md), retaining source evidence and applicability rather than copying graph categories into module ownership.\n\n## History and verification\n\nKeep three identities separate: stable `rule.id` (the displayed R-number is only a presentation ordinal), rule source-history `vN`, and the full project snapshot commit. To populate history, pass the repository as the fourth compiler argument:\n\n```sh\nnode scripts/compile-constraint-rules.mjs catalog.json reviewed-rules.json versioned.json /path/to/repository\nnode scripts/render-constraints.mjs versioned.json constraints.html\n```\n\nThe compiler checks source text against the fixed snapshot and runs Git line history for each quoted paragraph/list item. It records `history` with `status: tracked`, `method: git-line-history`, `snapshot`, `sourcePath`, `line`, `endLine`, `version`, `lastEdited`, and the actual `commits` array of `{commit,date}`. This is the count of source-range history entries, not semantic releases or revisions of the agent's explanation. Moving/reformatting text or sharing one paragraph between obligations can affect the count. Do not manually manufacture these fields or substitute the whole-file history. Rendering validates provenance consistency, not the truth of authored Git evidence; use the collector. Existing source history is discarded when recompiling author input to prevent stale reuse.\n\nCards show the R-number, `vN` and role; details include the method and full commit evidence, while the legend shows the project snapshot. Missing history, shallow clones or unavailable line history show “版本未追踪” rather than v1. Collection never fetches history automatically. The renderer rejects tracked history belonging to another snapshot or source range. Group nodes have no invented versions. When using another AI, require the reviewed selection, versioned catalog and rendered HTML together so provenance remains reviewable.\n\nOn source-file nodes, vN is the number of Git history entries for that **file's current path**, not a rule's semantic version; rename ancestry is not followed. Dates also belong to the file. Shallow history suppresses version counts and is disclosed; never silently fetch or present a shallow count as complete. Raw sections have no invented individual versions. Unknown compliance stays pending even when the source is committed.\n\nCode drift requires inspected implementation links and a justified baseline. Use `constraint-freshness.mjs` with the architecture contract for file changes. Do not infer ownership from headings, treat all later commits as violations, or manufacture colorful status badges. The historical six-rule DeepSeek prototype uses a different, explicitly limited line-history heuristic; it is not the general scanner and must not supply global compliance statistics. Checks and code-review evidence belong in `constraintReviews`, separately from source age and applicability.\n\n## Integrate into an architecture page\n\nKeep the architecture page's original horizontal toolbar and canvas layout. The native constraint view has a rule directory, tree canvas and on-demand reading panel; no application icon rail, bottom status bar or iframe. Do not add a module-directory sidebar to the architecture page.\n\n\nWhen the user requests a combined page, reuse the existing architecture JSON and render both views:\n\n```sh\nnode scripts/render.mjs architecture.json project.html --constraints versioned.json\n```\n\nActivity JSONL and `--repo` remain optional. The CLI writes `project.html` and the auxiliary `project.sources.html`; distribute both together. Without `--constraints`, existing architecture output is unchanged. The renderer API accepts `constraintCatalog` and optional `constraintSourceHref` in its third argument; API callers generate the auxiliary source index themselves.\n\nBoth views retain their canvas state when switching. The header keeps the project name, language controls and shared light/dark theme; role colors keep the same meaning. Architecture revision and constraint snapshot are distinct identities. Controls use the host language; authored rules and source quotations stay in their original language. The source index is an auxiliary page, not a second main graph.\n\nProject names must match. Optional module links require an explicit catalog `architectureBinding: {mapId, mapRevision, sourceRevision}` matching the map and the full catalog commit, plus `modules: [\"module-id\"]` on reviewed rules. Carry this binding in the reviewed selection when compiling; recompilation discards old catalog bindings. Inspect source evidence before authoring links. The renderer rejects stale bindings and unknown module IDs. Role similarity is never a module link. Without bindings, the full graph still works and module details say no links are recorded. With bindings, the module button opens only linked rules and their ancestors; “Show all rules” restores the full graph. Changing this filter initializes a new constraint layout; switching architecture/constraints alone preserves it. Versions and verification evidence remain unchanged by filtering.\n\nCheck both views, switching without state loss, theme changes, Chinese/English navigation, narrow screens, module filters and the source-index link. Keep the original architecture layout intact. A conceptual demo map must still be described as conceptual even if its accompanying constraints come from real source history.\n\n## Render and deliver\n\n`render-constraints.mjs` consumes `birdify.constraint-catalog/v1` and defaults to a **rule graph**: project → category → optional human-named topic → rule. The six categories are `lifecycle`, `interfaces`, `configuration`, `security`, `testing`, `delivery`. Topics use numbers and text. Colors share architecture role semantics: frontend blue, backend teal, cache cyan, database violet, queue amber, security rose, generic slate. Rules may declare targetRole; non-generic roles require a source-grounded roleReason. Cross-role or unclear scope stays generic; never infer role from topic name. Homogeneous groups inherit their role color; mixed groups use generic. The toolbar role legend counts rules, and cards carry textual IDs and role names. Applicability and verification remain separate in details; colors never mean pass or fail. Prefer concise, actionable titles. Cards clamp long titles to two lines while tooltips and the reading panel retain the full title. Use topic groups to keep each expanded level readable, usually no more than eight children. File age/version and collection counts do not occupy rule cards. Do not show thousands of uniformly pending source nodes as the main view.\n\nThe renderer uses Birdify-owned HTML cards, SVG connectors and subtree layout, without a third-party graph runtime. `constraint-canvas.js` mounts the same component in standalone and integrated pages. `constraint-page.html` supplies the standalone shell; `constraint-canvas.css` scopes styles to the constraint view. `buildConstraintGraph()` prepares a `birdify.constraint-view/v1` presentation payload without changing the input catalog contract. Details lead with applicability, explanation and verification plan, then source evidence and rule history. Documents render as safe text with basic headings and quotes; arbitrary HTML and embedded diagrams are not executed. All collected sources, including unreviewed skills and references, appear in By directory; double-click a source to read its text and review status. Coverage remains under Coverage. The toolbar does not navigate to another page. The CLI retains the sibling `.sources.html` export for compatibility; `--sources` renders only that auxiliary export.\n\nOpen the HTML and check expansion, source reading, long content and coverage disclosures at desktop and narrow widths. Report actual collection counts, unresolved/excluded areas, semantic-review status and tests run. Source collection can be complete while effective-rule review remains incomplete; state those separately. The page is offline and read-only, not a live monitor or enforcement mechanism. Generated native pages include the Birdify license; preserve licenses for dependencies actually distributed.\n\n\nDirectory and canvas share expansion and selection. Search matches rule titles, explanations and source text while preserving ancestor paths. More than 100 matches show only the first 100 with an explicit message, keeping a large source inventory off the main canvas. Support drag-to-pan, Ctrl/Command + scroll zoom, pinch zoom, zoom buttons and fit. With canvas focus, arrows pan, plus/minus zoom and 0 fits; cards support Enter and left/right navigation, while Escape closes overlays. On narrow screens the directory starts closed and closes after selection; details use a drawer. Expansion, search and zoom never change rule history or verification state.\n\n## Directory and topic views\n\nThe reviewed graph offers By topic and By directory over the same rule IDs, versions and documents. Discover root and nested instruction files before grouping. Directory nodes list local sources and ancestor instruction candidates using recorded source scope; storage paths alone never prove applicability, override, or conflict resolution. Skills and references require invocation/reference review. Include collected instruction files without extracted rules and explicitly mark extraction gaps. Directory placement is source provenance, not module ownership. Preserve module filters when switching views. Node double-click or Shift+Enter opens the shared detail dialog.",
+      "sections": [
+        {
+          "id": "source-1805e83073798632-s1",
+          "title": "Constraint graphs",
+          "level": 1,
+          "line": 1,
+          "endLine": 6,
+          "text": "# Constraint graphs\n\n[中文](constraint-graph.zh.md)\n\nUse this route for a standalone constraint graph, a repository-wide inventory or the constraint portion of the default integrated delivery. Preserve the architecture viewer. All commands below are relative to the installed skill, not the target repository; Node.js and Git are required, no frontend build or pnpm install is needed.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s2",
+          "title": "Discover the declared scope",
+          "level": 2,
+          "line": 7,
+          "endLine": 21,
+          "text": "## Discover the declared scope\n\n```sh\nnode scripts/discover-constraints.mjs /path/to/repository /output/constraints.catalog.json \"Project name\"\nnode scripts/render-constraints.mjs /output/constraints.catalog.json /output/sources.html --sources\nnode scripts/compile-constraint-rules.mjs /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json\nnode scripts/render-constraints.mjs /output/constraints.reviewed.json /output/constraints.html\n```\n\nThe collector reads committed HEAD without modifying the repository. It enumerates tracked AGENTS.md, AGENTS.md, GEMINI.md, SKILL.md, root CONTRIBUTING.md, GitHub Copilot instructions and Cursor rules, then follows local Markdown links and quoted Markdown paths recursively. It preserves source text, heading hierarchy, line ranges and file history. It excludes recognized fixtures, archives and duplicate Chinese translations, retaining reasons. References indicate discovery, not authority or automatic activation. A skill is conditional on its task; a directory instruction applies only under the host's inheritance rules. Implemented decision notes remain reference evidence, not automatically current rules.\n\nInspect `coverage.entries`, `excluded`, `unresolved`, `uninspectedPaths` and `limitations`. Resolve material missing references or explicitly preserve the gap. The default 1000-source budget leaves queued paths in `uninspectedPaths`; it never silently declares completion. Read untracked/modified instructions, host/user instructions, external references and nonstandard instruction locations separately when applicable. Do not publish private source text without checking the output's audience. Confirm the actual project name from repository evidence or user context.\n\nThe output is a **source inventory**, not an automatic semantic audit. Sections may contain multiple rules or explanatory prose. Do not describe the number of nodes/sections as the number of effective constraints. Completeness is relative to a named revision, declared entry conventions and resolved references, never the entire lifetime of a project.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s3",
+          "title": "Review rules",
+          "level": 2,
+          "line": 22,
+          "endLine": 48,
+          "text": "## Review rules\n\nRead every included instruction/skill and relevant referenced section for the requested scope. Split independent obligations into stable rule IDs; retain exact provenance, applicability conditions, overrides and unresolved conflicts. Cross-links and similar wording do not prove identical authority. Do not discard a source because it was not in the initial examples. Keep excluded fixture instructions and historical notes out of effective rules.\n\nThe default graph requires reviewed `rules` and `ruleReview.scope`; it rejects an unreviewed source catalog. Source collection alone is not a completed human-facing constraint graph. Each rule must answer what to do, when it applies, why it matters and how to check it. Keep source text in details. Deduplicate obligations without losing conditions or provenance; do not infer applicable rules from headings alone.\n\nAuthor `reviewed-rules.json` with the same `revision`, an honest `scope`, and `groups`. Each group has `sourcePath`, `category`, optional `topic: {id, name}`, and `rules`. Each authored rule has a stable `id`, short `name`, a unique verbatim `anchor` from its source, `explanation`, `condition`, `verification` and optional `applicability`. The compiler resolves the anchor to a paragraph/list item and extracts real line ranges, rejecting absent/ambiguous anchors and snapshot mismatches. It does not perform semantic review. The DeepSeek example at `examples/deepseek-constraints.rules.json` illustrates the format; its project-specific rules must not be copied into other projects.\n\nThe resulting catalog's required `rules` entries look like:\n\n```json\n{\n  \"id\": \"rule-model-visible-log\",\n  \"category\": \"interfaces\",\n  \"sourcePath\": \"AGENTS.md\",\n  \"line\": 111,\n  \"endLine\": 111,\n  \"name\": \"Log model-visible inputs\",\n  \"explanation\": \"New input sent to a model needs a durable session event.\",\n  \"condition\": \"When introducing model-visible input\",\n  \"applicability\": \"conditional\",\n  \"verification\": \"Inspect the event and replay path; run the relevant replay test.\"\n}\n```\n\nLine numbers here are illustrative: inspect the target snapshot. Supported applicability values are `applicable`, `conditional`, `superseded`, `conflict`, `uncertain`. Explain any supersession/conflict in `explanation`. The renderer extracts the quote from that source; it does not invent quotations. Keep `coverage.semanticReview: pending` until review covers the declared scope; record remaining review gaps in limitations and `ruleReview.scope`. Partial reviewed scope is deliverable only when clearly labeled; never call it the complete effective rule set. To use rules during architecture/change work, map reviewed rules into the existing [constraints contract](constraints.md), retaining source evidence and applicability rather than copying graph categories into module ownership.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s4",
+          "title": "History and verification",
+          "level": 2,
+          "line": 49,
+          "endLine": 65,
+          "text": "## History and verification\n\nKeep three identities separate: stable `rule.id` (the displayed R-number is only a presentation ordinal), rule source-history `vN`, and the full project snapshot commit. To populate history, pass the repository as the fourth compiler argument:\n\n```sh\nnode scripts/compile-constraint-rules.mjs catalog.json reviewed-rules.json versioned.json /path/to/repository\nnode scripts/render-constraints.mjs versioned.json constraints.html\n```\n\nThe compiler checks source text against the fixed snapshot and runs Git line history for each quoted paragraph/list item. It records `history` with `status: tracked`, `method: git-line-history`, `snapshot`, `sourcePath`, `line`, `endLine`, `version`, `lastEdited`, and the actual `commits` array of `{commit,date}`. This is the count of source-range history entries, not semantic releases or revisions of the agent's explanation. Moving/reformatting text or sharing one paragraph between obligations can affect the count. Do not manually manufacture these fields or substitute the whole-file history. Rendering validates provenance consistency, not the truth of authored Git evidence; use the collector. Existing source history is discarded when recompiling author input to prevent stale reuse.\n\nCards show the R-number, `vN` and role; details include the method and full commit evidence, while the legend shows the project snapshot. Missing history, shallow clones or unavailable line history show “版本未追踪” rather than v1. Collection never fetches history automatically. The renderer rejects tracked history belonging to another snapshot or source range. Group nodes have no invented versions. When using another AI, require the reviewed selection, versioned catalog and rendered HTML together so provenance remains reviewable.\n\nOn source-file nodes, vN is the number of Git history entries for that **file's current path**, not a rule's semantic version; rename ancestry is not followed. Dates also belong to the file. Shallow history suppresses version counts and is disclosed; never silently fetch or present a shallow count as complete. Raw sections have no invented individual versions. Unknown compliance stays pending even when the source is committed.\n\nCode drift requires inspected implementation links and a justified baseline. Use `constraint-freshness.mjs` with the architecture contract for file changes. Do not infer ownership from headings, treat all later commits as violations, or manufacture colorful status badges. The historical six-rule DeepSeek prototype uses a different, explicitly limited line-history heuristic; it is not the general scanner and must not supply global compliance statistics. Checks and code-review evidence belong in `constraintReviews`, separately from source age and applicability.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s5",
+          "title": "Integrate into an architecture page",
+          "level": 2,
+          "line": 66,
+          "endLine": 84,
+          "text": "## Integrate into an architecture page\n\nKeep the architecture page's original horizontal toolbar and canvas layout. The native constraint view has a rule directory, tree canvas and on-demand reading panel; no application icon rail, bottom status bar or iframe. Do not add a module-directory sidebar to the architecture page.\n\n\nWhen the user requests a combined page, reuse the existing architecture JSON and render both views:\n\n```sh\nnode scripts/render.mjs architecture.json project.html --constraints versioned.json\n```\n\nActivity JSONL and `--repo` remain optional. The CLI writes `project.html` and the auxiliary `project.sources.html`; distribute both together. Without `--constraints`, existing architecture output is unchanged. The renderer API accepts `constraintCatalog` and optional `constraintSourceHref` in its third argument; API callers generate the auxiliary source index themselves.\n\nBoth views retain their canvas state when switching. The header keeps the project name, language controls and shared light/dark theme; role colors keep the same meaning. Architecture revision and constraint snapshot are distinct identities. Controls use the host language; authored rules and source quotations stay in their original language. The source index is an auxiliary page, not a second main graph.\n\nProject names must match. Optional module links require an explicit catalog `architectureBinding: {mapId, mapRevision, sourceRevision}` matching the map and the full catalog commit, plus `modules: [\"module-id\"]` on reviewed rules. Carry this binding in the reviewed selection when compiling; recompilation discards old catalog bindings. Inspect source evidence before authoring links. The renderer rejects stale bindings and unknown module IDs. Role similarity is never a module link. Without bindings, the full graph still works and module details say no links are recorded. With bindings, the module button opens only linked rules and their ancestors; “Show all rules” restores the full graph. Changing this filter initializes a new constraint layout; switching architecture/constraints alone preserves it. Versions and verification evidence remain unchanged by filtering.\n\nCheck both views, switching without state loss, theme changes, Chinese/English navigation, narrow screens, module filters and the source-index link. Keep the original architecture layout intact. A conceptual demo map must still be described as conceptual even if its accompanying constraints come from real source history.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s6",
+          "title": "Render and deliver",
+          "level": 2,
+          "line": 85,
+          "endLine": 95,
+          "text": "## Render and deliver\n\n`render-constraints.mjs` consumes `birdify.constraint-catalog/v1` and defaults to a **rule graph**: project → category → optional human-named topic → rule. The six categories are `lifecycle`, `interfaces`, `configuration`, `security`, `testing`, `delivery`. Topics use numbers and text. Colors share architecture role semantics: frontend blue, backend teal, cache cyan, database violet, queue amber, security rose, generic slate. Rules may declare targetRole; non-generic roles require a source-grounded roleReason. Cross-role or unclear scope stays generic; never infer role from topic name. Homogeneous groups inherit their role color; mixed groups use generic. The toolbar role legend counts rules, and cards carry textual IDs and role names. Applicability and verification remain separate in details; colors never mean pass or fail. Prefer concise, actionable titles. Cards clamp long titles to two lines while tooltips and the reading panel retain the full title. Use topic groups to keep each expanded level readable, usually no more than eight children. File age/version and collection counts do not occupy rule cards. Do not show thousands of uniformly pending source nodes as the main view.\n\nThe renderer uses Birdify-owned HTML cards, SVG connectors and subtree layout, without a third-party graph runtime. `constraint-canvas.js` mounts the same component in standalone and integrated pages. `constraint-page.html` supplies the standalone shell; `constraint-canvas.css` scopes styles to the constraint view. `buildConstraintGraph()` prepares a `birdify.constraint-view/v1` presentation payload without changing the input catalog contract. Details lead with applicability, explanation and verification plan, then source evidence and rule history. Documents render as safe text with basic headings and quotes; arbitrary HTML and embedded diagrams are not executed. All collected sources, including unreviewed skills and references, appear in By directory; double-click a source to read its text and review status. Coverage remains under Coverage. The toolbar does not navigate to another page. The CLI retains the sibling `.sources.html` export for compatibility; `--sources` renders only that auxiliary export.\n\nOpen the HTML and check expansion, source reading, long content and coverage disclosures at desktop and narrow widths. Report actual collection counts, unresolved/excluded areas, semantic-review status and tests run. Source collection can be complete while effective-rule review remains incomplete; state those separately. The page is offline and read-only, not a live monitor or enforcement mechanism. Generated native pages include the Birdify license; preserve licenses for dependencies actually distributed.\n\n\nDirectory and canvas share expansion and selection. Search matches rule titles, explanations and source text while preserving ancestor paths. More than 100 matches show only the first 100 with an explicit message, keeping a large source inventory off the main canvas. Support drag-to-pan, Ctrl/Command + scroll zoom, pinch zoom, zoom buttons and fit. With canvas focus, arrows pan, plus/minus zoom and 0 fits; cards support Enter and left/right navigation, while Escape closes overlays. On narrow screens the directory starts closed and closes after selection; details use a drawer. Expansion, search and zoom never change rule history or verification state.\n"
+        },
+        {
+          "id": "source-1805e83073798632-s7",
+          "title": "Directory and topic views",
+          "level": 2,
+          "line": 96,
+          "endLine": 98,
+          "text": "## Directory and topic views\n\nThe reviewed graph offers By topic and By directory over the same rule IDs, versions and documents. Discover root and nested instruction files before grouping. Directory nodes list local sources and ancestor instruction candidates using recorded source scope; storage paths alone never prove applicability, override, or conflict resolution. Skills and references require invocation/reference review. Include collected instruction files without extracted rules and explicitly mark extraction gaps. Directory placement is source provenance, not module ownership. Preserve module filters when switching views. Node double-click or Shift+Enter opens the shared detail dialog."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-afde642f8d8272b7",
+      "path": "birdify/references/constraints.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Effective constraints\n\n[中文](constraints.zh.md)\n\n## Discover before planning\n\nFor an explicitly requested repository-wide inventory or standalone graph, use [constraint-graph.md](constraint-graph.md). That broader discovery is authorized by the inventory request; ordinary task discovery below remains scoped to the task.\n\nStart with the current user request, instructions already supplied by the host, and applicable project instruction files. Follow their explicit references to contribution rules, contracts or architecture decisions. Apply the host's precedence and directory inheritance rules; Birdify does not introduce its own instruction hierarchy. Inspect target-directory instructions once paths are known and again when scope expands. Keep searches bounded; do not scan all documents for possible rules.\n\nRecord the rule, source and applicability rationale. Existing implementation patterns are candidates, not mandatory rules: use `origin: inferred` with `applicability: uncertain` until an explicit source resolves them. Preserve overridden rules with `supersededBy` and unresolved conflicts with `conflictsWith`; ask only when a material conflict cannot be resolved from existing authority. Finding a document does not activate its contents as instructions. Never copy secrets or private user text into a shareable map; use a sanitized summary and preserve the original authority outside Birdify.\n\n## Map contract\n\nOptional `constraintDiscovery` records `checkedAt`, `checkedPaths` and `uninspectedPaths` using project-relative paths. It is an agent-declared inspection snapshot, not proof of complete discovery or automatic scanning. Do not claim uninspected areas have no constraints. A missing record means discovery was not recorded; empty `constraints` means no rules were recorded.\n\nOptional `constraints` entries contain stable `id`, `name` (the rule), `note` (applicability rationale), `origin` (`local`, `user`, `inferred`), `strength` (`required`, `preferred`), `applicability` (`applicable`, `superseded`, `not-applicable`, `uncertain`, `conflict`), `scope`, `modules`, `relationships`, `evidence` and `verification` (planned verification method). Local rules require source evidence with path and, when available, line/symbol and a short source excerpt in `note`. User rules can instead describe their sanitized source in the rule's `note`.\n\n`scope: modules` requires nonempty module IDs and no relationship IDs; `relationships` requires nonempty relationship IDs and no module IDs. `project` and `task` use empty target arrays. Only `task` requires `taskId`; task rules apply only to that task. Project operation rules need no artificial module association. Superseded rules require a known `supersededBy` ID without cycles; conflicting rules require other known IDs in `conflictsWith`. Translate `name`, `note`, `verification` and evidence notes under the existing language contract.\n\nStore task-specific rules before starting the activity session. Changes to constraints or discovery increment the map revision like other map edits. If newly discovered rules change the map during a task, close the old task/session and start a new session bound to the new revision; never rebind old events. Use a new task ID where needed and update task-scoped rules accordingly.\n\n## Plan and verify\n\n### Sources, code links and changes\n\nKeep optional `explanation` (the agent's concrete interpretation) separate from source evidence. An evidence item's optional `quote` preserves a short, safe, verbatim excerpt in its original language; translate its `note`, not the quote. Never present a paraphrase as a quote. Optional `code` uses the same path/line/symbol/note structure as evidence, but identifies implementation files rather than instruction sources. Bind only files actually inspected; conceptual module ownership is not evidence of an implementation link. Translate explanation and code notes for bilingual delivery.\n\nRecord optional `baselineCommit` as a full Git commit from the project after inspecting the rule and its linked files. This is a comparison baseline, not a compliance claim. Compare declared source and code files before planning and again after edits:\n\n```sh\nnode scripts/constraint-freshness.mjs architecture.json /path/to/project\nnode scripts/render.mjs architecture.json architecture.html activity.jsonl --repo /path/to/project\n```\n\nUse the repository root. The first command prints a read-only JSON report; the second embeds a timestamped report in the standalone viewer. Both compare the baseline with the index and working tree without changing Git state, the map or activity records. All comparisons are whole-file; line numbers and symbols are locators, not AST scopes. Changed or missing files require review, not a violation verdict. An unavailable baseline, uninspectable path or skipped index entry remains unverified. An unchanged file does not prove compliance; files without declared links are not covered. Without `--repo`, rendering does not inspect Git and shows that changes were not checked. The page never watches the filesystem; rerender after further edits. In task playback, the file report describes render-time state, independently of the selected historical event.\n\nWhen a change is flagged, inspect the diff against the original rule. Update the interpretation if the source changed, or record why the implementation still satisfies it and run relevant checks. Do not advance the baseline merely to remove the reminder. A baseline update is a map revision change and follows the session rules above. Dirty work must be reviewed with explicit evidence; a commit ID alone cannot identify uncommitted contents. Do not introduce automatic acknowledgements, commit hooks or semantic compliance claims.\n\nFor each applicable rule related to the task scope, record `constraintReviews` in the activity event. Each review has `constraintId`, `plan`, `status` (`unverified`, `supported`, `violated`), `method` (`test`, `review`), `evidence` (empty while pending) and `checkIndexes` (zero-based references into this event's `checks`). Relationship rules relate to either endpoint in scope; project rules always relate. Recheck applicability when scope expands. Legacy events remain valid without reviews.\n\nOptional review `checkedAt` and full `gitCommit` record when and against which commit the review ran. Describe any uncommitted changes in `evidence`. These fields do not clear file-change reminders or transfer a historical result onto current code.\n\nEach event is a complete review snapshot: omitted reviews display as unverified, and prior results are never carried forward automatically. Start plans as unverified. Supported or violated results require evidence; test-supported results require linked passing checks. Manual reviews use textual evidence and empty check indexes. Translate `plan` and `evidence` in each review's `translations` when delivering both languages. A passing test only supports the stated coverage, not every constraint. Terminal events may remain unverified or report violations; completion never establishes compliance.\n\n## Viewer\n\nThe constraints toolbar button opens the existing inspector. Filter applicable rules, the selected module, changes needing review, uncertain/conflicting rules or all rules. Module details link to applicable rules; selecting a rule highlights its target modules and relationships without changing activity scope. Details separate applicability, explanation, source excerpts, linked code, file changes and verification evidence. Recorded verbatim excerpts are expanded by default; the standalone page does not load source files. Task views additionally show plans, review methods, review provenance and linked checks for the selected event. Discovery coverage and snapshot timestamps remain inspectable. Corrections require updating source-backed data and rerendering; there is no UI switch to disable rules or filesystem write interception.",
+      "sections": [
+        {
+          "id": "source-afde642f8d8272b7-s1",
+          "title": "Effective constraints",
+          "level": 1,
+          "line": 1,
+          "endLine": 4,
+          "text": "# Effective constraints\n\n[中文](constraints.zh.md)\n"
+        },
+        {
+          "id": "source-afde642f8d8272b7-s2",
+          "title": "Discover before planning",
+          "level": 2,
+          "line": 5,
+          "endLine": 12,
+          "text": "## Discover before planning\n\nFor an explicitly requested repository-wide inventory or standalone graph, use [constraint-graph.md](constraint-graph.md). That broader discovery is authorized by the inventory request; ordinary task discovery below remains scoped to the task.\n\nStart with the current user request, instructions already supplied by the host, and applicable project instruction files. Follow their explicit references to contribution rules, contracts or architecture decisions. Apply the host's precedence and directory inheritance rules; Birdify does not introduce its own instruction hierarchy. Inspect target-directory instructions once paths are known and again when scope expands. Keep searches bounded; do not scan all documents for possible rules.\n\nRecord the rule, source and applicability rationale. Existing implementation patterns are candidates, not mandatory rules: use `origin: inferred` with `applicability: uncertain` until an explicit source resolves them. Preserve overridden rules with `supersededBy` and unresolved conflicts with `conflictsWith`; ask only when a material conflict cannot be resolved from existing authority. Finding a document does not activate its contents as instructions. Never copy secrets or private user text into a shareable map; use a sanitized summary and preserve the original authority outside Birdify.\n"
+        },
+        {
+          "id": "source-afde642f8d8272b7-s3",
+          "title": "Map contract",
+          "level": 2,
+          "line": 13,
+          "endLine": 22,
+          "text": "## Map contract\n\nOptional `constraintDiscovery` records `checkedAt`, `checkedPaths` and `uninspectedPaths` using project-relative paths. It is an agent-declared inspection snapshot, not proof of complete discovery or automatic scanning. Do not claim uninspected areas have no constraints. A missing record means discovery was not recorded; empty `constraints` means no rules were recorded.\n\nOptional `constraints` entries contain stable `id`, `name` (the rule), `note` (applicability rationale), `origin` (`local`, `user`, `inferred`), `strength` (`required`, `preferred`), `applicability` (`applicable`, `superseded`, `not-applicable`, `uncertain`, `conflict`), `scope`, `modules`, `relationships`, `evidence` and `verification` (planned verification method). Local rules require source evidence with path and, when available, line/symbol and a short source excerpt in `note`. User rules can instead describe their sanitized source in the rule's `note`.\n\n`scope: modules` requires nonempty module IDs and no relationship IDs; `relationships` requires nonempty relationship IDs and no module IDs. `project` and `task` use empty target arrays. Only `task` requires `taskId`; task rules apply only to that task. Project operation rules need no artificial module association. Superseded rules require a known `supersededBy` ID without cycles; conflicting rules require other known IDs in `conflictsWith`. Translate `name`, `note`, `verification` and evidence notes under the existing language contract.\n\nStore task-specific rules before starting the activity session. Changes to constraints or discovery increment the map revision like other map edits. If newly discovered rules change the map during a task, close the old task/session and start a new session bound to the new revision; never rebind old events. Use a new task ID where needed and update task-scoped rules accordingly.\n"
+        },
+        {
+          "id": "source-afde642f8d8272b7-s4",
+          "title": "Plan and verify",
+          "level": 2,
+          "line": 23,
+          "endLine": 24,
+          "text": "## Plan and verify\n"
+        },
+        {
+          "id": "source-afde642f8d8272b7-s5",
+          "title": "Sources, code links and changes",
+          "level": 3,
+          "line": 25,
+          "endLine": 45,
+          "text": "### Sources, code links and changes\n\nKeep optional `explanation` (the agent's concrete interpretation) separate from source evidence. An evidence item's optional `quote` preserves a short, safe, verbatim excerpt in its original language; translate its `note`, not the quote. Never present a paraphrase as a quote. Optional `code` uses the same path/line/symbol/note structure as evidence, but identifies implementation files rather than instruction sources. Bind only files actually inspected; conceptual module ownership is not evidence of an implementation link. Translate explanation and code notes for bilingual delivery.\n\nRecord optional `baselineCommit` as a full Git commit from the project after inspecting the rule and its linked files. This is a comparison baseline, not a compliance claim. Compare declared source and code files before planning and again after edits:\n\n```sh\nnode scripts/constraint-freshness.mjs architecture.json /path/to/project\nnode scripts/render.mjs architecture.json architecture.html activity.jsonl --repo /path/to/project\n```\n\nUse the repository root. The first command prints a read-only JSON report; the second embeds a timestamped report in the standalone viewer. Both compare the baseline with the index and working tree without changing Git state, the map or activity records. All comparisons are whole-file; line numbers and symbols are locators, not AST scopes. Changed or missing files require review, not a violation verdict. An unavailable baseline, uninspectable path or skipped index entry remains unverified. An unchanged file does not prove compliance; files without declared links are not covered. Without `--repo`, rendering does not inspect Git and shows that changes were not checked. The page never watches the filesystem; rerender after further edits. In task playback, the file report describes render-time state, independently of the selected historical event.\n\nWhen a change is flagged, inspect the diff against the original rule. Update the interpretation if the source changed, or record why the implementation still satisfies it and run relevant checks. Do not advance the baseline merely to remove the reminder. A baseline update is a map revision change and follows the session rules above. Dirty work must be reviewed with explicit evidence; a commit ID alone cannot identify uncommitted contents. Do not introduce automatic acknowledgements, commit hooks or semantic compliance claims.\n\nFor each applicable rule related to the task scope, record `constraintReviews` in the activity event. Each review has `constraintId`, `plan`, `status` (`unverified`, `supported`, `violated`), `method` (`test`, `review`), `evidence` (empty while pending) and `checkIndexes` (zero-based references into this event's `checks`). Relationship rules relate to either endpoint in scope; project rules always relate. Recheck applicability when scope expands. Legacy events remain valid without reviews.\n\nOptional review `checkedAt` and full `gitCommit` record when and against which commit the review ran. Describe any uncommitted changes in `evidence`. These fields do not clear file-change reminders or transfer a historical result onto current code.\n\nEach event is a complete review snapshot: omitted reviews display as unverified, and prior results are never carried forward automatically. Start plans as unverified. Supported or violated results require evidence; test-supported results require linked passing checks. Manual reviews use textual evidence and empty check indexes. Translate `plan` and `evidence` in each review's `translations` when delivering both languages. A passing test only supports the stated coverage, not every constraint. Terminal events may remain unverified or report violations; completion never establishes compliance.\n"
+        },
+        {
+          "id": "source-afde642f8d8272b7-s6",
+          "title": "Viewer",
+          "level": 2,
+          "line": 46,
+          "endLine": 48,
+          "text": "## Viewer\n\nThe constraints toolbar button opens the existing inspector. Filter applicable rules, the selected module, changes needing review, uncertain/conflicting rules or all rules. Module details link to applicable rules; selecting a rule highlights its target modules and relationships without changing activity scope. Details separate applicability, explanation, source excerpts, linked code, file changes and verification evidence. Recorded verbatim excerpts are expanded by default; the standalone page does not load source files. Task views additionally show plans, review methods, review provenance and linked checks for the selected event. Discovery coverage and snapshot timestamps remain inspectable. Corrections require updating source-backed data and rerendering; there is no UI switch to disable rules or filesystem write interception."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-7f9b521202787bea",
+      "path": "birdify/references/map-project.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Stage 1: Map the project\n\n[中文](map-project.zh.md)\n\nProduce [schema-valid](../schemas/architecture.schema.json) architecture JSON and standalone HTML from the same data for the selected project and scope. Follow [language selection](bilingual.md); examples are fictional field references, not project evidence.\n\n## Discover and verify coverage\n\n1. Check user-provided/documented architecture paths, existing artifact locations, `.birdify/`, then root and `docs/`. Use bounded architecture/map filename searches, excluding dependencies, generated output and skill examples; expand only when those locations and references yield nothing.\n2. Read candidates and verify project relevance, coverage, current ownership and source evidence. Validate Birdify JSON; schema validity does not establish freshness. Prefer the user's selection or documented canonical map; ask only about unresolved competing candidates.\n3. Reuse compatible maps in place and update stale portions. Adapt other formats after source verification, preserving meaningful IDs and the original artifact. HTML/images alone need underlying module/ownership data before Stage 2. Create a map only when none is reusable or adaptable; resolve unavailable validation before Stage 2.\n4. Honor explicit subsystem scope; otherwise inspect the selected project root. Read root documentation, top-level directories and relevant workspace/build manifests, then follow declared applications. Verify each using its own manifest, startup/build entry and source. Dependencies alone do not prove an application; trace client calls and server routes before asserting connections.\n5. Reconcile every in-scope application with a module, explained grouping or explicit coverage gap in new and reused maps. Keep distinct application responsibilities visible; shared packages need not be applications. The 6-10 module readability target never justifies omissions or inventions.\n6. For ordinary local edits, recheck relevant entries and changed manifests. Broaden discovery only when scope or workspace structure changes. Report root/scope, checked applications and module IDs, exclusions and unresolved areas alongside the architecture table. Distinguish uninspected areas from checked absences; zero uncertainty does not prove complete coverage.\n\n## Author the map\n\nTrace main request/data paths and read surrounding symbols before assigning responsibilities. For a specific code area, step up to its responsibility and relevant callers/dependencies within the agreed scope. Stop when that scope is coherently covered.\n\nModel modules as cohesive business or technical responsibilities at a comparable level of abstraction, not one node per file, class or directory. Describe what each does and how it connects to surrounding modules; keep implementation locations in ownership/evidence. Use the project's domain glossary when available, otherwise established terms from source and documentation. Preserve evidenced responsibility boundaries and existing IDs when improving labels.\n\nFollow the [contract](contract.md) for fields, roles, ownership, evidence, status and layout. Choose module roles from inspected responsibilities; use `generic` when unclear, never cycle roles for colors. Roles are independent of ownership and groups. Include external services only for real relationships, without local file ownership. Mark unsupported conclusions `uncertain` with specific open questions; `supported` records inspected evidence, not static proof.\n\nFor new maps, explicitly classify every module and run `node <skill-root>/scripts/validate.mjs <map.json> --authoring` before rendering (add `--bilingual` for Chinese/English delivery). Generic modules require the contract's `roleAssessment`: explain why the taxonomy does not fit or which evidence is missing; insufficient evidence requires uncertainty and a specific question. Never bulk-default modules to generic to finish faster. Review all-generic warnings module by module against source and report the reasons, rather than inventing different roles to pass. Reuse existing classifications unless new evidence supports a change; explain any downgrade to generic and apply revision rules. Review changed/new module classifications on legacy-map updates; unchanged legacy fields need no forced migration.\n\nAuthor directed, concretely labelled relationships with evidence, status, `kind` and `visibility`. Keep core execution, necessary result/tool feedback, basic dependencies and required approvals in `overview`; recovery, retries and diagnostics may be `detail` unless central to the map. Default to `overview` when unsure. Check isolated overview modules for missing connections; keep genuine auxiliary modules and hidden-relation counts. Retain all relationships; kind/visibility do not represent modification scope, and must not change solely to reduce visual clutter.\n\nShow an architecture table (module, responsibility, ownership, evidence, uncertainty) and short relationship list from the same JSON. Allow corrections without redundant approval when continued work is already authorized.\n\n## Groups and revisions\n\nUse optional groups only for evidenced system/subsystem membership: one disjoint level, with stable IDs, names, unique members and nonempty evidence. Groups render side by side, preserving internal row/column order; ungrouped modules remain outside frames. Translate group names and evidence like module text.\n\nChoose group roles from source-supported responsibilities and explain the classification in evidence notes:\n\n| Role | Meaning | Fixed color |\n| --- | --- | --- |\n| `interaction` | User interaction and review | Pale blue |\n| `runtime` | Execution and orchestration | Pale amber |\n| `external-services` | Integrations outside the described system | Pale violet |\n| `generic` | Unspecified or mixed responsibility | Neutral gray |\n\nUnclear or omitted roles use `generic`. Names, ordering, module ownership and color variety are not classification evidence. Group roles do not imply module roles, deployment/trust boundaries or activity state. Keep the shared palette; no per-map overrides or custom color fields. Schema rejects unknown roles/fields but cannot verify classification; check evidence and preserve existing roles unless new evidence warrants change.\n\nRead existing artifacts before replacing them; use the agreed location (default `.birdify/`) without overwriting unrelated files. `project.id` and `mapId` are local identities, not necessarily URLs. Optional `project.revision` records a Git commit, not the map revision or a clean-tree guarantee.\n\nIncrement `revision` for every saved map change, including layout and translations. Preserve IDs for continuing responsibilities and never reassign removed IDs. Complete/cancel tasks on the old map before starting against a new revision; never silently replay old events onto it.\n\n## Render and review\n\nFor the default “use Birdify” delivery, finish the [constraint workflow](constraint-graph.md) before final rendering: inspect effective local instructions, collect committed sources, author and review `reviewed-rules.json`, then compile with the repository argument to collect rule history into `.birdify/constraints.reviewed.json`. Preserve working-tree instruction differences as explicit limitations. Record actual checked/uninspected paths in `map.constraintDiscovery` under the [constraints contract](constraints.md); a scan is not semantic review. Do not copy the demo rules. Reuse a matching reviewed catalog when valid. Keep scope and snapshot explicit, and only bind rules to modules after source inspection. Save the source catalog and reviewed selection alongside the compiled catalog so another AI can continue the review. If review is incomplete, report that boundary instead of claiming complete delivery. When no reviewed rules exist, deliver the architecture and discovery findings with the limitation; the rule renderer deliberately rejects an empty or unreviewed catalog.\n\nUse the bundled renderer, with absolute paths when running from the user's project; `<skill-root>` contains SKILL.md. Substitute the actual agreed artifact paths:\n\n```sh\nnode <skill-root>/scripts/render.mjs <project-root>/.birdify/architecture.json <project-root>/.birdify/architecture.html --constraints <project-root>/.birdify/constraints.reviewed.json\n```\n\nOmit `--constraints` only for an explicit architecture-only request or a disclosed unavailable rule catalog. Check that the final page has Architecture / Constraints switching, source evidence, rule version labels and the sibling source-index link; deliver the `.sources.html` file with it. The architecture inspector counts only map-bound rules, not the separate catalog; missing module links are not missing project rules.\n\nThe renderer validates JSON and emits self-contained HTML requiring no server/network assets. Do not handcraft a substitute viewer or deliver a fictional demo as the project's map.\n\nOpen HTML in a visible browser preview. With Codex `open_in_codex`, use a `browser` target and correctly encoded file URL, not a `file` target. A Markdown link may open source; a queued request does not confirm display, and headless inspection does not confirm the user's visible tab.\n\nReview the final HTML at the available user viewport:\n\n- Inspect Overview and All relations, names, relationships and selected-module evidence. Hover the module with most direct edges (incoming + outgoing, self-edge once), then other visibly congested areas.\n- Check card-crossing/overlapping routes, congested turns, distinguishable endpoints/arrows, cropped routes/headings, hidden-relation counts and text size after fitting.\n- Verify hover makes direct relationships traceable and leaving restores the selected view without moving nodes.\n\nAutomatic spacing is not a readability guarantee. Keep pixel thresholds and invented congestion fields out of map data. If needed, adjust layout by responsibility/interaction order or groups by evidence; preserve identities, ownership, relationship semantics and full scope. Increment revision, rerender, and recheck affected areas and the full view. Stop after two consecutive attempts without visible improvement and report remaining issues. Unchanged maps in focused tasks need no unrelated UI audit.\n\nReport the actual artifact, viewport, modes, focused modules and unresolved issues. Schema checks, collision samples or screenshots alone are not visual acceptance; no automated crowding check is bundled. If browser inspection is unavailable/denied, state that visual review was not performed and the actual limitation; provide the absolute HTML path, explaining browser display versus editor source. Do not bypass denial or blame the template without rendering-error evidence.\n\nLead with HTML and the preview result; include JSON path, `project.id`, `mapId`, `revision`, coverage and uncertainties as supporting information. Fix or report rendering blockers; JSON alone is not completed visual delivery. This is a snapshot, not live activity. Without a coding task, stop after delivery and ask for the intended change. With a coding task, prepare and render its scope through [Stage 2](show-changes.md), then wait for confirmation of the displayed plan before implementation. Rendering success alone is not permission to edit.",
+      "sections": [
+        {
+          "id": "source-7f9b521202787bea-s1",
+          "title": "Stage 1: Map the project",
+          "level": 1,
+          "line": 1,
+          "endLine": 6,
+          "text": "# Stage 1: Map the project\n\n[中文](map-project.zh.md)\n\nProduce [schema-valid](../schemas/architecture.schema.json) architecture JSON and standalone HTML from the same data for the selected project and scope. Follow [language selection](bilingual.md); examples are fictional field references, not project evidence.\n"
+        },
+        {
+          "id": "source-7f9b521202787bea-s2",
+          "title": "Discover and verify coverage",
+          "level": 2,
+          "line": 7,
+          "endLine": 15,
+          "text": "## Discover and verify coverage\n\n1. Check user-provided/documented architecture paths, existing artifact locations, `.birdify/`, then root and `docs/`. Use bounded architecture/map filename searches, excluding dependencies, generated output and skill examples; expand only when those locations and references yield nothing.\n2. Read candidates and verify project relevance, coverage, current ownership and source evidence. Validate Birdify JSON; schema validity does not establish freshness. Prefer the user's selection or documented canonical map; ask only about unresolved competing candidates.\n3. Reuse compatible maps in place and update stale portions. Adapt other formats after source verification, preserving meaningful IDs and the original artifact. HTML/images alone need underlying module/ownership data before Stage 2. Create a map only when none is reusable or adaptable; resolve unavailable validation before Stage 2.\n4. Honor explicit subsystem scope; otherwise inspect the selected project root. Read root documentation, top-level directories and relevant workspace/build manifests, then follow declared applications. Verify each using its own manifest, startup/build entry and source. Dependencies alone do not prove an application; trace client calls and server routes before asserting connections.\n5. Reconcile every in-scope application with a module, explained grouping or explicit coverage gap in new and reused maps. Keep distinct application responsibilities visible; shared packages need not be applications. The 6-10 module readability target never justifies omissions or inventions.\n6. For ordinary local edits, recheck relevant entries and changed manifests. Broaden discovery only when scope or workspace structure changes. Report root/scope, checked applications and module IDs, exclusions and unresolved areas alongside the architecture table. Distinguish uninspected areas from checked absences; zero uncertainty does not prove complete coverage.\n"
+        },
+        {
+          "id": "source-7f9b521202787bea-s3",
+          "title": "Author the map",
+          "level": 2,
+          "line": 16,
+          "endLine": 29,
+          "text": "## Author the map\n\nTrace main request/data paths and read surrounding symbols before assigning responsibilities. For a specific code area, step up to its responsibility and relevant callers/dependencies within the agreed scope. Stop when that scope is coherently covered.\n\nModel modules as cohesive business or technical responsibilities at a comparable level of abstraction, not one node per file, class or directory. Describe what each does and how it connects to surrounding modules; keep implementation locations in ownership/evidence. Use the project's domain glossary when available, otherwise established terms from source and documentation. Preserve evidenced responsibility boundaries and existing IDs when improving labels.\n\nFollow the [contract](contract.md) for fields, roles, ownership, evidence, status and layout. Choose module roles from inspected responsibilities; use `generic` when unclear, never cycle roles for colors. Roles are independent of ownership and groups. Include external services only for real relationships, without local file ownership. Mark unsupported conclusions `uncertain` with specific open questions; `supported` records inspected evidence, not static proof.\n\nFor new maps, explicitly classify every module and run `node <skill-root>/scripts/validate.mjs <map.json> --authoring` before rendering (add `--bilingual` for Chinese/English delivery). Generic modules require the contract's `roleAssessment`: explain why the taxonomy does not fit or which evidence is missing; insufficient evidence requires uncertainty and a specific question. Never bulk-default modules to generic to finish faster. Review all-generic warnings module by module against source and report the reasons, rather than inventing different roles to pass. Reuse existing classifications unless new evidence supports a change; explain any downgrade to generic and apply revision rules. Review changed/new module classifications on legacy-map updates; unchanged legacy fields need no forced migration.\n\nAuthor directed, concretely labelled relationships with evidence, status, `kind` and `visibility`. Keep core execution, necessary result/tool feedback, basic dependencies and required approvals in `overview`; recovery, retries and diagnostics may be `detail` unless central to the map. Default to `overview` when unsure. Check isolated overview modules for missing connections; keep genuine auxiliary modules and hidden-relation counts. Retain all relationships; kind/visibility do not represent modification scope, and must not change solely to reduce visual clutter.\n\nShow an architecture table (module, responsibility, ownership, evidence, uncertainty) and short relationship list from the same JSON. Allow corrections without redundant approval when continued work is already authorized.\n"
+        },
+        {
+          "id": "source-7f9b521202787bea-s4",
+          "title": "Groups and revisions",
+          "level": 2,
+          "line": 30,
+          "endLine": 48,
+          "text": "## Groups and revisions\n\nUse optional groups only for evidenced system/subsystem membership: one disjoint level, with stable IDs, names, unique members and nonempty evidence. Groups render side by side, preserving internal row/column order; ungrouped modules remain outside frames. Translate group names and evidence like module text.\n\nChoose group roles from source-supported responsibilities and explain the classification in evidence notes:\n\n| Role | Meaning | Fixed color |\n| --- | --- | --- |\n| `interaction` | User interaction and review | Pale blue |\n| `runtime` | Execution and orchestration | Pale amber |\n| `external-services` | Integrations outside the described system | Pale violet |\n| `generic` | Unspecified or mixed responsibility | Neutral gray |\n\nUnclear or omitted roles use `generic`. Names, ordering, module ownership and color variety are not classification evidence. Group roles do not imply module roles, deployment/trust boundaries or activity state. Keep the shared palette; no per-map overrides or custom color fields. Schema rejects unknown roles/fields but cannot verify classification; check evidence and preserve existing roles unless new evidence warrants change.\n\nRead existing artifacts before replacing them; use the agreed location (default `.birdify/`) without overwriting unrelated files. `project.id` and `mapId` are local identities, not necessarily URLs. Optional `project.revision` records a Git commit, not the map revision or a clean-tree guarantee.\n\nIncrement `revision` for every saved map change, including layout and translations. Preserve IDs for continuing responsibilities and never reassign removed IDs. Complete/cancel tasks on the old map before starting against a new revision; never silently replay old events onto it.\n"
+        },
+        {
+          "id": "source-7f9b521202787bea-s5",
+          "title": "Render and review",
+          "level": 2,
+          "line": 49,
+          "endLine": 75,
+          "text": "## Render and review\n\nFor the default “use Birdify” delivery, finish the [constraint workflow](constraint-graph.md) before final rendering: inspect effective local instructions, collect committed sources, author and review `reviewed-rules.json`, then compile with the repository argument to collect rule history into `.birdify/constraints.reviewed.json`. Preserve working-tree instruction differences as explicit limitations. Record actual checked/uninspected paths in `map.constraintDiscovery` under the [constraints contract](constraints.md); a scan is not semantic review. Do not copy the demo rules. Reuse a matching reviewed catalog when valid. Keep scope and snapshot explicit, and only bind rules to modules after source inspection. Save the source catalog and reviewed selection alongside the compiled catalog so another AI can continue the review. If review is incomplete, report that boundary instead of claiming complete delivery. When no reviewed rules exist, deliver the architecture and discovery findings with the limitation; the rule renderer deliberately rejects an empty or unreviewed catalog.\n\nUse the bundled renderer, with absolute paths when running from the user's project; `<skill-root>` contains SKILL.md. Substitute the actual agreed artifact paths:\n\n```sh\nnode <skill-root>/scripts/render.mjs <project-root>/.birdify/architecture.json <project-root>/.birdify/architecture.html --constraints <project-root>/.birdify/constraints.reviewed.json\n```\n\nOmit `--constraints` only for an explicit architecture-only request or a disclosed unavailable rule catalog. Check that the final page has Architecture / Constraints switching, source evidence, rule version labels and the sibling source-index link; deliver the `.sources.html` file with it. The architecture inspector counts only map-bound rules, not the separate catalog; missing module links are not missing project rules.\n\nThe renderer validates JSON and emits self-contained HTML requiring no server/network assets. Do not handcraft a substitute viewer or deliver a fictional demo as the project's map.\n\nOpen HTML in a visible browser preview. With Codex `open_in_codex`, use a `browser` target and correctly encoded file URL, not a `file` target. A Markdown link may open source; a queued request does not confirm display, and headless inspection does not confirm the user's visible tab.\n\nReview the final HTML at the available user viewport:\n\n- Inspect Overview and All relations, names, relationships and selected-module evidence. Hover the module with most direct edges (incoming + outgoing, self-edge once), then other visibly congested areas.\n- Check card-crossing/overlapping routes, congested turns, distinguishable endpoints/arrows, cropped routes/headings, hidden-relation counts and text size after fitting.\n- Verify hover makes direct relationships traceable and leaving restores the selected view without moving nodes.\n\nAutomatic spacing is not a readability guarantee. Keep pixel thresholds and invented congestion fields out of map data. If needed, adjust layout by responsibility/interaction order or groups by evidence; preserve identities, ownership, relationship semantics and full scope. Increment revision, rerender, and recheck affected areas and the full view. Stop after two consecutive attempts without visible improvement and report remaining issues. Unchanged maps in focused tasks need no unrelated UI audit.\n\nReport the actual artifact, viewport, modes, focused modules and unresolved issues. Schema checks, collision samples or screenshots alone are not visual acceptance; no automated crowding check is bundled. If browser inspection is unavailable/denied, state that visual review was not performed and the actual limitation; provide the absolute HTML path, explaining browser display versus editor source. Do not bypass denial or blame the template without rendering-error evidence.\n\nLead with HTML and the preview result; include JSON path, `project.id`, `mapId`, `revision`, coverage and uncertainties as supporting information. Fix or report rendering blockers; JSON alone is not completed visual delivery. This is a snapshot, not live activity. Without a coding task, stop after delivery and ask for the intended change. With a coding task, prepare and render its scope through [Stage 2](show-changes.md), then wait for confirmation of the displayed plan before implementation. Rendering success alone is not permission to edit."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-1efa5094590b39b0",
+      "path": "birdify/references/show-changes.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Stage 2: Express the change\n\n[中文](show-changes.zh.md)\n\nPreparing the plan requires a user-requested task and the usable map from [Stage 1](map-project.md). Implementation additionally requires confirmation of the displayed plan, as defined in [SKILL.md](../SKILL.md).\nRead [contract.md](contract.md), `schemas/activity.schema.json` and the example stream.\nUse exact project/map/revision/module IDs; resolve stale coverage before emitting events. Never substitute a fictional map or infer IDs from prose.\n\n## Record operations\n\nBefore editing, follow [development.md](development.md) for the relevant task types. Include the intended observable behavior and verification method in the `planned` reason; use existing `checks` for executed results and `constraintReviews` for applicable recorded constraints. Do not add new event fields.\n\n1. Before editing: append `planned` with complete `scope`, current `targets`, project-relative `files` and a short module-based reason. Render and deliver the plan, ask for confirmation, and wait. Do not treat the original coding request as approval of an unseen plan. Reuse confirmation already given for this same plan; honor an explicit task-specific waiver.\n2. After confirmation, before each edit group: append `editing` with concrete paths and only current modules as targets.\n3. Before checks: append `verifying`; test/fixture paths do not automatically count as modified files.\n4. At task end: append `completed`, `failed` or `cancelled`, recording actual commands, exit codes and observations in `checks` where applicable.\n\nEvery JSONL event carries complete scope/targets. Explain scope expansion in a new `planned` event, update the preview and confirm the changed scope before editing added modules. For mapped edits, target all matching file owners; list unowned files in both `files` and `unmappedFiles`. Never invent ownership to pass validation; correct misleading rules in Stage 1.\n\nOne active task per session; sequences start at 1 and stay contiguous. After a terminal event use a new task ID, never reopen one. Keep project and map revision fixed; new revisions require a new session/file. These are agent declarations: keep checks pending until executed, and never infer success from event emission or completion.\n\n## Render and deliver\n\n```sh\nnode <skill-root>/scripts/render.mjs <map.json> <activity.html> <activity.jsonl>\n```\n\nThe renderer validates the full stream before replacing output. Deliver only after success; follow Stage 1's preview checks.\n\n- Real activity opens at the latest record; simulation at the first plan. History and collapsible files/checks describe the selected step, not cumulative Git changes.\n- Architecture/changes/comparison share positions; comparison links selection, zoom and scrolling and stacks on narrow screens.\n- Scope stays outlined; non-targets dim. Planned targets highlight before edits, verification targets are labelled separately, and terminal events remove target glow. No executed checks means unverified.\n- Use `--simulation` only for fictional records such as `examples/harness.activity.jsonl`, never as observed work.\n- For each supported activity language, supply event `translations[locale].reason` and check `translations[locale].summary`; absent translations fall back to originals.\n- Updates need regeneration and refresh. No upload, auto-refresh, live interception or Git verification exists; a future display receipt would confirm rendering, not approval or correctness.",
+      "sections": [
+        {
+          "id": "source-1efa5094590b39b0-s1",
+          "title": "Stage 2: Express the change",
+          "level": 1,
+          "line": 1,
+          "endLine": 8,
+          "text": "# Stage 2: Express the change\n\n[中文](show-changes.zh.md)\n\nPreparing the plan requires a user-requested task and the usable map from [Stage 1](map-project.md). Implementation additionally requires confirmation of the displayed plan, as defined in [SKILL.md](../SKILL.md).\nRead [contract.md](contract.md), `schemas/activity.schema.json` and the example stream.\nUse exact project/map/revision/module IDs; resolve stale coverage before emitting events. Never substitute a fictional map or infer IDs from prose.\n"
+        },
+        {
+          "id": "source-1efa5094590b39b0-s2",
+          "title": "Record operations",
+          "level": 2,
+          "line": 9,
+          "endLine": 21,
+          "text": "## Record operations\n\nBefore editing, follow [development.md](development.md) for the relevant task types. Include the intended observable behavior and verification method in the `planned` reason; use existing `checks` for executed results and `constraintReviews` for applicable recorded constraints. Do not add new event fields.\n\n1. Before editing: append `planned` with complete `scope`, current `targets`, project-relative `files` and a short module-based reason. Render and deliver the plan, ask for confirmation, and wait. Do not treat the original coding request as approval of an unseen plan. Reuse confirmation already given for this same plan; honor an explicit task-specific waiver.\n2. After confirmation, before each edit group: append `editing` with concrete paths and only current modules as targets.\n3. Before checks: append `verifying`; test/fixture paths do not automatically count as modified files.\n4. At task end: append `completed`, `failed` or `cancelled`, recording actual commands, exit codes and observations in `checks` where applicable.\n\nEvery JSONL event carries complete scope/targets. Explain scope expansion in a new `planned` event, update the preview and confirm the changed scope before editing added modules. For mapped edits, target all matching file owners; list unowned files in both `files` and `unmappedFiles`. Never invent ownership to pass validation; correct misleading rules in Stage 1.\n\nOne active task per session; sequences start at 1 and stay contiguous. After a terminal event use a new task ID, never reopen one. Keep project and map revision fixed; new revisions require a new session/file. These are agent declarations: keep checks pending until executed, and never infer success from event emission or completion.\n"
+        },
+        {
+          "id": "source-1efa5094590b39b0-s3",
+          "title": "Render and deliver",
+          "level": 2,
+          "line": 22,
+          "endLine": 35,
+          "text": "## Render and deliver\n\n```sh\nnode <skill-root>/scripts/render.mjs <map.json> <activity.html> <activity.jsonl>\n```\n\nThe renderer validates the full stream before replacing output. Deliver only after success; follow Stage 1's preview checks.\n\n- Real activity opens at the latest record; simulation at the first plan. History and collapsible files/checks describe the selected step, not cumulative Git changes.\n- Architecture/changes/comparison share positions; comparison links selection, zoom and scrolling and stacks on narrow screens.\n- Scope stays outlined; non-targets dim. Planned targets highlight before edits, verification targets are labelled separately, and terminal events remove target glow. No executed checks means unverified.\n- Use `--simulation` only for fictional records such as `examples/harness.activity.jsonl`, never as observed work.\n- For each supported activity language, supply event `translations[locale].reason` and check `translations[locale].summary`; absent translations fall back to originals.\n- Updates need regeneration and refresh. No upload, auto-refresh, live interception or Git verification exists; a future display receipt would confirm rendering, not approval or correctness."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-9e1a3d62827ee27f",
+      "path": "birdify/references/development.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Development after activation\n\n[中文](development.zh.md)\n\nApply only when Birdify is active and the user has authorized coding. Before implementation, follow the displayed-plan confirmation step in [SKILL.md](../SKILL.md); mapping or an initial coding request alone is not plan approval. Preserve the existing map and change workflow; these rules neither enable always-on behavior nor override project instructions.\n\n## Choose the relevant guidance\n\nRead the related implementation, callers and applicable design decisions. Resolve questions from source first; ask only about unresolved choices that materially affect the task. Define the expected observable behavior and a proportionate way to verify it before editing. Combine the sections below when needed, such as bug diagnosis plus UI checks for a broken button. Do not run every section for every task.\n\n### Bug fixes\n\nEstablish a reproduction or inspect concrete failure evidence matching the reported symptom. Use the smallest useful test, command, request or UI interaction. For intermittent failures, record reproduction conditions and frequency. If reproduction is unavailable, state what was tried and what evidence is missing; distinguish a tentative fix from a verified one.\n\nTest plausible causes against evidence before choosing a fix. Multiple competing hypotheses help ambiguous failures, but simple bugs need no fixed hypothesis count. Change one relevant variable at a time when investigating. For performance work, measure the affected scenario before and after under comparable conditions.\n\nAfter fixing, rerun the original scenario. Add a regression test when it can exercise the real failure path and provides durable value; observe it fail before the fix and pass afterward when feasible. Explain missing coverage. Remove temporary instrumentation introduced for this task without deleting others' work.\n\n### Features and behavior changes\n\nIdentify observable acceptance behavior and important failure paths. Implement and verify in small behavior-sized steps. Tests should exercise real paths through stable interfaces, rather than mirror private implementation or pass only because internal collaborators are mocked. Use test-first development when requested or useful; do not mandate it for every change or add tests for trivial, reversible edits without meaningful risk.\n\n### Refactoring and architecture changes\n\nInspect affected callers, compatibility requirements and existing decisions. State the concrete benefit, such as removing duplicated business rules or reducing knowledge required by callers. Preserve behavior unless its change is authorized, and verify the interfaces and paths affected. Do not add speculative abstractions or expand into unrelated cleanup. Ordinary edits do not start an architecture review; use the separate review workflow only when requested under the skill's activation rules.\n\n### UI changes\n\nInspect the rendered result and affected interaction at relevant viewport sizes. Check loading, empty and error states where affected, plus relevant keyboard operation, focus and accessible labels. Scale checks to the change: a copy edit does not require a full-site audit. When visual or interaction verification is unavailable, state the limitation instead of claiming acceptance.\n\n## Record and finish\n\nUse the existing [change workflow](show-changes.md): put the expected behavior and intended verification in the `planned` reason, actual commands, exit codes and observations in `checks`, and reviews of applicable recorded constraints in `constraintReviews`. Do not invent schema fields or passing results. A manual review supports only the inspected scope, and completing an activity does not establish correctness.\n\nDistinguish checks not run, environment blockers and observed failures. Continue routine checks and justified retries autonomously; ask only for material unresolved choices or required access. After relevant checks pass, broaden testing only for changed scope or remaining risk. Recheck the original request, update the map if responsibilities, ownership or relationships changed, and report the changes, actual verification and remaining limits. These are agent instructions; validators check records, not whether the agent truly followed the process.",
+      "sections": [
+        {
+          "id": "source-9e1a3d62827ee27f-s1",
+          "title": "Development after activation",
+          "level": 1,
+          "line": 1,
+          "endLine": 6,
+          "text": "# Development after activation\n\n[中文](development.zh.md)\n\nApply only when Birdify is active and the user has authorized coding. Before implementation, follow the displayed-plan confirmation step in [SKILL.md](../SKILL.md); mapping or an initial coding request alone is not plan approval. Preserve the existing map and change workflow; these rules neither enable always-on behavior nor override project instructions.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s2",
+          "title": "Choose the relevant guidance",
+          "level": 2,
+          "line": 7,
+          "endLine": 10,
+          "text": "## Choose the relevant guidance\n\nRead the related implementation, callers and applicable design decisions. Resolve questions from source first; ask only about unresolved choices that materially affect the task. Define the expected observable behavior and a proportionate way to verify it before editing. Combine the sections below when needed, such as bug diagnosis plus UI checks for a broken button. Do not run every section for every task.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s3",
+          "title": "Bug fixes",
+          "level": 3,
+          "line": 11,
+          "endLine": 18,
+          "text": "### Bug fixes\n\nEstablish a reproduction or inspect concrete failure evidence matching the reported symptom. Use the smallest useful test, command, request or UI interaction. For intermittent failures, record reproduction conditions and frequency. If reproduction is unavailable, state what was tried and what evidence is missing; distinguish a tentative fix from a verified one.\n\nTest plausible causes against evidence before choosing a fix. Multiple competing hypotheses help ambiguous failures, but simple bugs need no fixed hypothesis count. Change one relevant variable at a time when investigating. For performance work, measure the affected scenario before and after under comparable conditions.\n\nAfter fixing, rerun the original scenario. Add a regression test when it can exercise the real failure path and provides durable value; observe it fail before the fix and pass afterward when feasible. Explain missing coverage. Remove temporary instrumentation introduced for this task without deleting others' work.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s4",
+          "title": "Features and behavior changes",
+          "level": 3,
+          "line": 19,
+          "endLine": 22,
+          "text": "### Features and behavior changes\n\nIdentify observable acceptance behavior and important failure paths. Implement and verify in small behavior-sized steps. Tests should exercise real paths through stable interfaces, rather than mirror private implementation or pass only because internal collaborators are mocked. Use test-first development when requested or useful; do not mandate it for every change or add tests for trivial, reversible edits without meaningful risk.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s5",
+          "title": "Refactoring and architecture changes",
+          "level": 3,
+          "line": 23,
+          "endLine": 26,
+          "text": "### Refactoring and architecture changes\n\nInspect affected callers, compatibility requirements and existing decisions. State the concrete benefit, such as removing duplicated business rules or reducing knowledge required by callers. Preserve behavior unless its change is authorized, and verify the interfaces and paths affected. Do not add speculative abstractions or expand into unrelated cleanup. Ordinary edits do not start an architecture review; use the separate review workflow only when requested under the skill's activation rules.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s6",
+          "title": "UI changes",
+          "level": 3,
+          "line": 27,
+          "endLine": 30,
+          "text": "### UI changes\n\nInspect the rendered result and affected interaction at relevant viewport sizes. Check loading, empty and error states where affected, plus relevant keyboard operation, focus and accessible labels. Scale checks to the change: a copy edit does not require a full-site audit. When visual or interaction verification is unavailable, state the limitation instead of claiming acceptance.\n"
+        },
+        {
+          "id": "source-9e1a3d62827ee27f-s7",
+          "title": "Record and finish",
+          "level": 2,
+          "line": 31,
+          "endLine": 35,
+          "text": "## Record and finish\n\nUse the existing [change workflow](show-changes.md): put the expected behavior and intended verification in the `planned` reason, actual commands, exit codes and observations in `checks`, and reviews of applicable recorded constraints in `constraintReviews`. Do not invent schema fields or passing results. A manual review supports only the inspected scope, and completing an activity does not establish correctness.\n\nDistinguish checks not run, environment blockers and observed failures. Continue routine checks and justified retries autonomously; ask only for material unresolved choices or required access. After relevant checks pass, broaden testing only for changed scope or remaining risk. Recheck the original request, update the map if responsibilities, ownership or relationships changed, and report the changes, actual verification and remaining limits. These are agent instructions; validators check records, not whether the agent truly followed the process."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-e2207e620848c296",
+      "path": "birdify/references/review-architecture.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Review architecture on request\n\n[中文](review-architecture.zh.md)\n\nUse only when Birdify is active and the user asks for architecture evaluation or refactoring opportunities. Start from the verified map in [Stage 1](map-project.md); review the requested scope, not the entire repository by default.\n\n## Inspect responsibilities\n\nRead relevant project terminology and architecture decisions when available; missing glossaries or ADRs do not require creating them. Trace the callers and implementations behind candidate modules. Look for concrete friction:\n\n- One responsibility requires coordinated edits across several modules, or callers must know internal ordering, error handling or configuration details.\n- A wrapper adds little behavior while forcing callers through another interface. Ask what happens if it is removed: does complexity disappear or move into its callers? A small adapter can still justify its existence.\n- Existing boundaries make important behavior difficult to verify through public interfaces. Describe the behavior at risk, rather than demanding tests for every implementation detail.\n\nPrefer changes that give callers a simpler interface while keeping cohesive behavior together. Module count, file size and diagram neatness alone are not evidence of a problem. Respect existing architecture decisions; suggest revisiting one only with concrete new evidence and state the conflict.\n\n## Present grounded candidates\n\nReturn only supported candidates, ordered by expected value. For each, provide:\n\n- Existing module IDs and source paths/symbols, observed friction and its practical impact.\n- Proposed responsibility or dependency changes, expected benefit, migration cost and risks, including reasons to retain the current design.\n- A behavior-level verification plan and confidence: strong evidence, worth investigating, or speculative. Identify missing evidence; do not present hypotheses as defects.\n\nUse the existing Birdify preview to locate affected modules and explain candidates alongside it. Keep the canonical map factual: do not replace current relationships with proposals, invent activity records or treat the comparison view as a before/after architecture diff. Describe proposed structure in the accompanying explanation; no separate report framework or schema extensions are needed.\n\nRecommend a first candidate only when the evidence supports one; finding no justified refactor is a valid result. Resolve source-answerable questions before asking about material product or design choices, and include a recommendation with its tradeoff. Review alone does not authorize implementation. Once implementation is authorized, follow [Stage 2](show-changes.md) using the current map and declared scope; do not ask again for authorization already given.",
+      "sections": [
+        {
+          "id": "source-e2207e620848c296-s1",
+          "title": "Review architecture on request",
+          "level": 1,
+          "line": 1,
+          "endLine": 6,
+          "text": "# Review architecture on request\n\n[中文](review-architecture.zh.md)\n\nUse only when Birdify is active and the user asks for architecture evaluation or refactoring opportunities. Start from the verified map in [Stage 1](map-project.md); review the requested scope, not the entire repository by default.\n"
+        },
+        {
+          "id": "source-e2207e620848c296-s2",
+          "title": "Inspect responsibilities",
+          "level": 2,
+          "line": 7,
+          "endLine": 16,
+          "text": "## Inspect responsibilities\n\nRead relevant project terminology and architecture decisions when available; missing glossaries or ADRs do not require creating them. Trace the callers and implementations behind candidate modules. Look for concrete friction:\n\n- One responsibility requires coordinated edits across several modules, or callers must know internal ordering, error handling or configuration details.\n- A wrapper adds little behavior while forcing callers through another interface. Ask what happens if it is removed: does complexity disappear or move into its callers? A small adapter can still justify its existence.\n- Existing boundaries make important behavior difficult to verify through public interfaces. Describe the behavior at risk, rather than demanding tests for every implementation detail.\n\nPrefer changes that give callers a simpler interface while keeping cohesive behavior together. Module count, file size and diagram neatness alone are not evidence of a problem. Respect existing architecture decisions; suggest revisiting one only with concrete new evidence and state the conflict.\n"
+        },
+        {
+          "id": "source-e2207e620848c296-s3",
+          "title": "Present grounded candidates",
+          "level": 2,
+          "line": 17,
+          "endLine": 27,
+          "text": "## Present grounded candidates\n\nReturn only supported candidates, ordered by expected value. For each, provide:\n\n- Existing module IDs and source paths/symbols, observed friction and its practical impact.\n- Proposed responsibility or dependency changes, expected benefit, migration cost and risks, including reasons to retain the current design.\n- A behavior-level verification plan and confidence: strong evidence, worth investigating, or speculative. Identify missing evidence; do not present hypotheses as defects.\n\nUse the existing Birdify preview to locate affected modules and explain candidates alongside it. Keep the canonical map factual: do not replace current relationships with proposals, invent activity records or treat the comparison view as a before/after architecture diff. Describe proposed structure in the accompanying explanation; no separate report framework or schema extensions are needed.\n\nRecommend a first candidate only when the evidence supports one; finding no justified refactor is a valid result. Resolve source-answerable questions before asking about material product or design choices, and include a recommendation with its tradeoff. Review alone does not authorize implementation. Once implementation is authorized, follow [Stage 2](show-changes.md) using the current map and declared scope; do not ask again for authorization already given."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-aec6db000b4c9e55",
+      "path": "birdify/references/contract.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Birdify contract v0.1\n\n[中文](contract.zh.md)\n\n## Multi-agent collaboration\n\nActivity events may include `occurredAt` (an ISO 8601 timestamp), `gitCommit` (the source commit), and `collaboration: { agent, locks }`. `agent` identifies the worker and `locks` lists file paths or stable module IDs claimed for the active task. The validator warns when active claims from different agents overlap. A terminal event releases claims for that task, so completed collaboration state does not remain active. These are trace and conflict signals, not filesystem locks or merge replacements.\n\n## Architecture\n\nOptional module `role` classifies responsibility as `frontend`, `backend`,\n`cache`, `database`, `queue`, `security`, or `generic`. Missing roles render as\n`generic`, preserving older maps. Role determines the viewer's icon and color\nfamily, independently of `kind` and group membership. Cache uses cyan with a\nlightning icon; database uses violet with a database icon. Roles are not activity states.\n\nNew maps must pass `validate.mjs --authoring` (`requireRoles: true` in the API): every module declares `role`, and `generic` requires `roleAssessment: { basis, note }`. Use `basis: \"out-of-taxonomy\"` when inspected responsibilities fit no listed role, or `\"insufficient-evidence\"` when classification lacks evidence; the latter requires `status: \"uncertain\"` and a specific `openQuestions` entry. `note` explains the decision with reference to the module's evidence or missing inspection. Its translations belong in `roleAssessment.translations.<locale>.note`; `basis` is never translated. Assessments are only valid on explicit generic modules.\n\nDefault validation/rendering keeps legacy maps without roles or assessments valid. An all-generic/unclassified map returns `role/all-generic-review` in validator `warnings`, even if valid: review each module and explain the outcome at delivery. This warning is not a color-diversity requirement. Validation checks declarations, not the truth of classifications or the quality of explanations.\n\nOptional `groups` represent authored system/subsystem membership, not deployment\nor trust boundaries. Each has a unique `id`, `name`, nonempty source `evidence`\nand unique module IDs in `members`. Groups are disjoint and one level deep.\nUnknown members and duplicate memberships are rejected. Group translations cover\nthe name and evidence notes. The viewer arranges groups side by side, retaining\nrelative row/column order inside each group; ungrouped nodes remain unframed.\n\nOptional group `role` assigns a fixed semantic color: `interaction` (pale blue,\nuser interaction/review), `runtime` (pale amber, execution/orchestration),\n`external-services` (pale violet, integrations outside the described system), or\n`generic` (neutral gray, unspecified grouping). Missing roles use `generic`.\nRoles are authored from evidence, never inferred from order, names, or module\nownership. They do not assert deployment/trust boundaries or change activity.\nThe group heading displays the localized role alongside its name.\n\nOptional `language` (such as `zh`, `en`, `ja`, `fr` or `pt-BR`) identifies the base\ntext language using a common language tag. Optional\n`translations` on project, modules, relationships and evidence objects contains\nlocalized text only. See `bilingual.md` for authoring and completeness validation.\nAbsent translations fall back to base fields; identities and layout are shared.\n\n`schemaVersion` versions the file format. `mapId` identifies a map and `revision`\nversions its contents. Together with `project.id`, these bind activity to the\nintended system. Revision numbers are author-maintained; they are not a content\nhash. Consumer-side hashing may be introduced with a real live transport.\n\n`modules` describe responsibilities. `ownership` assigns exact files or directory\nprefixes. `evidence` explains which source locations support the description.\nOne evidence citation does not imply ownership of that file. `relationships`\ndescribe authored directed connections, not runtime impact analysis.\n\nPaths use forward slashes and stay relative to the project root. Empty segments,\ndot/parent segments, drive letters and `.git` segments are forbidden. A directory\nrule such as `src/api` matches `src/api/products.ts`, not `src/api-other.ts`.\nMultiple matching owners are allowed and must be represented explicitly.\nExternal modules have no ownership and can use an empty evidence list; local\nmodules require ownership and evidence. Uncertain modules/relationships require\nnonempty `openQuestions`.\n\nThe schema is strict about fields. Semantic validation additionally checks unique\nIDs, existing relationship endpoints, distinct grid cells, evidence line order,\nand the local/external and uncertainty rules. It does not read project source.\n\n## Activity\n\nEach JSONL line is a complete event. Its `scope` is the overall declared task\nscope; `targets` is the current subset. `files` is the current step's concrete\nfile list. For `planned`/`editing`, every mapped owner must be in `targets`.\nUnmapped paths must be reported exactly in `unmappedFiles` for every phase.\n\n`checks` contains command, nullable exit code and `passed|failed|not-run` status.\nPassed requires exit code 0, failed requires a nonzero exit code, and not-run\nrequires null. No checks means no verification claim. `completed` can describe\nan untested change, but cannot include a failed check. A `failed` event may have\nno checks when failure occurred before verification.\n\nSession rules:\n\n- The first event has sequence 1; following sequences are contiguous.\n- A session belongs to one project and map revision.\n- A new task begins with `planned`; only one task is active at a time.\n- Active tasks accept `planned`, `editing`, `verifying`, or a terminal event.\n- `planned` can revise scope. Every other event preserves the latest plan scope.\n- Terminal phases are `completed`, `failed`, `cancelled`; task IDs cannot reopen.\n- Targets must belong to scope. Terminal events may have empty targets.\n\nThese are authoring consistency rules, not enforcement of coding permissions.\nThe validator reports an error code and location; an invalid input is never\nsilently repaired. Neither contract defines HTTP endpoints, ports, UI colors or\nan automatic interception mechanism.\n\n## Visual contract\n\nOptional local-constraint discovery, rule scope, applicability and per-event verification records follow [Effective constraints](constraints.md). They preserve legacy map/event compatibility and never establish automatic enforcement.\n\nEvery relationship requires `kind` and `visibility`. `kind` is `request` (invoke\nan operation), `result` (return its outcome), `dependency` (use a capability or\nresource), `event` (publish a notification/state record), or `control` (schedule,\napprove, cancel or otherwise govern execution). These describe the authored arrow;\nthey do not prove synchronous execution or imply an unrecorded reverse edge.\n`visibility` is `overview` or `detail`. Overview initially displays only\n`overview` relationships; All displays every relationship. Missing fields and\nthe removed `primary` field are invalid; no legacy fallback is supported.\nAll modules keep their positions and stay\navailable. Hover temporarily reveals every direct relationship of that module,\nincluding auxiliary ones, and dims unrelated context. The visible/total count\nreflects this reveal. This is a reading aid, never an activity scope or new edge.\n\nRender modules at stable grid positions; preserve them across activity updates.\nUse a persistent outline for planned scope, highest emphasis for current targets,\nand reduced emphasis for unrelated modules. Keep module names readable. Display\nplanned-event targets with the same emphasis before editing starts. Verification\ntargets must be identified as verification, not editing. Comparison panes share\npositions and navigation, with activity emphasis only on the changes pane.\nDisplay\nreason and phase outside the map and reveal files/evidence on module selection.\nNever imply that all neighbors of a target are being modified. Keep simulation\nexplicitly labelled and separate from real activity.",
+      "sections": [
+        {
+          "id": "source-aec6db000b4c9e55-s1",
+          "title": "Birdify contract v0.1",
+          "level": 1,
+          "line": 1,
+          "endLine": 4,
+          "text": "# Birdify contract v0.1\n\n[中文](contract.zh.md)\n"
+        },
+        {
+          "id": "source-aec6db000b4c9e55-s2",
+          "title": "Multi-agent collaboration",
+          "level": 2,
+          "line": 5,
+          "endLine": 8,
+          "text": "## Multi-agent collaboration\n\nActivity events may include `occurredAt` (an ISO 8601 timestamp), `gitCommit` (the source commit), and `collaboration: { agent, locks }`. `agent` identifies the worker and `locks` lists file paths or stable module IDs claimed for the active task. The validator warns when active claims from different agents overlap. A terminal event releases claims for that task, so completed collaboration state does not remain active. These are trace and conflict signals, not filesystem locks or merge replacements.\n"
+        },
+        {
+          "id": "source-aec6db000b4c9e55-s3",
+          "title": "Architecture",
+          "level": 2,
+          "line": 9,
+          "endLine": 63,
+          "text": "## Architecture\n\nOptional module `role` classifies responsibility as `frontend`, `backend`,\n`cache`, `database`, `queue`, `security`, or `generic`. Missing roles render as\n`generic`, preserving older maps. Role determines the viewer's icon and color\nfamily, independently of `kind` and group membership. Cache uses cyan with a\nlightning icon; database uses violet with a database icon. Roles are not activity states.\n\nNew maps must pass `validate.mjs --authoring` (`requireRoles: true` in the API): every module declares `role`, and `generic` requires `roleAssessment: { basis, note }`. Use `basis: \"out-of-taxonomy\"` when inspected responsibilities fit no listed role, or `\"insufficient-evidence\"` when classification lacks evidence; the latter requires `status: \"uncertain\"` and a specific `openQuestions` entry. `note` explains the decision with reference to the module's evidence or missing inspection. Its translations belong in `roleAssessment.translations.<locale>.note`; `basis` is never translated. Assessments are only valid on explicit generic modules.\n\nDefault validation/rendering keeps legacy maps without roles or assessments valid. An all-generic/unclassified map returns `role/all-generic-review` in validator `warnings`, even if valid: review each module and explain the outcome at delivery. This warning is not a color-diversity requirement. Validation checks declarations, not the truth of classifications or the quality of explanations.\n\nOptional `groups` represent authored system/subsystem membership, not deployment\nor trust boundaries. Each has a unique `id`, `name`, nonempty source `evidence`\nand unique module IDs in `members`. Groups are disjoint and one level deep.\nUnknown members and duplicate memberships are rejected. Group translations cover\nthe name and evidence notes. The viewer arranges groups side by side, retaining\nrelative row/column order inside each group; ungrouped nodes remain unframed.\n\nOptional group `role` assigns a fixed semantic color: `interaction` (pale blue,\nuser interaction/review), `runtime` (pale amber, execution/orchestration),\n`external-services` (pale violet, integrations outside the described system), or\n`generic` (neutral gray, unspecified grouping). Missing roles use `generic`.\nRoles are authored from evidence, never inferred from order, names, or module\nownership. They do not assert deployment/trust boundaries or change activity.\nThe group heading displays the localized role alongside its name.\n\nOptional `language` (such as `zh`, `en`, `ja`, `fr` or `pt-BR`) identifies the base\ntext language using a common language tag. Optional\n`translations` on project, modules, relationships and evidence objects contains\nlocalized text only. See `bilingual.md` for authoring and completeness validation.\nAbsent translations fall back to base fields; identities and layout are shared.\n\n`schemaVersion` versions the file format. `mapId` identifies a map and `revision`\nversions its contents. Together with `project.id`, these bind activity to the\nintended system. Revision numbers are author-maintained; they are not a content\nhash. Consumer-side hashing may be introduced with a real live transport.\n\n`modules` describe responsibilities. `ownership` assigns exact files or directory\nprefixes. `evidence` explains which source locations support the description.\nOne evidence citation does not imply ownership of that file. `relationships`\ndescribe authored directed connections, not runtime impact analysis.\n\nPaths use forward slashes and stay relative to the project root. Empty segments,\ndot/parent segments, drive letters and `.git` segments are forbidden. A directory\nrule such as `src/api` matches `src/api/products.ts`, not `src/api-other.ts`.\nMultiple matching owners are allowed and must be represented explicitly.\nExternal modules have no ownership and can use an empty evidence list; local\nmodules require ownership and evidence. Uncertain modules/relationships require\nnonempty `openQuestions`.\n\nThe schema is strict about fields. Semantic validation additionally checks unique\nIDs, existing relationship endpoints, distinct grid cells, evidence line order,\nand the local/external and uncertainty rules. It does not read project source.\n"
+        },
+        {
+          "id": "source-aec6db000b4c9e55-s4",
+          "title": "Activity",
+          "level": 2,
+          "line": 64,
+          "endLine": 91,
+          "text": "## Activity\n\nEach JSONL line is a complete event. Its `scope` is the overall declared task\nscope; `targets` is the current subset. `files` is the current step's concrete\nfile list. For `planned`/`editing`, every mapped owner must be in `targets`.\nUnmapped paths must be reported exactly in `unmappedFiles` for every phase.\n\n`checks` contains command, nullable exit code and `passed|failed|not-run` status.\nPassed requires exit code 0, failed requires a nonzero exit code, and not-run\nrequires null. No checks means no verification claim. `completed` can describe\nan untested change, but cannot include a failed check. A `failed` event may have\nno checks when failure occurred before verification.\n\nSession rules:\n\n- The first event has sequence 1; following sequences are contiguous.\n- A session belongs to one project and map revision.\n- A new task begins with `planned`; only one task is active at a time.\n- Active tasks accept `planned`, `editing`, `verifying`, or a terminal event.\n- `planned` can revise scope. Every other event preserves the latest plan scope.\n- Terminal phases are `completed`, `failed`, `cancelled`; task IDs cannot reopen.\n- Targets must belong to scope. Terminal events may have empty targets.\n\nThese are authoring consistency rules, not enforcement of coding permissions.\nThe validator reports an error code and location; an invalid input is never\nsilently repaired. Neither contract defines HTTP endpoints, ports, UI colors or\nan automatic interception mechanism.\n"
+        },
+        {
+          "id": "source-aec6db000b4c9e55-s5",
+          "title": "Visual contract",
+          "level": 2,
+          "line": 92,
+          "endLine": 118,
+          "text": "## Visual contract\n\nOptional local-constraint discovery, rule scope, applicability and per-event verification records follow [Effective constraints](constraints.md). They preserve legacy map/event compatibility and never establish automatic enforcement.\n\nEvery relationship requires `kind` and `visibility`. `kind` is `request` (invoke\nan operation), `result` (return its outcome), `dependency` (use a capability or\nresource), `event` (publish a notification/state record), or `control` (schedule,\napprove, cancel or otherwise govern execution). These describe the authored arrow;\nthey do not prove synchronous execution or imply an unrecorded reverse edge.\n`visibility` is `overview` or `detail`. Overview initially displays only\n`overview` relationships; All displays every relationship. Missing fields and\nthe removed `primary` field are invalid; no legacy fallback is supported.\nAll modules keep their positions and stay\navailable. Hover temporarily reveals every direct relationship of that module,\nincluding auxiliary ones, and dims unrelated context. The visible/total count\nreflects this reveal. This is a reading aid, never an activity scope or new edge.\n\nRender modules at stable grid positions; preserve them across activity updates.\nUse a persistent outline for planned scope, highest emphasis for current targets,\nand reduced emphasis for unrelated modules. Keep module names readable. Display\nplanned-event targets with the same emphasis before editing starts. Verification\ntargets must be identified as verification, not editing. Comparison panes share\npositions and navigation, with activity emphasis only on the changes pane.\nDisplay\nreason and phase outside the map and reveal files/evidence on module selection.\nNever imply that all neighbors of a target are being modified. Keep simulation\nexplicitly labelled and separate from real activity."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    },
+    {
+      "id": "source-2134f393281ce58b",
+      "path": "birdify/references/bilingual.md",
+      "kind": "reference",
+      "scope": null,
+      "discoveredFrom": "birdify/SKILL.md",
+      "applicability": "unreviewed",
+      "text": "# Architecture language selection\n\n[中文](bilingual.zh.md)\n\n## Select and author\n\nResolve the delivery language without asking or pausing: explicit output instructions/applicable standing preference, then dominant request prose (ignore code IDs and quoted source). For language-neutral requests, use recent conversation, existing map language, then English. Browser locale and saved UI preferences do not decide authored language.\n\nSupport any language. Set `language` to the base language tag; single-language maps need no translations. For multiple languages, use the preferred/first-listed language as base and put others in each text-owning object's `translations.<language-tag>`. Reuse existing structure, base language and translations; add complete missing delivery translations. Infer an absent base tag from prose, using the delivery language if ambiguous. Saved translation changes increment map revision and respect active task bindings.\n\nDescribe the same inspected architecture in all languages:\n\n- Translate project/group/module names, responsibilities, relationship labels, evidence notes and nonempty `openQuestions`; preserve question order and uncertainty.\n- Keep names short and responsibilities suitable for two lines, with full text in details. Preserve proper names, IDs, paths, symbols, line numbers, enums and layout.\n- Use one map; do not invent evidence or remove existing translations unprompted. See [the complete example](../examples/bilingual.architecture.json).\n- For multilingual activity, translate every supported language's event `translations[locale].reason` and check `translations[locale].summary`; missing values fall back to original text.\n\n## Validate and display\n\n```sh\nnode <skill-root>/scripts/validate.mjs <map.json> --bilingual\nnode <skill-root>/scripts/render.mjs <map.json> <architecture.html>\n```\n\nUse `--bilingual` for Chinese/English delivery only. Single-language maps validate without it; other combinations require manual language-coverage review after structural validation. The strict check verifies architecture text coverage and question counts, not translation accuracy or activity translations. Do not claim complete Chinese/English coverage before it passes; inspect both languages' tooltips, details and relationships in the browser, and check activity coverage separately.\n\nOpen HTML with `#lang=<delivery-language-tag>`. Display priority is supported URL language, saved preference, then map base (legacy default: Chinese). Switching preserves selection, layout and zoom; missing translations use base text. The selector does not translate content or call a translation API.\n\nUI controls are bundled only in Chinese/English; other languages use English controls with authored project text. Do not claim fully localized UI for them. Right-to-left content is supported, but graph/toolbar layout remains left-to-right.",
+      "sections": [
+        {
+          "id": "source-2134f393281ce58b-s1",
+          "title": "Architecture language selection",
+          "level": 1,
+          "line": 1,
+          "endLine": 4,
+          "text": "# Architecture language selection\n\n[中文](bilingual.zh.md)\n"
+        },
+        {
+          "id": "source-2134f393281ce58b-s2",
+          "title": "Select and author",
+          "level": 2,
+          "line": 5,
+          "endLine": 17,
+          "text": "## Select and author\n\nResolve the delivery language without asking or pausing: explicit output instructions/applicable standing preference, then dominant request prose (ignore code IDs and quoted source). For language-neutral requests, use recent conversation, existing map language, then English. Browser locale and saved UI preferences do not decide authored language.\n\nSupport any language. Set `language` to the base language tag; single-language maps need no translations. For multiple languages, use the preferred/first-listed language as base and put others in each text-owning object's `translations.<language-tag>`. Reuse existing structure, base language and translations; add complete missing delivery translations. Infer an absent base tag from prose, using the delivery language if ambiguous. Saved translation changes increment map revision and respect active task bindings.\n\nDescribe the same inspected architecture in all languages:\n\n- Translate project/group/module names, responsibilities, relationship labels, evidence notes and nonempty `openQuestions`; preserve question order and uncertainty.\n- Keep names short and responsibilities suitable for two lines, with full text in details. Preserve proper names, IDs, paths, symbols, line numbers, enums and layout.\n- Use one map; do not invent evidence or remove existing translations unprompted. See [the complete example](../examples/bilingual.architecture.json).\n- For multilingual activity, translate every supported language's event `translations[locale].reason` and check `translations[locale].summary`; missing values fall back to original text.\n"
+        },
+        {
+          "id": "source-2134f393281ce58b-s3",
+          "title": "Validate and display",
+          "level": 2,
+          "line": 18,
+          "endLine": 29,
+          "text": "## Validate and display\n\n```sh\nnode <skill-root>/scripts/validate.mjs <map.json> --bilingual\nnode <skill-root>/scripts/render.mjs <map.json> <architecture.html>\n```\n\nUse `--bilingual` for Chinese/English delivery only. Single-language maps validate without it; other combinations require manual language-coverage review after structural validation. The strict check verifies architecture text coverage and question counts, not translation accuracy or activity translations. Do not claim complete Chinese/English coverage before it passes; inspect both languages' tooltips, details and relationships in the browser, and check activity coverage separately.\n\nOpen HTML with `#lang=<delivery-language-tag>`. Display priority is supported URL language, saved preference, then map base (legacy default: Chinese). Switching preserves selection, layout and zoom; missing translations use base text. The selector does not translate content or call a translation API.\n\nUI controls are bundled only in Chinese/English; other languages use English controls with authored project text. Do not claim fully localized UI for them. Right-to-left content is supported, but graph/toolbar layout remains left-to-right."
+        }
+      ],
+      "history": {
+        "complete": true,
+        "version": 1,
+        "lastEdited": "2026-09-20T13:00:56-07:00",
+        "commit": "9ecd7302963a317e225f5c7a8779f9e505906d06"
+      }
+    }
+  ]
+}

@@ -60,7 +60,7 @@ node <skill-root>/scripts/render.mjs <project-root>/.birdify/architecture.json <
 
 渲染器校验 JSON 后输出自包含 HTML，无需服务器/网络资源。不要手写替代查看器或用虚构演示充当项目地图。
 
-在可见浏览器预览中打开 HTML。Codex `open_in_codex` 使用 `browser` 目标和正确编码的文件 URL，不用 `file` 目标。Markdown 链接可能打开源码；排队请求不证明已显示，无头检查不证明用户可见标签已显示。
+在可见浏览器预览中打开 HTML。使用宿主提供的可见浏览器目标和正确编码的文件 URL，不用源码文件目标。Markdown 链接可能打开源码；排队请求不证明已显示，无头检查不证明用户可见标签已显示。
 
 在用户可用视口检查最终 HTML：
 
