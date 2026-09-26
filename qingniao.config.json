@@ -1,5 +1,8 @@
 {
   "publish": {
     "skipExisting": true
+  },
+  "version": {
+    "files": ["birdify/skill-release.json"]
   }
 }

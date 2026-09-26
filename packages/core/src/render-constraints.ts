@@ -4,7 +4,6 @@ import { buildRuleGraph } from './constraint-rule-view.js';
 import { runtimeRoot } from './runtime-root.js';
 import type { ConstraintCatalog, ConstraintGraph, ConstraintGraphNode, ConstraintSource, ReviewedConstraintCatalog, SourceHistory } from './constraint-types.js';
 
-const assets = path.join(runtimeRoot(), 'assets');
 export function buildConstraintGraph(catalog: ConstraintCatalog, { view = 'rules', sourceHref }: { view?: 'rules' | 'sources'; sourceHref?: string } = {}): ConstraintGraph {
   if (catalog.schema !== 'birdify.constraint-catalog/v1' || !catalog.project?.name || !Array.isArray(catalog.sources)
     || !catalog.coverage || !Array.isArray(catalog.references)) throw new Error('Invalid constraint catalog');
@@ -68,10 +67,12 @@ export function buildConstraintGraph(catalog: ConstraintCatalog, { view = 'rules
 
 export function renderConstraintCatalog(catalog: ConstraintCatalog, _shell?: string, options: { view?: 'rules' | 'sources'; sourceHref?: string } = {}): string {
   const payload = buildConstraintGraph(catalog, options);
+  const root = runtimeRoot();
+  const assets = path.join(root, 'assets');
   // The optional shell argument is retained for callers; rendering always uses Birdify assets.
   const read = (file: string): string => fs.readFileSync(path.join(assets, file), 'utf8').replace(/\r\n?/g, '\n');
   return read('constraint-page.html')
-    .replace('<head>', () => '<head><!--\n' + fs.readFileSync(path.join(runtimeRoot(), 'LICENSE'), 'utf8') + '\n-->')
+    .replace('<head>', () => '<head><!--\n' + fs.readFileSync(path.join(root, 'LICENSE'), 'utf8') + '\n-->')
     .replace('/* CONSTRAINT_DATA */', () => JSON.stringify(payload).replace(/</g, '\\u003c'))
     .replace('/* CONSTRAINT_CSS */', () => read('constraint-canvas.css'))
     .replace('/* CONSTRAINT_JS */', () => read('constraint-canvas.js'));

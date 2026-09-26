@@ -13,11 +13,10 @@ export interface RenderOptions {
   constraintCatalog?: ReviewedConstraintCatalog;
   constraintSourceHref?: string;
 }
-const root = runtimeRoot();
-const read = (file: string): string => fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n?/g, '\n');
-const dataUrl = (file: string, type: string): string => `data:${type};base64,${fs.readFileSync(path.join(root, file)).toString('base64')}`;
-
 export function renderArchitecture(map: unknown, events: readonly unknown[] = [], { simulation = false, repository, constraintCatalog, constraintSourceHref }: RenderOptions = {}): string {
+  const root = runtimeRoot();
+  const read = (file: string): string => fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n?/g, '\n');
+  const dataUrl = (file: string, type: string): string => `data:${type};base64,${fs.readFileSync(path.join(root, file)).toString('base64')}`;
   const result = validate(map, events);
   if (!result.ok) throw new Error(JSON.stringify(result.errors));
   const architecture = map as Architecture;

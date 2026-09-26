@@ -56,13 +56,16 @@ importers:
 
   apps/cli:
     dependencies:
+      '@sinclair/typebox':
+        specifier: 0.34.41
+        version: 0.34.41
+      ajv:
+        specifier: 8.20.0
+        version: 8.20.0
+    devDependencies:
       '@birdify/core':
         specifier: workspace:*
         version: link:../../packages/core
-    dependenciesMeta:
-      '@birdify/core':
-        injected: true
-    devDependencies:
       '@types/node':
         specifier: 22.20.4
         version: 22.20.4

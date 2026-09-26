@@ -116,11 +116,25 @@ test('vite cli bundle inlines core and keeps third-party dependencies external',
 });
 ```
 
-### 5. Verification Plan
+### 5. CLI and Skill Boundary: Designed for Agent Skills, Not Direct Human Use
+
+The CLI is an auxiliary tool designed specifically for AI coding agents invoking the Birdify skill; it is not intended for standalone human-manual use:
+- **No Skill Assets in CLI Package**: Skill assets (`birdify/assets/`) stay inside the skill payload and are NOT copied or bundled into the published CLI package.
+- **Dynamic Skill Asset Discovery**: When rendering HTML, `runtimeRoot()` locates the installed skill from:
+  1. Explicit environment variable: `BIRDIFY_SKILL_DIR`
+  2. Project-local skill directory: `./birdify`
+  3. Standard AI coding agent skill directories: `~/.gemini/antigravity-cli/skills/birdify`, `~/.claude/skills/birdify`, `~/.cursor/skills/birdify`, etc.
+  4. Repository monorepo path during development and testing.
+- **Direct Human Usage Failure**: If an unassisted human attempts direct manual execution of rendering commands without the skill installed, the CLI deliberately fails with a clear message:
+  `This CLI is designed for AI coding agents using the Birdify skill, not for direct manual use. Birdify skill assets not found. Install the skill into your agent first (e.g. npx --yes @borg0ai/birdify install).`
+- **Lazy Evaluation**: Module-level imports must not eagerly invoke asset directory resolution so that commands such as `--help`, `validate`, and `install` operate cleanly everywhere.
+
+### 6. Verification Plan
 
 1. **Build & Unit Tests**:
    - `pnpm run build`
    - `pnpm test`
+   - `pnpm --filter @borg0ai/birdify test`
 2. **Package Smoke Test**:
    - In a clean temporary directory, run `npm pack apps/cli`
    - Install the resulting `.tgz` into an isolated folder

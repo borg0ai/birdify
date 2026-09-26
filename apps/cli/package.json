@@ -8,9 +8,10 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "birdify": "./dist/birdify.mjs"
+    "birdify": "./bin/birdify.mjs"
   },
   "files": [
+    "bin",
     "dist",
     "README.md"
   ],
@@ -23,14 +24,11 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@birdify/core": "workspace:*"
-  },
-  "dependenciesMeta": {
-    "@birdify/core": {
-      "injected": true
-    }
+    "@sinclair/typebox": "0.34.41",
+    "ajv": "8.20.0"
   },
   "devDependencies": {
+    "@birdify/core": "workspace:*",
     "@types/node": "22.20.4",
     "typescript": "5.9.3",
     "vite": "6.4.3"

@@ -63,7 +63,7 @@ if (skillFiles.length !== 1 || skillFiles[0] !== 'SKILL.md') {
 
 // 5. SKILL.md frontmatter validation
 const skillText = exists('SKILL.md') ? fs.readFileSync(path.join(skillRoot, 'SKILL.md'), 'utf8') : '';
-const frontmatter = skillText.match(/^---\n([\s\S]*?)\n---/);
+const frontmatter = skillText.match(/^---\r?\n([\s\S]*?)\r?\n---/);
 const frontmatterBody = frontmatter?.[1] ?? '';
 const name = frontmatterBody.match(/^name:\s*([a-z0-9]+(?:-[a-z0-9]+)*)\s*$/m)?.[1];
 const description = frontmatterBody.match(/^description:\s*(\S[\s\S]*)$/m)?.[1];

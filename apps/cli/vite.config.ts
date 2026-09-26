@@ -5,8 +5,8 @@ import { defineConfig, type Plugin } from 'vite';
 const SHEBANG = '#!/usr/bin/env node';
 const ENTRY = 'src/birdify.ts';
 const OUT_FILE = 'birdify.mjs';
-// 工作区包和第三方运行时都不打进 CLI。TypeBox / Ajv 由 npm 安装。
-const EXTERNAL = ['@birdify/core', '@sinclair/typebox', 'ajv'];
+// 第三方运行时由 npm 安装；工作区 core 代码直接打入 CLI bundle 保持发布包自包含。
+const EXTERNAL = ['@sinclair/typebox', 'ajv'];
 const NODE_TARGET = 'node22';
 
 function resolveTsSpecifier(): Plugin {
