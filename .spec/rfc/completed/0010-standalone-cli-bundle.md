@@ -1,6 +1,6 @@
 # RFC 0010: Standalone CLI Bundle for `@borg0ai/birdify`
 
-**Status:** Proposed
+**Status:** Implemented
 
 ## Summary
 
