@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "mapId": "birdify-architecture",
-  "revision": 1,
+  "mapId": "birdify-monorepo-architecture",
+  "revision": 2,
   "language": "en",
   "project": {
     "id": "birdify",
-    "name": "Birdify - Architecture-first Visibility for AI Coding Agents",
+    "name": "birdify",
     "translations": {
       "zh": {
         "name": "Birdify - 面向 AI 编程智能体的架构优先可视化工具"
@@ -16,27 +16,27 @@
     {
       "id": "cli",
       "role": "backend",
-      "name": "Birdify CLI & Doctor",
+      "name": "Birdify CLI",
       "kind": "local",
-      "responsibility": "Command-line entry point for mode management, installation setup, runtime verification (doctor), and diagnostic checks.",
+      "responsibility": "Command-line tool providing mode management, setup, doctor checks, schema validation, and HTML snapshot rendering.",
       "ownership": [
         {
           "kind": "file",
-          "path": "birdify/scripts/birdify.mjs"
+          "path": "apps/cli/src/birdify.ts"
         },
         {
           "kind": "file",
-          "path": "src/birdify.mts"
+          "path": "apps/cli/src/commands/project.ts"
         }
       ],
       "evidence": [
         {
-          "path": "birdify/scripts/birdify.mjs",
+          "path": "apps/cli/src/birdify.ts",
           "symbol": "main",
-          "note": "CLI command dispatcher for mode, setup, uninstall, and doctor commands.",
+          "note": "CLI command dispatcher calling @birdify/core commands.",
           "translations": {
             "zh": {
-              "note": "用于 mode、setup、uninstall 与 doctor 命令的命令行入口分发器。"
+              "note": "调用 @birdify/core 核心能力的命令行入口分发器。"
             }
           }
         }
@@ -45,8 +45,8 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "Birdify 命令行与体检工具",
-          "responsibility": "命令行管理入口，负责模式设置、安装初始化、运行时体检与诊断。"
+          "name": "Birdify 命令行工具",
+          "responsibility": "面向用户的命令行工具，负责模式设置、安装初始化、体检诊断、规范校验与 HTML 快照渲染。"
         }
       },
       "layout": {
@@ -55,29 +55,33 @@
       }
     },
     {
-      "id": "validator",
+      "id": "core",
       "role": "backend",
-      "name": "Schema & Graph Validator",
+      "name": "Birdify Core Runtime",
       "kind": "local",
-      "responsibility": "Validates architecture JSON and activity JSONL against JSON Schemas and cross-record semantic invariants.",
+      "responsibility": "Core runtime providing contract models, Ajv validation, SVG renderer, and constraint discovery/compiler.",
       "ownership": [
         {
           "kind": "file",
-          "path": "birdify/scripts/validate.mjs"
+          "path": "packages/core/src/index.ts"
         },
         {
           "kind": "file",
-          "path": "src/validate.mts"
+          "path": "packages/core/src/render.ts"
+        },
+        {
+          "kind": "file",
+          "path": "packages/core/src/validate.ts"
         }
       ],
       "evidence": [
         {
-          "path": "birdify/scripts/validate.mjs",
-          "symbol": "validate",
-          "note": "Validates JSON Schema conformity and cross-record invariants (e.g. sequence, targets, path safety).",
+          "path": "packages/core/src/index.ts",
+          "symbol": "renderArchitecture",
+          "note": "Shared package exporting contract schemas, rendering engine, and constraint utilities.",
           "translations": {
             "zh": {
-              "note": "校验 JSON Schema 规范及跨记录语义不变量（如序号、目标、路径安全）。"
+              "note": "导出数据契约规范、渲染引擎与规则提取工具的核心共享包。"
             }
           }
         }
@@ -86,8 +90,8 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "模式与图校验器",
-          "responsibility": "校验架构 JSON 与活动 JSONL 的 Schema 规范及跨记录语义不变量。"
+          "name": "Birdify 核心运行时",
+          "responsibility": "提供 TypeBox 数据契约模型、Ajv 校验引擎、SVG 图快照渲染与规则提取/编译器。"
         }
       },
       "layout": {
@@ -96,33 +100,42 @@
       }
     },
     {
-      "id": "contracts",
-      "role": "database",
-      "name": "Data Contracts & Schemas",
+      "id": "skill-payload",
+      "role": "generic",
+      "roleAssessment": {
+        "basis": "out-of-taxonomy",
+        "note": "Static skill package for agent hosts delivering prompt rules and schemas rather than a process role.",
+        "translations": {
+          "zh": {
+            "note": "面向智能体宿主的静态技能资源包，提供提示词规则与数据规范。"
+          }
+        }
+      },
+      "name": "Birdify Skill Payload",
       "kind": "local",
-      "responsibility": "Defines TypeBox schemas and exports JSON Schemas for architecture, activity timeline, and constraints.",
+      "responsibility": "Installable agent skill payload delivering SKILL.md, JSON schemas, release manifest, and compiled viewer assets.",
       "ownership": [
         {
           "kind": "file",
+          "path": "birdify/SKILL.md"
+        },
+        {
+          "kind": "file",
+          "path": "birdify/skill-release.json"
+        },
+        {
+          "kind": "file",
           "path": "birdify/schemas/architecture.schema.json"
-        },
-        {
-          "kind": "file",
-          "path": "birdify/schemas/activity.schema.json"
-        },
-        {
-          "kind": "file",
-          "path": "src/contracts/models.mts"
         }
       ],
       "evidence": [
         {
-          "path": "src/contracts/models.mts",
-          "symbol": "Architecture",
-          "note": "TypeBox source definition of the canonical Birdify architecture contract.",
+          "path": "birdify/SKILL.md",
+          "symbol": "Birdify",
+          "note": "Skill entrypoint declaring activation modes and architecture mapping workflow.",
           "translations": {
             "zh": {
-              "note": "Birdify 标准架构契约的 TypeBox 源码定义。"
+              "note": "技能入口文档，声明激活模式与架构地图映射流程。"
             }
           }
         }
@@ -131,8 +144,8 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "数据契约与模式规范",
-          "responsibility": "定义 TypeBox 契约模型并导出架构图、活动记录与约束规则的 JSON Schema。"
+          "name": "Birdify 技能包载荷",
+          "responsibility": "可分发的智能体技能资源包，包含 SKILL.md、JSON Schema 契约、发布元数据与已编译查看器资源。"
         }
       },
       "layout": {
@@ -141,33 +154,33 @@
       }
     },
     {
-      "id": "renderer",
-      "role": "backend",
-      "name": "HTML Snapshot Renderer",
+      "id": "viewer-template",
+      "role": "frontend",
+      "name": "Viewer Template Source",
       "kind": "local",
-      "responsibility": "Validates inputs, embeds graph data and viewer scripts into self-contained, zero-dependency HTML snapshots.",
+      "responsibility": "Interactive viewer UI source in TypeScript, providing canvas routing, dark/light themes, and bilingual support.",
       "ownership": [
         {
           "kind": "file",
-          "path": "birdify/scripts/render.mjs"
+          "path": "templates/viewer/main.ts"
         },
         {
           "kind": "file",
-          "path": "src/render.mts"
+          "path": "templates/viewer/constraint-canvas.ts"
         },
         {
           "kind": "file",
-          "path": "birdify/assets/architecture.html"
+          "path": "templates/viewer/theme.ts"
         }
       ],
       "evidence": [
         {
-          "path": "birdify/scripts/render.mjs",
-          "symbol": "render",
-          "note": "Combines template HTML, CSS, client scripts and validated architecture JSON into a single file.",
+          "path": "templates/viewer/main.ts",
+          "symbol": "init",
+          "note": "Interactive browser runtime providing SVG bezier routes, filtering, and constraint graphs.",
           "translations": {
             "zh": {
-              "note": "将 HTML 模板、CSS、前端脚本与已校验架构 JSON 合成单文件 HTML。"
+              "note": "交互式浏览器运行时，提供贝塞尔连线路由、筛选与约束图画布。"
             }
           }
         }
@@ -176,8 +189,8 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "HTML 快照渲染器",
-          "responsibility": "校验输入并将图数据与前端脚本打包为零依赖的单文件独立 HTML 快照。"
+          "name": "查看器模板源码",
+          "responsibility": "交互式前端查看器 TypeScript 源码，实现画布路由连线、明暗主题与双语控制。"
         }
       },
       "layout": {
@@ -186,33 +199,38 @@
       }
     },
     {
-      "id": "constraint-engine",
-      "role": "backend",
-      "name": "Constraint Engine",
+      "id": "dev-tooling",
+      "role": "generic",
+      "roleAssessment": {
+        "basis": "out-of-taxonomy",
+        "note": "Internal developer tooling CLI that bundles viewer assets and validates freshness against templates.",
+        "translations": {
+          "zh": {
+            "note": "仓库内部构建与脚手架工具 CLI，负责编译前端资源并校验与模板的一致性。"
+          }
+        }
+      },
+      "name": "Birdify Dev Tooling",
       "kind": "local",
-      "responsibility": "Discovers, compiles, checks freshness, and tracks history of repository constraints and local instruction rules.",
+      "responsibility": "Internal dev CLI compiling viewer templates into birdify/assets and validating asset synchronization.",
       "ownership": [
         {
           "kind": "file",
-          "path": "birdify/scripts/discover-constraints.mjs"
+          "path": "toolings/birdify-dev/src/birdify-dev.ts"
         },
         {
           "kind": "file",
-          "path": "birdify/scripts/compile-constraint-rules.mjs"
-        },
-        {
-          "kind": "file",
-          "path": "birdify/scripts/render-constraints.mjs"
+          "path": "toolings/birdify-dev/src/commands/build-viewer.ts"
         }
       ],
       "evidence": [
         {
-          "path": "birdify/scripts/discover-constraints.mjs",
-          "symbol": "discover",
-          "note": "Discovers effective instructions and rule sections across project markdown files.",
+          "path": "toolings/birdify-dev/src/commands/build-viewer.ts",
+          "symbol": "buildViewer",
+          "note": "Bundles templates/viewer into birdify/assets/ using esbuild and syncs Lucide icons.",
           "translations": {
             "zh": {
-              "note": "在项目 Markdown 文件中检索并提取生效指令与约束规则。"
+              "note": "使用 esbuild 将 templates/viewer 编译打包到 birdify/assets/ 并同步图标。"
             }
           }
         }
@@ -221,88 +239,43 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "约束规则引擎",
-          "responsibility": "检索、编译、检查时效性并追踪仓库约束规则与本地指令历史。"
+          "name": "开发脚手架工具",
+          "responsibility": "仓库内部开发 CLI，将查看器模板编译至 birdify/assets 并校验资源同步一致性。"
         }
       },
       "layout": {
         "row": 1,
         "column": 1
-      }
-    },
-    {
-      "id": "viewer-ui",
-      "role": "frontend",
-      "name": "Viewer UI & Canvas",
-      "kind": "local",
-      "responsibility": "Interactive browser visualization with card routing, dark/light themes, relationship filters, and dual-language controls.",
-      "ownership": [
-        {
-          "kind": "file",
-          "path": "birdify/assets/viewer.js"
-        },
-        {
-          "kind": "file",
-          "path": "birdify/assets/theme.js"
-        },
-        {
-          "kind": "file",
-          "path": "birdify/assets/constraint-canvas.js"
-        }
-      ],
-      "evidence": [
-        {
-          "path": "birdify/assets/viewer.js",
-          "symbol": "init",
-          "note": "Client-side runtime handling SVG route rendering, selection, inspector panel, and filters.",
-          "translations": {
-            "zh": {
-              "note": "负责 SVG 路由连线渲染、模块选中、侧边详情面板与筛选的前端运行时。"
-            }
-          }
-        }
-      ],
-      "status": "supported",
-      "openQuestions": [],
-      "translations": {
-        "zh": {
-          "name": "查看器界面与画布",
-          "responsibility": "交互式浏览器可视化画布，支持连线路由、明暗主题、关系筛选与双语切换。"
-        }
-      },
-      "layout": {
-        "row": 2,
-        "column": 0
       }
     },
     {
       "id": "site-app",
       "role": "frontend",
-      "name": "Landing Site Application",
+      "name": "Official Landing Site",
       "kind": "local",
-      "responsibility": "Static product showcase website and documentation portal built for GitHub Pages deployment.",
+      "responsibility": "Vue 3 landing page application built with Vite for GitHub Pages showcasing Birdify features.",
       "ownership": [
         {
           "kind": "file",
+          "path": "apps/site/src/App.vue"
+        },
+        {
+          "kind": "file",
+          "path": "apps/site/src/main.ts"
+        },
+        {
+          "kind": "file",
           "path": "apps/site/index.html"
-        },
-        {
-          "kind": "file",
-          "path": "apps/site/src/main.mts"
-        },
-        {
-          "kind": "file",
-          "path": "apps/site/site.css"
         }
       ],
       "evidence": [
         {
-          "path": "apps/site/src/main.mts",
-          "symbol": "main",
-          "note": "Client runtime script for language switching, installer copy buttons, and theme toggling on the product site.",
+          "path": "apps/site/src/App.vue",
+          "symbol": "App",
+          "note": "Vue 3 single page application with cyberpunk night city visual styling and interactive installation tabs.",
           "translations": {
             "zh": {
-              "note": "官网前端交互脚本，支持中英文切换、安装命令复制与主题切换。"
+              "note": "采用夜之城赛博朋克视觉风格的 Vue 3 单页应用，提供交互式安装指引。"
             }
           }
         }
@@ -311,32 +284,32 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "name": "官网与发布站点应用",
-          "responsibility": "用于 GitHub Pages 部署的静态产品介绍页面与文档门户应用。"
+          "name": "官方网站应用",
+          "responsibility": "基于 Vue 3 + Vite 构建的静态官网，用于 GitHub Pages 部署并呈现 Birdify 功能与安装指引。"
         }
       },
       "layout": {
-        "row": 2,
-        "column": 1
+        "row": 1,
+        "column": 2
       }
     }
   ],
   "relationships": [
     {
-      "id": "rel-cli-to-validator",
+      "id": "rel-cli-to-core",
       "from": "cli",
-      "to": "validator",
-      "kind": "request",
+      "to": "core",
+      "kind": "dependency",
       "visibility": "overview",
-      "label": "validates inputs",
+      "label": "invokes core API",
       "evidence": [
         {
-          "path": "birdify/scripts/birdify.mjs",
-          "symbol": "doctor",
-          "note": "CLI runs doctor command using validator script.",
+          "path": "apps/cli/src/commands/validate.ts",
+          "symbol": "checkArchitecture",
+          "note": "CLI commands import and execute validators and renderers from @birdify/core.",
           "translations": {
             "zh": {
-              "note": "CLI doctor 命令调用校验器脚本验证安装。"
+              "note": "CLI 命令导入并执行 @birdify/core 的校验器与渲染器。"
             }
           }
         }
@@ -345,25 +318,52 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "label": "调用校验"
+          "label": "调用核心 API"
         }
       }
     },
     {
-      "id": "rel-cli-to-renderer",
-      "from": "cli",
-      "to": "renderer",
+      "id": "rel-core-to-skill",
+      "from": "core",
+      "to": "skill-payload",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "embeds templates and schemas",
+      "evidence": [
+        {
+          "path": "packages/core/src/render.ts",
+          "symbol": "renderArchitecture",
+          "note": "Core renderer embeds skill viewer assets into self-contained HTML.",
+          "translations": {
+            "zh": {
+              "note": "核心渲染器将技能包的查看器静态资源内嵌到独立 HTML 快照。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "内嵌前端资源与规范"
+        }
+      }
+    },
+    {
+      "id": "rel-dev-to-viewer",
+      "from": "dev-tooling",
+      "to": "viewer-template",
       "kind": "control",
       "visibility": "overview",
-      "label": "triggers render",
+      "label": "compiles viewer source",
       "evidence": [
         {
-          "path": "birdify/scripts/birdify.mjs",
-          "symbol": "render",
-          "note": "CLI triggers renderer for generating previews.",
+          "path": "toolings/birdify-dev/src/commands/build-viewer.ts",
+          "symbol": "buildViewer",
+          "note": "Birdify-dev compiles templates/viewer into client assets.",
           "translations": {
             "zh": {
-              "note": "CLI 触发渲染器生成架构预览。"
+              "note": "Birdify-dev 编译 templates/viewer 源码为浏览器端可执行脚本。"
             }
           }
         }
@@ -372,25 +372,25 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "label": "触发渲染"
+          "label": "编译查看器源码"
         }
       }
     },
     {
-      "id": "rel-renderer-to-validator",
-      "from": "renderer",
-      "to": "validator",
-      "kind": "request",
+      "id": "rel-dev-to-skill",
+      "from": "dev-tooling",
+      "to": "skill-payload",
+      "kind": "control",
       "visibility": "overview",
-      "label": "verifies schema",
+      "label": "outputs compiled assets",
       "evidence": [
         {
-          "path": "birdify/scripts/render.mjs",
-          "symbol": "validate",
-          "note": "Renderer verifies schema validity before emitting HTML.",
+          "path": "toolings/birdify-dev/src/commands/build-viewer.ts",
+          "symbol": "buildViewer",
+          "note": "Writes compiled viewer.js and theme.js directly to birdify/assets/.",
           "translations": {
             "zh": {
-              "note": "渲染器在输出 HTML 前校验架构数据规范。"
+              "note": "将编译后的 viewer.js 和 theme.js 直接输出至 birdify/assets/。"
             }
           }
         }
@@ -399,133 +399,25 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "label": "校验数据规范"
+          "label": "输出产物至技能包"
         }
       }
     },
     {
-      "id": "rel-renderer-to-viewer-ui",
-      "from": "renderer",
-      "to": "viewer-ui",
-      "kind": "dependency",
-      "visibility": "overview",
-      "label": "embeds UI assets",
-      "evidence": [
-        {
-          "path": "birdify/scripts/render.mjs",
-          "symbol": "render",
-          "note": "Renderer bundles viewer JS, styles, and SVG icons into standalone HTML.",
-          "translations": {
-            "zh": {
-              "note": "渲染器将查看器 JS、样式与 SVG 图标打包进独立 HTML。"
-            }
-          }
-        }
-      ],
-      "status": "supported",
-      "openQuestions": [],
-      "translations": {
-        "zh": {
-          "label": "内嵌前端资源"
-        }
-      }
-    },
-    {
-      "id": "rel-renderer-to-contracts",
-      "from": "renderer",
-      "to": "contracts",
-      "kind": "dependency",
-      "visibility": "overview",
-      "label": "reads data models",
-      "evidence": [
-        {
-          "path": "birdify/scripts/render.mjs",
-          "symbol": "imports",
-          "note": "Renderer imports schema contracts for validating models.",
-          "translations": {
-            "zh": {
-              "note": "渲染器引入数据契约以校验数据模型。"
-            }
-          }
-        }
-      ],
-      "status": "supported",
-      "openQuestions": [],
-      "translations": {
-        "zh": {
-          "label": "读取数据模型"
-        }
-      }
-    },
-    {
-      "id": "rel-validator-to-contracts",
-      "from": "validator",
-      "to": "contracts",
-      "kind": "dependency",
-      "visibility": "overview",
-      "label": "enforces contracts",
-      "evidence": [
-        {
-          "path": "birdify/scripts/validate.mjs",
-          "symbol": "imports",
-          "note": "Validator loads JSON Schema contracts.",
-          "translations": {
-            "zh": {
-              "note": "校验器加载 JSON Schema 契约定义。"
-            }
-          }
-        }
-      ],
-      "status": "supported",
-      "openQuestions": [],
-      "translations": {
-        "zh": {
-          "label": "依据契约校验"
-        }
-      }
-    },
-    {
-      "id": "rel-constraint-to-renderer",
-      "from": "constraint-engine",
-      "to": "renderer",
-      "kind": "dependency",
-      "visibility": "overview",
-      "label": "provides rule graph",
-      "evidence": [
-        {
-          "path": "birdify/scripts/render-constraints.mjs",
-          "symbol": "render",
-          "note": "Constraint renderer formats rule catalog into interactive canvas view.",
-          "translations": {
-            "zh": {
-              "note": "约束渲染器将规则目录排版为交互式画布视图。"
-            }
-          }
-        }
-      ],
-      "status": "supported",
-      "openQuestions": [],
-      "translations": {
-        "zh": {
-          "label": "提供规则图谱"
-        }
-      }
-    },
-    {
-      "id": "rel-site-to-viewer-ui",
+      "id": "rel-site-to-skill",
       "from": "site-app",
-      "to": "viewer-ui",
+      "to": "skill-payload",
       "kind": "dependency",
-      "visibility": "detail",
-      "label": "shares brand styling",
+      "visibility": "overview",
+      "label": "documents skill commands",
       "evidence": [
         {
-          "path": "apps/site/site.css",
-          "symbol": "styles",
-          "note": "Site styling matches viewer color scheme and brand tokens.",
+          "path": "apps/site/src/content.ts",
+          "symbol": "installSteps",
+          "note": "Official site documents skill installation and npx commands.",
           "translations": {
             "zh": {
-              "note": "网站样式与查看器采用统一的设计系统与品牌色彩。"
+              "note": "官网文档展示技能包安装命令与 npx 调用方式。"
             }
           }
         }
@@ -534,7 +426,7 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "label": "共用设计规范"
+          "label": "展示技能命令与规范"
         }
       }
     }

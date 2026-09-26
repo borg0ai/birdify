@@ -9,3 +9,4 @@ RFC proposals and delivery status.
 | 0005 | [Build only the selected test suite](rfc/0005-selective-test-build.md) | Withdrawn |
 | 0006 | [CLI-first Birdify skill delivery](rfc/0006-cli-first-skill-delivery.md) | Draft |
 | 0007 | [Rebuild Birdify Site with Vue and Night City Theme](rfc/0007-vue-night-city-site.md) | Draft |
+| 0009 | [CLI command to install the Birdify skill globally](rfc/0009-cli-install-global-skill.md) | Implemented |

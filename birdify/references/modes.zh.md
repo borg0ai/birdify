@@ -8,6 +8,20 @@ Birdify 默认按需调用，默认 `on-demand`。用户选择技能、明确要
 
 使用宿主提供的技能选择器或明确请求 Birdify。不同宿主的斜杠命令不属于 Birdify 契约。调用作用于当前任务。仅讨论 Birdify 不会启动建图。
 
+## 安装技能
+
+```sh
+npx --yes @borg0ai/birdify install
+```
+
+这会把技能装进每个已检测到的 agent 的全局技能目录。它运行：
+
+```sh
+npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes
+```
+
+它不写 `AGENTS.md`。项目模式仍用 `setup` 和 `mode`。退出成功只等于 `skills` CLI 的状态，不表示检查过技能目录是否存在。
+
 ## 配置与迁移
 
 ```sh

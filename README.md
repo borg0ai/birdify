@@ -23,7 +23,13 @@ Birdify asks AI coding agents to map project architecture and declare affected m
 ### Install Skill
 
 ```sh
-npx skills add borg0ai/birdify --skill birdify
+npx --yes @borg0ai/birdify install
+```
+
+That installs the skill into each detected agent's global skills directory. It runs:
+
+```sh
+npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes
 ```
 
 ### Usage

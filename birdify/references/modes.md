@@ -8,6 +8,20 @@ Birdify is on-demand by default, defaulting to `on-demand`. It runs when the use
 
 Use the host skill selector or explicitly request Birdify. Slash-command support is host-defined. Invocation applies to the current task. Merely discussing Birdify does not start mapping.
 
+## Skill installation
+
+```sh
+npx --yes @borg0ai/birdify install
+```
+
+This installs the agent skill into each detected agent's global skills directory. It runs:
+
+```sh
+npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes
+```
+
+It does not write `AGENTS.md`. Project mode remains `setup` and `mode`. A successful exit is the `skills` CLI status, not a check that the skill directory exists.
+
 ## Configuration and migration
 
 ```sh

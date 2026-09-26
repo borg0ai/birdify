@@ -62,6 +62,8 @@ When integrating constraints into an existing architecture page, use `npx --yes 
 
 Run the published CLI with Node.js 22 or newer. `npx` needs network access the first time. Installing this skill does not install the CLI. Data paths are relative to the user's project root.
 
+Install this skill into each detected agent's global skills directory with `npx --yes @borg0ai/birdify install`. That runs `npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes`. Project mode remains `setup` and `mode`. The command does not write `AGENTS.md`, and a successful exit does not prove the skill directory was checked.
+
 ```sh
 npx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl
 ```

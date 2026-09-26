@@ -23,7 +23,13 @@ Birdify 要求 AI Agent 在修改代码前先梳理项目架构并声明受影�
 ### 安装 Skill
 
 ```sh
-npx skills add borg0ai/birdify --skill birdify
+npx --yes @borg0ai/birdify install
+```
+
+这会把技能装进每个已检测到的 agent 的全局技能目录。它实际运行：
+
+```sh
+npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes
 ```
 
 ### 使用方式

@@ -56,6 +56,8 @@ Birdify 已激活且用户要求评估架构或寻找重构机会时，在阶段
 
 用 Node.js 22 或更新版本运行已发布的 CLI。首次 `npx` 需要网络。安装本技能不会安装 CLI。数据路径相对于用户项目根目录。
 
+用 `npx --yes @borg0ai/birdify install` 把本技能装进每个已检测到的 agent 的全局技能目录。它运行 `npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes`。项目模式仍用 `setup` 和 `mode`。该命令不写 `AGENTS.md`，退出成功也不表示事后检查过技能目录。
+
 ```sh
 npx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl
 ```

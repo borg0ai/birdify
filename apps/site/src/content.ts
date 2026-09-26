@@ -1,4 +1,4 @@
-export const INSTALL_COMMAND = 'npx skills add borg0ai/birdify --skill birdify --global --copy --yes';
+export const INSTALL_COMMAND = "npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes";
 export const CHECK_COMMAND = 'npx --yes @borg0ai/birdify doctor';
 export const GITHUB_URL = 'https://github.com/borg0ai/birdify';
 export const DEMO_URL = 'https://github.com/borg0ai/birdify/blob/main/birdify/examples/harness-activity.html';

@@ -1,4 +1,5 @@
 import { runCompileRules, runDiscover, runFreshness, runRenderConstraints } from './commands/constraints.js';
+import { runInstall } from './commands/install.js';
 import { runProjectCommand } from './commands/project.js';
 import { runRender } from './commands/render.js';
 import { runValidate } from './commands/validate.js';
@@ -6,6 +7,7 @@ import { runValidate } from './commands/validate.js';
 const HELP = `Usage: birdify <command> [arguments]
 
 Commands:
+  install
   doctor
   mode [auto|on-demand|off] [--project <root>]
   setup [--project <root>]
@@ -17,7 +19,8 @@ Commands:
   compile-rules catalog.json reviewed-rules.json output.json [repository]
   freshness architecture.json repository-root
 
-Requires Node.js 22 or newer. npx --yes @borg0ai/birdify <command> downloads this package when it is not installed.`;
+Requires Node.js 22 or newer. npx --yes @borg0ai/birdify <command> downloads this package when it is not installed.
+install places the birdify agent skill in each detected agent's global skills directory. It does not write AGENTS.md.`;
 
 try {
   const args = process.argv.slice(2);
@@ -36,6 +39,8 @@ try {
     runCompileRules(args);
   } else if (command === 'freshness') {
     runFreshness(args);
+  } else if (command === 'install') {
+    runInstall(args);
   } else if (['doctor', 'mode', 'setup', 'uninstall'].includes(command)) {
     runProjectCommand(command, args);
   } else {

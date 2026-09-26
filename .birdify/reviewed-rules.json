@@ -1,0 +1,114 @@
+{
+  "revision": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+  "scope": "提炼当前仓库根目录 AGENTS.md 与 CONTRIBUTING.md 中的核心开发、触发、确认与贡献规则",
+  "groups": [
+    {
+      "sourcePath": "AGENTS.md",
+      "category": "lifecycle",
+      "topic": {
+        "id": "foundation",
+        "name": "开发基础原则"
+      },
+      "rules": [
+        {
+          "id": "rule-read-before-edit",
+          "name": "改前查阅实现与调用方",
+          "anchor": "For every authorized coding task",
+          "condition": "执行任何已授权的代码修改任务时",
+          "explanation": "在修改前必须阅读相关实现、调用方和适用的设计决策；保持变更聚焦，避免无具体价值的抽象。",
+          "verification": "检查任务执行步骤，核对相关源码调用方与设计决策的检索记录。"
+        }
+      ]
+    },
+    {
+      "sourcePath": "AGENTS.md",
+      "category": "interfaces",
+      "topic": {
+        "id": "activation",
+        "name": "触发与调用界限"
+      },
+      "rules": [
+        {
+          "id": "rule-on-demand-trigger",
+          "name": "按需显式激活技能",
+          "anchor": "Use the Birdify skill only when the user explicitly invokes it",
+          "condition": "用户未配置 auto 模式且未要求看图时",
+          "explanation": "仅在用户通过宿主技能选择器显式调用、指名 Birdify 或明确要求改前看图时才激活技能；普通日常编码任务不自动激活。",
+          "verification": "核对任务触发上下文，确认技能仅在符合条件时激活。"
+        }
+      ]
+    },
+    {
+      "sourcePath": "AGENTS.md",
+      "category": "delivery",
+      "topic": {
+        "id": "approval",
+        "name": "变更确认关卡"
+      },
+      "rules": [
+        {
+          "id": "rule-confirm-before-implementation",
+          "name": "改前展示地图并等待确认",
+          "anchor": "After displaying the map and concrete change plan, wait for user confirmation before implementation",
+          "condition": "技能激活并完成地图与变更计划分析后",
+          "explanation": "在实施前必须展示可视化地图预览与具体修改计划，并等待用户明确确认；准备产物被允许，但未经确认禁止修改代码。",
+          "verification": "检查对话记录，确认在用户给出明确许可前未触发代码写操作。"
+        }
+      ]
+    },
+    {
+      "sourcePath": "CONTRIBUTING.md",
+      "category": "delivery",
+      "topic": {
+        "id": "git-conventions",
+        "name": "版本控制与提交"
+      },
+      "rules": [
+        {
+          "id": "rule-bilingual-commit",
+          "name": "遵循中英双语规范提交信息",
+          "anchor": "Use Conventional Commit titles:",
+          "condition": "向仓库提交 Git Commit 时",
+          "explanation": "使用约定式提交格式：`type(scope): 中文说明 / English summary`，提交前审查 diff 并执行对应检查。",
+          "verification": "检查提交日志，验证 Commit Title 格式是否满足中英双语规范。"
+        }
+      ]
+    },
+    {
+      "sourcePath": "CONTRIBUTING.md",
+      "category": "configuration",
+      "topic": {
+        "id": "documentation",
+        "name": "双语文档对齐"
+      },
+      "rules": [
+        {
+          "id": "rule-pair-documentation",
+          "name": "保持中英双语文档同步",
+          "anchor": "Pair English and Chinese Markdown under root",
+          "condition": "修改或新增 docs/ 或 birdify/ 下的 Markdown 文档时",
+          "explanation": "中英文文档成对维护，链接、命令、标识符保持等价，修改后运行 check:docs 验证哈希记录。",
+          "verification": "运行 pnpm run check:docs，确保所有双语文档校验通过。"
+        }
+      ]
+    },
+    {
+      "sourcePath": "CONTRIBUTING.md",
+      "category": "testing",
+      "topic": {
+        "id": "build-integrity",
+        "name": "构建与产物完整性"
+      },
+      "rules": [
+        {
+          "id": "rule-no-direct-edit-generated",
+          "name": "禁止直接修改生成代码",
+          "anchor": "Do not edit generated files directly.",
+          "condition": "维护查看器前端脚本与契约模式时",
+          "explanation": "生成的 JavaScript 与 JSON Schema 必须由 TypeScript 源码构建重新生成，严禁手工直接修改产物。",
+          "verification": "运行 pnpm run check:build，比对生成产物与 TypeScript 编译器输出一致性。"
+        }
+      ]
+    }
+  ]
+}
