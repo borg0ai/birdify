@@ -12,13 +12,13 @@ export const ruleCategories = [
 
 // Same role meanings and dark/light tokens as architecture.js / architecture.html.
 export const constraintRoles: Record<ConstraintRole, { name: string; dark: string[]; light: string[] }> = {
-  frontend: { name: '前端', dark: ['#a8d7f3', '#273744', '#557f9e'], light: ['#2169a8', '#e8f3ff', '#3781c5'] },
-  backend: { name: '后端', dark: ['#a1e2ce', '#203b37', '#497e70'], light: ['#087a58', '#dff5eb', '#129870'] },
-  cache: { name: '缓存', dark: ['#8bddea', '#193c43', '#448e9d'], light: ['#087e93', '#dff6fa', '#1596ad'] },
-  database: { name: '数据存储', dark: ['#d1b9f4', '#342d46', '#806aab'], light: ['#763bc8', '#eee6ff', '#8b51de'] },
-  queue: { name: '任务与队列', dark: ['#ead096', '#3b3324', '#897243'], light: ['#b06b08', '#fff2da', '#d18a17'] },
-  security: { name: '安全', dark: ['#edb7cb', '#3e2c34', '#916276'], light: ['#bf3058', '#ffebf0', '#df4a72'] },
-  generic: { name: '通用', dark: ['#c0d6df', '#303b40', '#718892'], light: ['#526780', '#edf0f5', '#7b8ba4'] },
+  frontend: { name: '前端', dark: ['#38bdf8', '#081d33', '#1d578a'], light: ['#2169a8', '#e8f3ff', '#3781c5'] },
+  backend: { name: '后端', dark: ['#00f0ff', '#082223', '#0d6964'], light: ['#087a58', '#dff5eb', '#129870'] },
+  cache: { name: '缓存', dark: ['#22d3ee', '#07222c', '#12637a'], light: ['#087e93', '#dff6fa', '#1596ad'] },
+  database: { name: '数据存储', dark: ['#c084fc', '#1d1135', '#6b359e'], light: ['#763bc8', '#eee6ff', '#8b51de'] },
+  queue: { name: '任务与队列', dark: ['#fbbf24', '#261a06', '#805b12'], light: ['#b06b08', '#fff2da', '#d18a17'] },
+  security: { name: '安全', dark: ['#fb7185', '#290d1c', '#82224b'], light: ['#bf3058', '#ffebf0', '#df4a72'] },
+  generic: { name: '通用', dark: ['#94a3b8', '#121b2b', '#3b506d'], light: ['#526780', '#edf0f5', '#7b8ba4'] },
 };
 
 export function buildRuleGraph(catalog: ReviewedConstraintCatalog, sourceHref?: string): ConstraintGraph {
