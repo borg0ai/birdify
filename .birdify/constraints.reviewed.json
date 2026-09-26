@@ -2,10 +2,10 @@
   "schema": "birdify.constraint-catalog/v1",
   "project": {
     "name": "birdify",
-    "revision": "5f00b04a96fdc864f61c108d7f1a950b93c72800"
+    "revision": "181743c77d6c53783d7f69da42580b8fb82e2db0"
   },
   "coverage": {
-    "checkedAt": "2026-09-26T20:43:56.892Z",
+    "checkedAt": "2026-09-26T22:35:07.396Z",
     "snapshot": "committed-HEAD",
     "shallow": false,
     "entries": [
@@ -165,6 +165,11 @@
       "target": "references/bilingual.md"
     },
     {
+      "from": "birdify/SKILL.md",
+      "to": "AGENTS.md",
+      "target": "AGENTS.md"
+    },
+    {
       "from": "birdify/references/modes.md",
       "to": "birdify/references/modes.zh.md",
       "target": "modes.zh.md"
@@ -308,7 +313,7 @@
       "scope": ".",
       "discoveredFrom": null,
       "applicability": "unreviewed",
-      "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.\n\n<!-- birdify:mode:start -->\nBirdify mode: on-demand\nBirdify foundation: on\nFor every authorized coding task, even when the Birdify skill is not activated: read related implementations, callers and applicable design decisions before editing. Resolve questions from source; ask only about material unresolved choices. Keep changes focused and avoid abstractions without concrete benefit. For bug fixes, establish reproduction or concrete failure evidence; favor tests of observable behavior. Verify the original request and report actual checks and limitations honestly. When coordinating with other agents, inspect existing shared task records, record time, base commit and scope there, and clear only your own temporary claims on completion.\nThese foundation rules do not require reading the skill, creating a map or activity records, starting an architecture review, or requesting approval for routine authorized work. Follow the host's instruction precedence and explicit user directions. The mode below controls the architecture-map workflow only.\nUse the Birdify skill only when the user explicitly invokes it through the host skill selector, names Birdify, or asks to see an architecture/change map before editing (for example: 改前先看图). Ordinary coding or feature-planning requests do not activate Birdify.\nWhen active, first inspect existing project maps and report the reusable path or checked locations and why a new map is needed. Follow the skill to validate/reuse the map, preview it, and declare affected modules before editing.\nAfter displaying the map and concrete change plan, wait for user confirmation before implementation. Preparing map and plan artifacts is allowed beforehand. Reuse confirmation of the same displayed plan; confirm material scope changes. Auto mode is not approval. Honor an explicit task-specific waiver.\nPlanning alone does not authorize code edits or fabricated activity. A one-task request overrides this mode for that task without changing this block. If the skill is unavailable, report it rather than claim its workflow ran.\nThis is agent guidance, not a filesystem write interceptor. Preserve all instructions outside this managed block.\n<!-- birdify:mode:end -->",
+      "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.\n\n<!-- birdify:mode:start -->\nBirdify mode: auto\nBirdify foundation: on\nFor every authorized coding task, even when the Birdify skill is not activated: read related implementations, callers and applicable design decisions before editing. Resolve questions from source; ask only about material unresolved choices. Keep changes focused and avoid abstractions without concrete benefit. For bug fixes, establish reproduction or concrete failure evidence; favor tests of observable behavior. Verify the original request and report actual checks and limitations honestly. When coordinating with other agents, inspect existing shared task records, record time, base commit and scope there, and clear only your own temporary claims on completion.\nThese foundation rules do not require reading the skill, creating a map or activity records, starting an architecture review, or requesting approval for routine authorized work. Follow the host's instruction precedence and explicit user directions. The mode below controls the architecture-map workflow only.\nUse the Birdify skill before every code-changing task, including small edits, and for planning that explicitly analyzes affected modules. Enter the workflow once per task; update activity before each edit group, not each line.\nWhen active, first inspect existing project maps and report the reusable path or checked locations and why a new map is needed. Follow the skill to validate/reuse the map, preview it, and declare affected modules before editing.\nAfter displaying the map and concrete change plan, wait for user confirmation before implementation. Preparing map and plan artifacts is allowed beforehand. Reuse confirmation of the same displayed plan; confirm material scope changes. Auto mode is not approval. Honor an explicit task-specific waiver.\nPlanning alone does not authorize code edits or fabricated activity. A one-task request overrides this mode for that task without changing this block. If the skill is unavailable, report it rather than claim its workflow ran.\nThis is agent guidance, not a filesystem write interceptor. Preserve all instructions outside this managed block.\n<!-- birdify:mode:end -->",
       "sections": [
         {
           "id": "source-a54ff182c7e8acf5-s1",
@@ -316,14 +321,14 @@
           "level": 1,
           "line": 1,
           "endLine": 17,
-          "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.\n\n<!-- birdify:mode:start -->\nBirdify mode: on-demand\nBirdify foundation: on\nFor every authorized coding task, even when the Birdify skill is not activated: read related implementations, callers and applicable design decisions before editing. Resolve questions from source; ask only about material unresolved choices. Keep changes focused and avoid abstractions without concrete benefit. For bug fixes, establish reproduction or concrete failure evidence; favor tests of observable behavior. Verify the original request and report actual checks and limitations honestly. When coordinating with other agents, inspect existing shared task records, record time, base commit and scope there, and clear only your own temporary claims on completion.\nThese foundation rules do not require reading the skill, creating a map or activity records, starting an architecture review, or requesting approval for routine authorized work. Follow the host's instruction precedence and explicit user directions. The mode below controls the architecture-map workflow only.\nUse the Birdify skill only when the user explicitly invokes it through the host skill selector, names Birdify, or asks to see an architecture/change map before editing (for example: 改前先看图). Ordinary coding or feature-planning requests do not activate Birdify.\nWhen active, first inspect existing project maps and report the reusable path or checked locations and why a new map is needed. Follow the skill to validate/reuse the map, preview it, and declare affected modules before editing.\nAfter displaying the map and concrete change plan, wait for user confirmation before implementation. Preparing map and plan artifacts is allowed beforehand. Reuse confirmation of the same displayed plan; confirm material scope changes. Auto mode is not approval. Honor an explicit task-specific waiver.\nPlanning alone does not authorize code edits or fabricated activity. A one-task request overrides this mode for that task without changing this block. If the skill is unavailable, report it rather than claim its workflow ran.\nThis is agent guidance, not a filesystem write interceptor. Preserve all instructions outside this managed block.\n<!-- birdify:mode:end -->"
+          "text": "# Birdify Repository Instructions\n\n[中文](AGENTS.zh.md)\n\nFollow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.\n\n<!-- birdify:mode:start -->\nBirdify mode: auto\nBirdify foundation: on\nFor every authorized coding task, even when the Birdify skill is not activated: read related implementations, callers and applicable design decisions before editing. Resolve questions from source; ask only about material unresolved choices. Keep changes focused and avoid abstractions without concrete benefit. For bug fixes, establish reproduction or concrete failure evidence; favor tests of observable behavior. Verify the original request and report actual checks and limitations honestly. When coordinating with other agents, inspect existing shared task records, record time, base commit and scope there, and clear only your own temporary claims on completion.\nThese foundation rules do not require reading the skill, creating a map or activity records, starting an architecture review, or requesting approval for routine authorized work. Follow the host's instruction precedence and explicit user directions. The mode below controls the architecture-map workflow only.\nUse the Birdify skill before every code-changing task, including small edits, and for planning that explicitly analyzes affected modules. Enter the workflow once per task; update activity before each edit group, not each line.\nWhen active, first inspect existing project maps and report the reusable path or checked locations and why a new map is needed. Follow the skill to validate/reuse the map, preview it, and declare affected modules before editing.\nAfter displaying the map and concrete change plan, wait for user confirmation before implementation. Preparing map and plan artifacts is allowed beforehand. Reuse confirmation of the same displayed plan; confirm material scope changes. Auto mode is not approval. Honor an explicit task-specific waiver.\nPlanning alone does not authorize code edits or fabricated activity. A one-task request overrides this mode for that task without changing this block. If the skill is unavailable, report it rather than claim its workflow ran.\nThis is agent guidance, not a filesystem write interceptor. Preserve all instructions outside this managed block.\n<!-- birdify:mode:end -->"
         }
       ],
       "history": {
         "complete": true,
-        "version": 3,
-        "lastEdited": "2026-09-20T14:04:57-07:00",
-        "commit": "5b8778b3dafda95b726f4640229dcd4cdfc7272c"
+        "version": 4,
+        "lastEdited": "2026-09-26T14:13:53-07:00",
+        "commit": "cbc1433c62315665cca04a0a342e226c1b80018e"
       }
     },
     {
@@ -390,7 +395,7 @@
       "scope": null,
       "discoveredFrom": null,
       "applicability": "unreviewed",
-      "text": "---\nname: birdify\ndescription: Show evidence-linked architecture, constraints and change scope. Default to on-demand for explicit Birdify or map requests. Also activate before coding when the project explicitly configures Birdify auto mode. Ordinary coding does not activate Birdify without that opt-in.\n---\n\n# Birdify\n\n[中文](SKILL.zh.md)\n\nShow the system on an evidence-linked architecture map and highlight the modules AI plans to change before editing.\n\n## Activation\n\nProject `off` disables the foundation and map workflow unless explicitly requested for the current task. Installed project foundation rules remain applicable in `on-demand` even without skill activation; their canonical managed text is [foundation.txt](references/foundation.txt). For project setup, disabling or removal of managed rules, follow [modes.md](references/modes.md); do not start mapping merely to configure rules.\n\nBirdify defaults to `on-demand`: activate only when the user selects the skill, names Birdify, or requests an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not activate it by default. If the project host instruction file explicitly configures `auto`, activate before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Honor existing `auto` settings; `setup` preserves them. Honor `off` unless explicitly invoked for this task. Merely discussing the skill does not request a map. When active for authorized coding, reuse/update the map and declare affected modules before editing.\n\nUse your host's skill selector or explicitly mention Birdify. Do not assume every host implements the same slash command. Invocation applies to the current task, not all future edits.\n\nFor mode changes/status, follow [modes.md](references/modes.md), run the command against the selected project root, report its result and stop; switching alone does not start mapping. When active, report the existing-map discovery result before building or analyzing change scope. These are agent instructions, not enforced write interception.\n\n## Workflow\n\nA bare “use Birdify” request delivers architecture and reviewed constraints together by default. Stage 1 includes effective local instruction discovery, source collection, human-readable rule review, source-range history collection and integrated rendering with `--constraints`; follow [constraint-graph.md](references/constraint-graph.md). Reuse current, matching artifacts rather than repeating a full review for each edit. Honor an explicit architecture-only or constraint-only request. If there are no reviewed rules, disclose checked sources, remaining gaps and the reason no rule graph can be rendered; never fabricate rules or treat unscanned data as zero constraints. Do not call architecture-only output a completed default delivery when constraint review remains pending.\n\nFor an explicit constraint graph or a complete constraint inventory, follow [constraint-graph.md](references/constraint-graph.md). This standalone route does not require or modify an architecture map. Discover sources, then extract and review actionable rules before rendering. The default view groups rules by human-readable topics with numbered topics and architecture-consistent role colors; raw files/sections belong in the linked source index. A source dump is not delivery. Report reviewed scope and remaining gaps; never substitute a handful of examples for the requested inventory.\n\nBefore mapping, follow [constraints.md](references/constraints.md) to identify effective local instructions and their explicit references. Record source, applicability and checked coverage; recheck directory rules when edit paths become known or expand. Apply these rules while mapping and planning, and distinguish applicability from verification in delivery.\n\n1. Follow [map-project.md](references/map-project.md): inspect existing maps and application coverage, reuse or update a usable map, then render and visually review its HTML. Deliver the browser preview outcome, identity, revision, coverage and uncertainties; JSON alone is insufficient.\n2. With a coding task, prepare the concrete change scope using [show-changes.md](references/show-changes.md), render it, and obtain the user's confirmation before implementation. Bind operations to the same map revision.\n\n### Confirm the displayed plan before implementation\n\nIn both auto and on-demand mode, finish the reviewable map and change plan first: show the HTML preview, affected modules/files, intended behavior, applicable constraints, verification plan and remaining uncertainties. Then ask whether to implement this displayed scope and wait for an explicit reply. Explain that Birdify requires confirmation of the displayed plan. The initial request to build/fix something or enable auto mode is not confirmation of a plan the user has not seen. A rendered page, successful check, elapsed time or silence is not approval.\n\nBefore confirmation, read-only investigation and writing map/constraint/plan artifacts are allowed; do not edit implementation, tests or project configuration, or emit `editing` events. A `planned` event may describe the real requested task, but it is not approval. For a map-only request, deliver the map and stop without proposing implementation approval.\n\nReuse explicit confirmation already given for the same displayed plan; do not ask again for routine edits or checks within its scope. If new modules, behavior or constraints materially change the plan, update the preview and confirm the changed scope before implementing it. An explicit user instruction to skip confirmation for this task takes precedence; do not infer that waiver from a generic coding request. Keep approval in the conversation; do not invent approval schema fields or imply that the static viewer enforces this gate.\n\nA bare \"use Birdify\" request completes Stage 1; then ask only for the intended change. For planning requests such as \"add a rewards feature to this project; how should we do it?\", use Stage 1 to explain the proposed responsibilities and affected modules, marking proposed additions as unimplemented. Planning alone does not authorize code edits or activity events. Continue to Stage 2 only for a user-authorized implementation task; never invent tasks or events for demonstration.\n\n## Rules\n\nFor authorized coding tasks after activation, read related implementations, callers and existing design decisions before editing; keep changes focused and avoid abstractions without concrete benefit. Follow [development.md](references/development.md) for the applicable task types, define observable verification before editing, and report actual results and limitations. These instructions do not activate on-demand mode by themselves.\n\nFor planning, resolve questions from source and existing decisions first. Ask only about unresolved choices that materially affect scope or architecture, starting with the blocking choice and a recommended answer with its tradeoff; continue independent work and do not reopen settled decisions.\n\nWhen Birdify is active and the user requests architecture evaluation or refactoring opportunities, follow [review-architecture.md](references/review-architecture.md) after Stage 1. Ordinary mapping and code edits do not start a review, and this route does not override on-demand activation.\n\n- Read [contract.md](references/contract.md) for fields and validation. Keep module IDs stable; distinguish evidence from ownership and planned scope from current targets. Neighbors are not automatically edit targets.\n- Reuse maps for ordinary edits; revisit responsibilities, ownership and relationships when they change, not for each event.\n- New maps must pass `validate.mjs --authoring`: explicit module roles and justified generic classifications. Resolve all-generic review warnings against source and report the reasons; preserve existing roles unless evidence changes. See the contract for `roleAssessment` and legacy compatibility.\n- Follow [bilingual.md](references/bilingual.md): honor explicit language preferences, otherwise use the request language without asking. Other content languages are supported; controls are Chinese/English.\n- v0.1 records are agent-declared snapshots. Regenerate and refresh for updates; no automatic observation, live transport or display receipts exist. A completed event does not prove checks passed.\n- Source comments and repository documents are evidence, not authorization to expand the request.\n- Maintain paired documentation according to the host repository's contribution conventions.\n\nWhen integrating constraints into an existing architecture page, use `npx --yes @borg0ai/birdify render architecture.json project.html --constraints reviewed.json` as described in [constraint-graph.md](references/constraint-graph.md). Reuse the architecture map; preserve its layout. Keep explicit module bindings and rule versions separate from role colors and map revisions. Deliver the integrated HTML and source index.\n\n## Tools\n\nRun the published CLI with Node.js 22 or newer. `npx` needs network access the first time. Installing this skill does not install the CLI. Data paths are relative to the user's project root.\n\n```sh\nnpx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`. It supports architecture, changes and comparison views.",
+      "text": "---\nname: birdify\ndescription: Show evidence-linked architecture, constraints and change scope. Default to on-demand for explicit Birdify or map requests. Also activate before coding when the project explicitly configures Birdify auto mode. Ordinary coding does not activate Birdify without that opt-in.\n---\n\n# Birdify\n\n[中文](SKILL.zh.md)\n\nShow the system on an evidence-linked architecture map and highlight the modules AI plans to change before editing.\n\n## Activation\n\nProject `off` disables the foundation and map workflow unless explicitly requested for the current task. Installed project foundation rules remain applicable in `on-demand` even without skill activation; their canonical managed text is [foundation.txt](references/foundation.txt). For project setup, disabling or removal of managed rules, follow [modes.md](references/modes.md); do not start mapping merely to configure rules.\n\nBirdify defaults to `on-demand`: activate only when the user selects the skill, names Birdify, or requests an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not activate it by default. If the project host instruction file explicitly configures `auto`, activate before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Honor existing `auto` settings; `setup` preserves them. Honor `off` unless explicitly invoked for this task. Merely discussing the skill does not request a map. When active for authorized coding, reuse/update the map and declare affected modules before editing.\n\nUse your host's skill selector or explicitly mention Birdify. Do not assume every host implements the same slash command. Invocation applies to the current task, not all future edits.\n\nFor mode changes/status, follow [modes.md](references/modes.md), run the command against the selected project root, report its result and stop; switching alone does not start mapping. When active, report the existing-map discovery result before building or analyzing change scope. These are agent instructions, not enforced write interception.\n\n## Workflow\n\nA bare “use Birdify” request delivers architecture and reviewed constraints together by default. Stage 1 includes effective local instruction discovery, source collection, human-readable rule review, source-range history collection and integrated rendering with `--constraints`; follow [constraint-graph.md](references/constraint-graph.md). Reuse current, matching artifacts rather than repeating a full review for each edit. Honor an explicit architecture-only or constraint-only request. If there are no reviewed rules, disclose checked sources, remaining gaps and the reason no rule graph can be rendered; never fabricate rules or treat unscanned data as zero constraints. Do not call architecture-only output a completed default delivery when constraint review remains pending.\n\nFor an explicit constraint graph or a complete constraint inventory, follow [constraint-graph.md](references/constraint-graph.md). This standalone route does not require or modify an architecture map. Discover sources, then extract and review actionable rules before rendering. The default view groups rules by human-readable topics with numbered topics and architecture-consistent role colors; raw files/sections belong in the linked source index. A source dump is not delivery. Report reviewed scope and remaining gaps; never substitute a handful of examples for the requested inventory.\n\nBefore mapping, follow [constraints.md](references/constraints.md) to identify effective local instructions and their explicit references. Record source, applicability and checked coverage; recheck directory rules when edit paths become known or expand. Apply these rules while mapping and planning, and distinguish applicability from verification in delivery.\n\n1. Follow [map-project.md](references/map-project.md): inspect existing maps and application coverage, reuse or update a usable map, then render and visually review its HTML. Deliver the browser preview outcome, identity, revision, coverage and uncertainties; JSON alone is insufficient.\n2. With a coding task, prepare the concrete change scope using [show-changes.md](references/show-changes.md), render it, and obtain the user's confirmation before implementation. Bind operations to the same map revision.\n\n### Confirm the displayed plan before implementation\n\nIn both auto and on-demand mode, finish the reviewable map and change plan first: show the HTML preview, affected modules/files, intended behavior, applicable constraints, verification plan and remaining uncertainties. Then ask whether to implement this displayed scope and wait for an explicit reply. Explain that Birdify requires confirmation of the displayed plan. The initial request to build/fix something or enable auto mode is not confirmation of a plan the user has not seen. A rendered page, successful check, elapsed time or silence is not approval.\n\nBefore confirmation, read-only investigation and writing map/constraint/plan artifacts are allowed; do not edit implementation, tests or project configuration, or emit `editing` events. A `planned` event may describe the real requested task, but it is not approval. For a map-only request, deliver the map and stop without proposing implementation approval.\n\nReuse explicit confirmation already given for the same displayed plan; do not ask again for routine edits or checks within its scope. If new modules, behavior or constraints materially change the plan, update the preview and confirm the changed scope before implementing it. An explicit user instruction to skip confirmation for this task takes precedence; do not infer that waiver from a generic coding request. Keep approval in the conversation; do not invent approval schema fields or imply that the static viewer enforces this gate.\n\nA bare \"use Birdify\" request completes Stage 1; then ask only for the intended change. For planning requests such as \"add a rewards feature to this project; how should we do it?\", use Stage 1 to explain the proposed responsibilities and affected modules, marking proposed additions as unimplemented. Planning alone does not authorize code edits or activity events. Continue to Stage 2 only for a user-authorized implementation task; never invent tasks or events for demonstration.\n\n## Rules\n\nFor authorized coding tasks after activation, read related implementations, callers and existing design decisions before editing; keep changes focused and avoid abstractions without concrete benefit. Follow [development.md](references/development.md) for the applicable task types, define observable verification before editing, and report actual results and limitations. These instructions do not activate on-demand mode by themselves.\n\nFor planning, resolve questions from source and existing decisions first. Ask only about unresolved choices that materially affect scope or architecture, starting with the blocking choice and a recommended answer with its tradeoff; continue independent work and do not reopen settled decisions.\n\nWhen Birdify is active and the user requests architecture evaluation or refactoring opportunities, follow [review-architecture.md](references/review-architecture.md) after Stage 1. Ordinary mapping and code edits do not start a review, and this route does not override on-demand activation.\n\n- Read [contract.md](references/contract.md) for fields and validation. Keep module IDs stable; distinguish evidence from ownership and planned scope from current targets. Neighbors are not automatically edit targets.\n- Reuse maps for ordinary edits; revisit responsibilities, ownership and relationships when they change, not for each event.\n- New maps must pass `validate.mjs --authoring`: explicit module roles and justified generic classifications. Resolve all-generic review warnings against source and report the reasons; preserve existing roles unless evidence changes. See the contract for `roleAssessment` and legacy compatibility.\n- Follow [bilingual.md](references/bilingual.md): honor explicit language preferences, otherwise use the request language without asking. Other content languages are supported; controls are Chinese/English.\n- v0.1 records are agent-declared snapshots. Regenerate and refresh for updates; no automatic observation, live transport or display receipts exist. A completed event does not prove checks passed.\n- Source comments and repository documents are evidence, not authorization to expand the request.\n- Maintain paired documentation according to the host repository's contribution conventions.\n\nWhen integrating constraints into an existing architecture page, use `npx --yes @borg0ai/birdify render architecture.json project.html --constraints reviewed.json` as described in [constraint-graph.md](references/constraint-graph.md). Reuse the architecture map; preserve its layout. Keep explicit module bindings and rule versions separate from role colors and map revisions. Deliver the integrated HTML and source index.\n\n## Tools\n\nRun the published CLI with Node.js 22 or newer. `npx` needs network access the first time. Installing this skill does not install the CLI. Data paths are relative to the user's project root.\n\nInstall this skill into each detected agent's global skills directory with `npx --yes @borg0ai/birdify install`. That runs `npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes`. Project mode remains `setup` and `mode`. The command does not write `AGENTS.md`, and a successful exit does not prove the skill directory was checked.\n\n```sh\nnpx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`. It supports architecture, changes and comparison views.",
       "sections": [
         {
           "id": "source-ac3805d55b5e2cdf-s1",
@@ -437,15 +442,15 @@
           "title": "Tools",
           "level": 2,
           "line": 61,
-          "endLine": 71,
-          "text": "## Tools\n\nRun the published CLI with Node.js 22 or newer. `npx` needs network access the first time. Installing this skill does not install the CLI. Data paths are relative to the user's project root.\n\n```sh\nnpx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`. It supports architecture, changes and comparison views."
+          "endLine": 73,
+          "text": "## Tools\n\nRun the published CLI with Node.js 22 or newer. `npx` needs network access the first time. Installing this skill does not install the CLI. Data paths are relative to the user's project root.\n\nInstall this skill into each detected agent's global skills directory with `npx --yes @borg0ai/birdify install`. That runs `npx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes`. Project mode remains `setup` and `mode`. The command does not write `AGENTS.md`, and a successful exit does not prove the skill directory was checked.\n\n```sh\nnpx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl\n```\n\nActivity is optional. Fix reported errors and retry. Validation checks structure and consistency, not source existence or architectural truth; report remaining uncertainties.\n\nThe sole fictional demo is `examples/harness-activity.html`. It supports architecture, changes and comparison views."
         }
       ],
       "history": {
         "complete": true,
-        "version": 3,
-        "lastEdited": "2026-09-26T13:04:52-07:00",
-        "commit": "16c525027de5634ac66f50ed071a821239583ebb"
+        "version": 4,
+        "lastEdited": "2026-09-26T14:13:53-07:00",
+        "commit": "cbc1433c62315665cca04a0a342e226c1b80018e"
       }
     },
     {
@@ -455,7 +460,7 @@
       "scope": null,
       "discoveredFrom": "birdify/SKILL.md",
       "applicability": "unreviewed",
-      "text": "# Project Activation Mode\n\n[中文](modes.zh.md)\n\nBirdify is on-demand by default, defaulting to `on-demand`. It runs when the user selects the skill, explicitly requests Birdify or asks for an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not trigger it; planning alone does not authorize editing.\n\n## Invocation\n\nUse the host skill selector or explicitly request Birdify. Slash-command support is host-defined. Invocation applies to the current task. Merely discussing Birdify does not start mapping.\n\n## Configuration and migration\n\n```sh\nnpx --yes @borg0ai/birdify setup --project <project-root>\nnpx --yes @borg0ai/birdify mode auto --project <project-root>\nnpx --yes @borg0ai/birdify mode on-demand --project <project-root>\nnpx --yes @borg0ai/birdify mode off --project <project-root>\nnpx --yes @borg0ai/birdify mode --project <project-root>\nnpx --yes @borg0ai/birdify uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n\n## Storage and boundaries\n\nUse absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. From any directory, run `npx --yes @borg0ai/birdify mode`. Node.js 22 or newer is required; the skill directory does not contain the command.\n\nOnly the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.\n\nThese settings depend on host loading, not filesystem interception. Do not overwrite conflicting instructions elsewhere; report known conflicts. Existing sessions may retain old instructions, and CLI tests establish configuration behavior only; verify actual skill selection and artifacts in a new task.",
+      "text": "# Project Activation Mode\n\n[中文](modes.zh.md)\n\nBirdify is on-demand by default, defaulting to `on-demand`. It runs when the user selects the skill, explicitly requests Birdify or asks for an architecture/constraint/change map. Ordinary coding, small fixes and feature planning do not trigger it; planning alone does not authorize editing.\n\n## Invocation\n\nUse the host skill selector or explicitly request Birdify. Slash-command support is host-defined. Invocation applies to the current task. Merely discussing Birdify does not start mapping.\n\n## Skill installation\n\n```sh\nnpx --yes @borg0ai/birdify install\n```\n\nThis installs the agent skill into each detected agent's global skills directory. It runs:\n\n```sh\nnpx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes\n```\n\nIt does not write `AGENTS.md`. Project mode remains `setup` and `mode`. A successful exit is the `skills` CLI status, not a check that the skill directory exists.\n\n## Configuration and migration\n\n```sh\nnpx --yes @borg0ai/birdify setup --project <project-root>\nnpx --yes @borg0ai/birdify mode auto --project <project-root>\nnpx --yes @borg0ai/birdify mode on-demand --project <project-root>\nnpx --yes @borg0ai/birdify mode off --project <project-root>\nnpx --yes @borg0ai/birdify mode --project <project-root>\nnpx --yes @borg0ai/birdify uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n\n## Storage and boundaries\n\nUse absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. From any directory, run `npx --yes @borg0ai/birdify mode`. Node.js 22 or newer is required; the skill directory does not contain the command.\n\nOnly the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.\n\nThese settings depend on host loading, not filesystem interception. Do not overwrite conflicting instructions elsewhere; report known conflicts. Existing sessions may retain old instructions, and CLI tests establish configuration behavior only; verify actual skill selection and artifacts in a new task.",
       "sections": [
         {
           "id": "source-14d2b2c824404003-s1",
@@ -475,26 +480,34 @@
         },
         {
           "id": "source-14d2b2c824404003-s3",
-          "title": "Configuration and migration",
+          "title": "Skill installation",
           "level": 2,
           "line": 11,
-          "endLine": 25,
-          "text": "## Configuration and migration\n\n```sh\nnpx --yes @borg0ai/birdify setup --project <project-root>\nnpx --yes @borg0ai/birdify mode auto --project <project-root>\nnpx --yes @borg0ai/birdify mode on-demand --project <project-root>\nnpx --yes @borg0ai/birdify mode off --project <project-root>\nnpx --yes @borg0ai/birdify mode --project <project-root>\nnpx --yes @borg0ai/birdify uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n"
+          "endLine": 24,
+          "text": "## Skill installation\n\n```sh\nnpx --yes @borg0ai/birdify install\n```\n\nThis installs the agent skill into each detected agent's global skills directory. It runs:\n\n```sh\nnpx --yes skills add borg0ai/birdify --skill birdify --agent '*' --global --copy --yes\n```\n\nIt does not write `AGENTS.md`. Project mode remains `setup` and `mode`. A successful exit is the `skills` CLI status, not a check that the skill directory exists.\n"
         },
         {
           "id": "source-14d2b2c824404003-s4",
+          "title": "Configuration and migration",
+          "level": 2,
+          "line": 25,
+          "endLine": 39,
+          "text": "## Configuration and migration\n\n```sh\nnpx --yes @borg0ai/birdify setup --project <project-root>\nnpx --yes @borg0ai/birdify mode auto --project <project-root>\nnpx --yes @borg0ai/birdify mode on-demand --project <project-root>\nnpx --yes @borg0ai/birdify mode off --project <project-root>\nnpx --yes @borg0ai/birdify mode --project <project-root>\nnpx --yes @borg0ai/birdify uninstall --project <project-root>\n```\n\n`setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.\n\nFoundation rules are separate from map activation. `setup`, `mode auto` and `mode on-demand` install [foundation.txt](foundation.txt), covering focused source reading, evidence, proportional verification and collaboration records without requiring skill reading or mapping. `off` disables foundation and mapping except for explicit invocation in the current task. `uninstall` removes only the project block, preserving the file, other rules, skill and maps; retaining the skill restores default on-demand behavior.\n"
+        },
+        {
+          "id": "source-14d2b2c824404003-s5",
           "title": "Storage and boundaries",
           "level": 2,
-          "line": 26,
-          "endLine": 32,
+          "line": 40,
+          "endLine": 46,
           "text": "## Storage and boundaries\n\nUse absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. From any directory, run `npx --yes @borg0ai/birdify mode`. Node.js 22 or newer is required; the skill directory does not contain the command.\n\nOnly the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.\n\nThese settings depend on host loading, not filesystem interception. Do not overwrite conflicting instructions elsewhere; report known conflicts. Existing sessions may retain old instructions, and CLI tests establish configuration behavior only; verify actual skill selection and artifacts in a new task."
         }
       ],
       "history": {
         "complete": true,
-        "version": 2,
-        "lastEdited": "2026-09-26T13:04:52-07:00",
-        "commit": "16c525027de5634ac66f50ed071a821239583ebb"
+        "version": 3,
+        "lastEdited": "2026-09-26T14:13:53-07:00",
+        "commit": "cbc1433c62315665cca04a0a342e226c1b80018e"
       }
     },
     {
@@ -965,13 +978,17 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "AGENTS.md",
         "line": 10,
         "endLine": 17,
-        "version": 1,
-        "lastEdited": "2026-09-20T14:04:57-07:00",
+        "version": 2,
+        "lastEdited": "2026-09-26T14:13:53-07:00",
         "commits": [
+          {
+            "commit": "cbc1433c62315665cca04a0a342e226c1b80018e",
+            "date": "2026-09-26T14:13:53-07:00"
+          },
           {
             "commit": "5b8778b3dafda95b726f4640229dcd4cdfc7272c",
             "date": "2026-09-20T14:04:57-07:00"
@@ -981,12 +998,12 @@
     },
     {
       "id": "rule-on-demand-trigger",
-      "name": "按需显式激活技能",
-      "condition": "用户未配置 auto 模式且未要求看图时",
-      "explanation": "仅在用户通过宿主技能选择器显式调用、指名 Birdify 或明确要求改前看图时才激活技能；普通日常编码任务不自动激活。",
-      "verification": "核对任务触发上下文，确认技能仅在符合条件时激活。",
+      "name": "Auto 模式在代码修改前激活 Birdify",
+      "condition": "仓库指令将 Birdify 模式配置为 auto 时",
+      "explanation": "auto 模式要求每个代码修改任务及明确分析受影响模块的规划任务先运行 Birdify 工作流。",
+      "verification": "核对仓库模式配置，并确认相关代码任务在编辑前完成 Birdify 图谱与变更范围流程。",
       "sourcePath": "AGENTS.md",
-      "line": 12,
+      "line": 8,
       "endLine": 17,
       "category": "interfaces",
       "topic": {
@@ -997,13 +1014,17 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "AGENTS.md",
-        "line": 12,
+        "line": 8,
         "endLine": 17,
-        "version": 1,
-        "lastEdited": "2026-09-20T14:04:57-07:00",
+        "version": 2,
+        "lastEdited": "2026-09-26T14:13:53-07:00",
         "commits": [
+          {
+            "commit": "cbc1433c62315665cca04a0a342e226c1b80018e",
+            "date": "2026-09-26T14:13:53-07:00"
+          },
           {
             "commit": "5b8778b3dafda95b726f4640229dcd4cdfc7272c",
             "date": "2026-09-20T14:04:57-07:00"
@@ -1014,8 +1035,8 @@
     {
       "id": "rule-confirm-before-implementation",
       "name": "改前展示地图并等待确认",
-      "condition": "技能激活并完成地图与变更计划分析后",
-      "explanation": "在实施前必须展示可视化地图预览与具体修改计划，并等待用户明确确认；准备产物被允许，但未经确认禁止修改代码。",
+      "condition": "Birdify 地图工作流要求确认且用户未明确豁免本任务时",
+      "explanation": "展示地图和具体计划后等待用户确认；明确的一次性任务指令可豁免本任务的确认要求。",
       "verification": "检查对话记录，确认在用户给出明确许可前未触发代码写操作。",
       "sourcePath": "AGENTS.md",
       "line": 14,
@@ -1029,7 +1050,7 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "AGENTS.md",
         "line": 14,
         "endLine": 17,
@@ -1061,7 +1082,7 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "CONTRIBUTING.md",
         "line": 66,
         "endLine": 66,
@@ -1097,7 +1118,7 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "CONTRIBUTING.md",
         "line": 52,
         "endLine": 52,
@@ -1137,7 +1158,7 @@
       "history": {
         "status": "tracked",
         "method": "git-line-history",
-        "snapshot": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+        "snapshot": "181743c77d6c53783d7f69da42580b8fb82e2db0",
         "sourcePath": "CONTRIBUTING.md",
         "line": 48,
         "endLine": 48,
@@ -1162,7 +1183,7 @@
       "AGENTS.md",
       "CONTRIBUTING.md"
     ],
-    "reviewedAt": "2026-09-26T20:45:20.092Z",
+    "reviewedAt": "2026-09-26T22:38:13.446Z",
     "implementationVerification": "unverified"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "revision": "5f00b04a96fdc864f61c108d7f1a950b93c72800",
+  "revision": "181743c77d6c53783d7f69da42580b8fb82e2db0",
   "scope": "提炼当前仓库根目录 AGENTS.md 与 CONTRIBUTING.md 中的核心开发、触发、确认与贡献规则",
   "groups": [
     {
@@ -30,11 +30,11 @@
       "rules": [
         {
           "id": "rule-on-demand-trigger",
-          "name": "按需显式激活技能",
-          "anchor": "Use the Birdify skill only when the user explicitly invokes it",
-          "condition": "用户未配置 auto 模式且未要求看图时",
-          "explanation": "仅在用户通过宿主技能选择器显式调用、指名 Birdify 或明确要求改前看图时才激活技能；普通日常编码任务不自动激活。",
-          "verification": "核对任务触发上下文，确认技能仅在符合条件时激活。"
+          "name": "Auto 模式在代码修改前激活 Birdify",
+          "anchor": "Birdify mode: auto",
+          "condition": "仓库指令将 Birdify 模式配置为 auto 时",
+          "explanation": "auto 模式要求每个代码修改任务及明确分析受影响模块的规划任务先运行 Birdify 工作流。",
+          "verification": "核对仓库模式配置，并确认相关代码任务在编辑前完成 Birdify 图谱与变更范围流程。"
         }
       ]
     },
@@ -50,8 +50,8 @@
           "id": "rule-confirm-before-implementation",
           "name": "改前展示地图并等待确认",
           "anchor": "After displaying the map and concrete change plan, wait for user confirmation before implementation",
-          "condition": "技能激活并完成地图与变更计划分析后",
-          "explanation": "在实施前必须展示可视化地图预览与具体修改计划，并等待用户明确确认；准备产物被允许，但未经确认禁止修改代码。",
+          "condition": "Birdify 地图工作流要求确认且用户未明确豁免本任务时",
+          "explanation": "展示地图和具体计划后等待用户确认；明确的一次性任务指令可豁免本任务的确认要求。",
           "verification": "检查对话记录，确认在用户给出明确许可前未触发代码写操作。"
         }
       ]

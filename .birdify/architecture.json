@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "mapId": "birdify-monorepo-architecture",
-  "revision": 2,
+  "revision": 3,
   "language": "en",
   "project": {
     "id": "birdify",
@@ -18,7 +18,7 @@
       "role": "backend",
       "name": "Birdify CLI",
       "kind": "local",
-      "responsibility": "Command-line tool providing mode management, setup, doctor checks, schema validation, and HTML snapshot rendering.",
+      "responsibility": "Agent-first command-line tool for skill-driven validation, rendering, discovery, install, and project-mode operations.",
       "ownership": [
         {
           "kind": "file",
@@ -46,7 +46,7 @@
       "translations": {
         "zh": {
           "name": "Birdify 命令行工具",
-          "responsibility": "面向用户的命令行工具，负责模式设置、安装初始化、体检诊断、规范校验与 HTML 快照渲染。"
+          "responsibility": "由 Birdify 技能驱动的命令行工具，负责校验、渲染、发现、安装与项目模式操作。"
         }
       },
       "layout": {
@@ -59,7 +59,7 @@
       "role": "backend",
       "name": "Birdify Core Runtime",
       "kind": "local",
-      "responsibility": "Core runtime providing contract models, Ajv validation, SVG renderer, and constraint discovery/compiler.",
+      "responsibility": "Core runtime for data contracts, validation, HTML rendering, constraint workflows, and installed skill asset discovery.",
       "ownership": [
         {
           "kind": "file",
@@ -72,6 +72,14 @@
         {
           "kind": "file",
           "path": "packages/core/src/validate.ts"
+        },
+        {
+          "kind": "file",
+          "path": "packages/core/src/runtime-root.ts"
+        },
+        {
+          "kind": "file",
+          "path": "packages/core/src/constraint-rule-view.ts"
         }
       ],
       "evidence": [
@@ -84,6 +92,16 @@
               "note": "导出数据契约规范、渲染引擎与规则提取工具的核心共享包。"
             }
           }
+        },
+        {
+          "path": "packages/core/src/runtime-root.ts",
+          "symbol": "runtimeRoot",
+          "note": "Resolves skill assets from BIRDIFY_SKILL_DIR, project/development paths, or global agent skill directories.",
+          "translations": {
+            "zh": {
+              "note": "按 BIRDIFY_SKILL_DIR、项目/开发路径及智能体全局技能目录查找技能资源。"
+            }
+          }
         }
       ],
       "status": "supported",
@@ -91,7 +109,7 @@
       "translations": {
         "zh": {
           "name": "Birdify 核心运行时",
-          "responsibility": "提供 TypeBox 数据契约模型、Ajv 校验引擎、SVG 图快照渲染与规则提取/编译器。"
+          "responsibility": "提供数据契约、校验、HTML 渲染、约束工作流与已安装技能资源查找。"
         }
       },
       "layout": {
@@ -113,7 +131,7 @@
       },
       "name": "Birdify Skill Payload",
       "kind": "local",
-      "responsibility": "Installable agent skill payload delivering SKILL.md, JSON schemas, release manifest, and compiled viewer assets.",
+      "responsibility": "Separately installed agent skill containing workflow instructions, schemas, release metadata, and viewer assets loaded by the CLI at runtime.",
       "ownership": [
         {
           "kind": "file",
@@ -126,6 +144,10 @@
         {
           "kind": "file",
           "path": "birdify/schemas/architecture.schema.json"
+        },
+        {
+          "kind": "directory",
+          "path": "birdify/assets"
         }
       ],
       "evidence": [
@@ -145,7 +167,7 @@
       "translations": {
         "zh": {
           "name": "Birdify 技能包载荷",
-          "responsibility": "可分发的智能体技能资源包，包含 SKILL.md、JSON Schema 契约、发布元数据与已编译查看器资源。"
+          "responsibility": "独立安装的智能体技能，包含工作流指令、数据契约、发布元数据和供 CLI 运行时读取的查看器资源。"
         }
       },
       "layout": {
@@ -203,16 +225,16 @@
       "role": "generic",
       "roleAssessment": {
         "basis": "out-of-taxonomy",
-        "note": "Internal developer tooling CLI that bundles viewer assets and validates freshness against templates.",
+        "note": "Repository-only developer CLI and scripts that build viewer assets and check package behavior.",
         "translations": {
           "zh": {
-            "note": "仓库内部构建与脚手架工具 CLI，负责编译前端资源并校验与模板的一致性。"
+            "note": "仓库内部开发 CLI 与脚本，负责构建查看器资源及校验打包行为。"
           }
         }
       },
       "name": "Birdify Dev Tooling",
       "kind": "local",
-      "responsibility": "Internal dev CLI compiling viewer templates into birdify/assets and validating asset synchronization.",
+      "responsibility": "Repository tooling that compiles viewer templates and verifies built assets and packed CLI behavior.",
       "ownership": [
         {
           "kind": "file",
@@ -221,6 +243,14 @@
         {
           "kind": "file",
           "path": "toolings/birdify-dev/src/commands/build-viewer.ts"
+        },
+        {
+          "kind": "file",
+          "path": "tools/check-install.mjs"
+        },
+        {
+          "kind": "file",
+          "path": "tools/pack-cli.mjs"
         }
       ],
       "evidence": [
@@ -233,6 +263,16 @@
               "note": "使用 esbuild 将 templates/viewer 编译打包到 birdify/assets/ 并同步图标。"
             }
           }
+        },
+        {
+          "path": "tools/check-install.mjs",
+          "symbol": "verifyPackedCli",
+          "note": "Checks packed CLI against repository skill assets copied into an isolated .agents/skills/birdify home.",
+          "translations": {
+            "zh": {
+              "note": "将仓库技能资源复制到隔离的 .agents/skills/birdify 主目录，验证打包后的 CLI。"
+            }
+          }
         }
       ],
       "status": "supported",
@@ -240,7 +280,7 @@
       "translations": {
         "zh": {
           "name": "开发脚手架工具",
-          "responsibility": "仓库内部开发 CLI，将查看器模板编译至 birdify/assets 并校验资源同步一致性。"
+          "responsibility": "仓库内部工具，编译查看器模板并验证构建资源与打包后 CLI 行为。"
         }
       },
       "layout": {
@@ -328,15 +368,25 @@
       "to": "skill-payload",
       "kind": "dependency",
       "visibility": "overview",
-      "label": "embeds templates and schemas",
+      "label": "resolves and embeds installed skill assets",
       "evidence": [
+        {
+          "path": "packages/core/src/runtime-root.ts",
+          "symbol": "runtimeRoot",
+          "note": "Core resolves the separately installed skill from the environment, project, checkout, or global agent directories.",
+          "translations": {
+            "zh": {
+              "note": "核心运行时从环境变量、项目、仓库或智能体全局目录查找独立安装的技能。"
+            }
+          }
+        },
         {
           "path": "packages/core/src/render.ts",
           "symbol": "renderArchitecture",
-          "note": "Core renderer embeds skill viewer assets into self-contained HTML.",
+          "note": "Renderer reads the resolved skill assets and inlines them into self-contained HTML.",
           "translations": {
             "zh": {
-              "note": "核心渲染器将技能包的查看器静态资源内嵌到独立 HTML 快照。"
+              "note": "渲染器读取已定位的技能资源，并将其内嵌到独立 HTML。"
             }
           }
         }
@@ -345,7 +395,34 @@
       "openQuestions": [],
       "translations": {
         "zh": {
-          "label": "内嵌前端资源与规范"
+          "label": "查找并内嵌技能资源"
+        }
+      }
+    },
+    {
+      "id": "rel-skill-to-cli",
+      "from": "skill-payload",
+      "to": "cli",
+      "kind": "request",
+      "visibility": "overview",
+      "label": "invokes the agent CLI",
+      "evidence": [
+        {
+          "path": "birdify/SKILL.md",
+          "symbol": "Tools",
+          "note": "Skill instructions direct agents to run the published Birdify CLI for validation and rendering.",
+          "translations": {
+            "zh": {
+              "note": "技能指引智能体使用已发布的 Birdify CLI 执行校验与渲染。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "调用智能体 CLI"
         }
       }
     },
