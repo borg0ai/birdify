@@ -8,6 +8,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "dev": "pangu",
+    "release": "qingniao",
     "typecheck": "tsc -p packages/core/tsconfig.json --noEmit --pretty false && tsc -p apps/cli/tsconfig.json --noEmit --pretty false && tsc -p toolings/birdify-dev/tsconfig.json --noEmit --pretty false && tsc -p templates/viewer/tsconfig.json --noEmit --pretty false && tsc -p test/tsconfig.json --noEmit --pretty false",
     "build": "turbo run build",
     "build:birdify-dev": "pnpm --filter @birdify/birdify-dev build",
@@ -28,7 +30,10 @@
     "@birdify/birdify-dev": "workspace:*",
     "@birdify/core": "workspace:*",
     "@borg0ai/birdify": "workspace:*",
+    "@changesets/cli": "^2.31.1",
     "@sinclair/typebox": "0.34.41",
+    "@systembug/pangu": "^0.1.0",
+    "@systembug/qingniao": "^0.1.0",
     "@types/node": "22.20.4",
     "ajv": "8.20.0",
     "esbuild": "0.25.12",

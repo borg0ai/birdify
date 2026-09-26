@@ -2,6 +2,9 @@
   "name": "@borg0ai/birdify",
   "version": "0.1.2",
   "description": "Architecture-first visibility for AI coding agents.",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "type": "module",
   "bin": {

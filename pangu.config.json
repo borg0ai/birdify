@@ -1,0 +1,12 @@
+{
+  "projectName": "birdify",
+  "packageManager": "pnpm",
+  "demos": [
+    {
+      "name": "Site",
+      "value": "site",
+      "description": "Birdify Official Site",
+      "package": "@birdify/site"
+    }
+  ]
+}
