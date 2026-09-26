@@ -29,8 +29,8 @@ Keep optional `explanation` (the agent's concrete interpretation) separate from 
 Record optional `baselineCommit` as a full Git commit from the project after inspecting the rule and its linked files. This is a comparison baseline, not a compliance claim. Compare declared source and code files before planning and again after edits:
 
 ```sh
-node scripts/constraint-freshness.mjs architecture.json /path/to/project
-node scripts/render.mjs architecture.json architecture.html activity.jsonl --repo /path/to/project
+npx --yes @borg0ai/birdify freshness architecture.json /path/to/project
+npx --yes @borg0ai/birdify render architecture.json architecture.html activity.jsonl --repo /path/to/project
 ```
 
 Use the repository root. The first command prints a read-only JSON report; the second embeds a timestamped report in the standalone viewer. Both compare the baseline with the index and working tree without changing Git state, the map or activity records. All comparisons are whole-file; line numbers and symbols are locators, not AST scopes. Changed or missing files require review, not a violation verdict. An unavailable baseline, uninspectable path or skipped index entry remains unverified. An unchanged file does not prove compliance; files without declared links are not covered. Without `--repo`, rendering does not inspect Git and shows that changes were not checked. The page never watches the filesystem; rerender after further edits. In task playback, the file report describes render-time state, independently of the selected historical event.

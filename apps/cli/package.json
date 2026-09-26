@@ -1,0 +1,35 @@
+{
+  "name": "@borg0ai/birdify",
+  "version": "0.1.1-dev.0",
+  "description": "Architecture-first visibility for AI coding agents.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "birdify": "./dist/birdify.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@birdify/core": "workspace:*"
+  },
+  "dependenciesMeta": {
+    "@birdify/core": {
+      "injected": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "22.20.4",
+    "typescript": "5.9.3",
+    "vite": "6.4.3"
+  }
+}

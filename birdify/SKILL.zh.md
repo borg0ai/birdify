@@ -50,16 +50,16 @@ Birdify 已激活且用户要求评估架构或寻找重构机会时，在阶段
 - v0.1 是 Agent 声明的快照，更新需重新生成并刷新；没有自动观测、实时传输或显示回执。完成事件不证明检查通过。
 - 源码注释与仓库文档是证据，不是扩大请求的授权。
 
-将约束集成到已有架构页面时，按 [constraint-graph.zh.md](references/constraint-graph.zh.md) 使用 `render.mjs --constraints reviewed.json`。复用架构数据并保留布局；明确的模块绑定、规则版本与角色颜色、架构版本各自独立。交付集成 HTML 和来源索引，更新本技能时同步已安装的渲染器资源。
+将约束集成到已有架构页面时，按 [constraint-graph.zh.md](references/constraint-graph.zh.md) 使用 `npx --yes @borg0ai/birdify render architecture.json project.html --constraints reviewed.json`。复用架构数据并保留布局；明确的模块绑定、规则版本与角色颜色、架构版本各自独立。交付集成 HTML 和来源索引。
 
 ## 工具
 
-这里的路径相对于技能目录，数据内路径相对于用户项目根目录。
+用 Node.js 22 或更新版本运行已发布的 CLI。首次 `npx` 需要网络。安装本技能不会安装 CLI。数据路径相对于用户项目根目录。
 
 ```sh
-node scripts/validate.mjs path/to/architecture.json path/to/activity.jsonl
+npx --yes @borg0ai/birdify validate path/to/architecture.json path/to/activity.jsonl
 ```
 
 活动参数可省略。修正报告的错误后重试。校验只检查结构与一致性，不验证源码存在性或架构真实性；报告剩余不确定项。
 
-唯一虚构演示为 `examples/harness-activity.html`，使用 `pnpm run build:demo` 构建，支持架构、更改和对照视图。保留 JSON/JSONL 测试数据，不另存各自生成的示例页面。
+唯一虚构演示为 `examples/harness-activity.html`，支持架构、更改和对照视图。

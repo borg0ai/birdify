@@ -1,29 +1,40 @@
 {
-  "name": "birdify-dev",
+  "name": "birdify-monorepo",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "typecheck": "tsc --project tsconfig.types.json && tsc --project tsconfig.viewer.json",
-    "build": "tsc --project tsconfig.json && tsc --project tsconfig.tools.json && node tools/bundle-runtime.mjs --from birdify/scripts --to birdify/scripts && node tools/build-viewer.mjs && node .build-tools/tools/contracts/export.mjs",
-    "build:site": "node tools/build-site.mjs",
-    "check:build": "node tools/check-build.mjs && node tools/build-viewer.mjs --check",
+    "typecheck": "tsc -p packages/core/tsconfig.json --noEmit --pretty false && tsc -p apps/cli/tsconfig.json --noEmit --pretty false && tsc -p toolings/birdify-dev/tsconfig.json --noEmit --pretty false && tsc -p templates/viewer/tsconfig.json --noEmit --pretty false && tsc -p test/tsconfig.json --noEmit --pretty false",
+    "build": "turbo run build",
+    "build:birdify-dev": "pnpm --filter @birdify/birdify-dev build",
+    "build:viewer": "birdify-dev build-viewer",
+    "postinstall": "pnpm run build:birdify-dev",
+    "prepare": "husky",
+    "site": "pnpm --filter @birdify/site dev",
+    "check:build": "node tools/check-build.mjs && birdify-dev build-viewer --check",
     "check:docs": "node tools/check-docs.mjs",
-    "build:demo": "node birdify/scripts/render.mjs birdify/examples/system.architecture.json birdify/examples/harness-activity.html birdify/examples/harness.activity.jsonl --simulation",
-    "validate:examples": "node birdify/scripts/validate.mjs birdify/examples/architecture.json birdify/examples/activity.jsonl",
+    "build:demo": "pnpm exec birdify render birdify/examples/system.architecture.json birdify/examples/harness-activity.html birdify/examples/harness.activity.jsonl --simulation",
+    "validate:examples": "pnpm exec birdify validate birdify/examples/architecture.json birdify/examples/activity.jsonl",
     "validate:skill": "node tools/validate-skill.mjs birdify",
-    "test": "pnpm run build:tests --unit",
-    "build:tests": "tsc --project tsconfig.test.json && node tools/build-tests.mjs",
-    "test:browser": "pnpm run build:tests --browser",
+    "test": "vitest run -c test/vitest.config.ts --project unit",
+    "test:browser": "vitest run -c test/vitest.config.ts --project browser --no-file-parallelism",
     "check:install": "node tools/check-install.mjs"
   },
   "devDependencies": {
+    "@birdify/birdify-dev": "workspace:*",
+    "@birdify/core": "workspace:*",
+    "@borg0ai/birdify": "workspace:*",
     "@sinclair/typebox": "0.34.41",
-    "@types/node": "18.19.130",
+    "@types/node": "22.20.4",
     "ajv": "8.20.0",
     "esbuild": "0.25.12",
-    "lucide-static": "^1.41.0",
+    "husky": "^9.1.7",
     "playwright": "1.56.1",
-    "typescript": "5.9.3"
+    "turbo": "2.5.8",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
   }
 }

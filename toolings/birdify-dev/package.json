@@ -1,0 +1,32 @@
+{
+  "name": "@birdify/birdify-dev",
+  "version": "0.1.1-dev.0",
+  "private": true,
+  "description": "Repository development CLI for Birdify.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "birdify-dev": "./bin/birdify-dev.mjs"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "esbuild": "0.25.12",
+    "lucide-static": "1.47.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.4",
+    "typescript": "5.9.3",
+    "vite": "6.4.3"
+  }
+}

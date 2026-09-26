@@ -1,4 +1,4 @@
-// Generated from src/viewer/main.mts. Do not edit directly.
+// Generated from templates/viewer/main.ts. Do not edit directly.
 "use strict";
 (() => {
   var __defProp = Object.defineProperty;
@@ -7,7 +7,7 @@
       __defProp(target, name, { get: all[name], enumerable: true });
   };
 
-  // src/viewer/routing.mts
+  // templates/viewer/routing.ts
   function requiredAt(values, index) {
     const value = values[index];
     if (value === void 0) throw new Error(`Missing routing grid value at ${index}.`);
@@ -140,7 +140,7 @@
     });
   }
 
-  // src/viewer/i18n.mts
+  // templates/viewer/i18n.ts
   var i18n_exports = {};
   __export(i18n_exports, {
     availableLanguages: () => availableLanguages,
@@ -209,7 +209,7 @@
     return item.translations?.[language2]?.[field] ?? item[field] ?? "";
   }
 
-  // src/viewer/constraint-canvas.mts
+  // templates/viewer/constraint-canvas.ts
   function mountConstraintCanvas(container, data) {
     const root = container;
     root.classList.add("bv-constraints");
@@ -788,7 +788,7 @@
     return api;
   }
 
-  // src/viewer/main.mts
+  // templates/viewer/main.ts
   var { map, icons, brandLogo } = DATA;
   function required(value) {
     if (value === null || value === void 0) throw new Error("Missing required viewer data or element.");

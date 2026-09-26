@@ -2,15 +2,15 @@
 
 [English](constraint-graph.md)
 
-独立约束图或仓库级约束清单使用此流程。保留现有架构查看器。下述命令相对于已安装的技能目录，而不是目标仓库；需要 Node.js 和 Git，无需构建前端或安装 npm 依赖。
+独立约束图或仓库级约束清单使用此流程。保留现有架构查看器。下述命令通过 `npx --yes @borg0ai/birdify` 调用已发布的 CLI。需要 Node.js 22 或更新版本以及 Git。首次 `npx` 需要网络。无需构建前端。
 
 ## 发现声明范围
 
 ```sh
-node scripts/discover-constraints.mjs /path/to/repository /output/constraints.catalog.json "Project name"
-node scripts/render-constraints.mjs /output/constraints.catalog.json /output/sources.html --sources
-node scripts/compile-constraint-rules.mjs /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json
-node scripts/render-constraints.mjs /output/constraints.reviewed.json /output/constraints.html
+npx --yes @borg0ai/birdify discover /path/to/repository /output/constraints.catalog.json "Project name"
+npx --yes @borg0ai/birdify render-constraints /output/constraints.catalog.json /output/sources.html --sources
+npx --yes @borg0ai/birdify compile-rules /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json
+npx --yes @borg0ai/birdify render-constraints /output/constraints.reviewed.json /output/constraints.html
 ```
 
 采集器读取已提交的 HEAD，不修改仓库。枚举受 Git 跟踪的 AGENTS.md、AGENTS.md、GEMINI.md、SKILL.md、根 CONTRIBUTING.md、GitHub Copilot 指令和 Cursor 规则，再递归跟进本地 Markdown 链接及反引号中的 Markdown 路径。保留原文、标题层级、行号和文件历史。排除可识别的夹具、归档及重复中文翻译并记录原因。引用表示发现路径，不代表权威或自动生效。技能按任务触发，目录指令按宿主继承规则适用。已实施的决策笔记仍是引用证据，不自动视为当前规则。
@@ -51,8 +51,8 @@ node scripts/render-constraints.mjs /output/constraints.reviewed.json /output/co
 区分三个标识：稳定的 `rule.id`（显示的 R 编号只是展示序号）、规则原文历史 `vN`、完整仓库快照提交号。需要生成历史时，将仓库作为编译器第四个参数：
 
 ```sh
-node scripts/compile-constraint-rules.mjs catalog.json reviewed-rules.json versioned.json /path/to/repository
-node scripts/render-constraints.mjs versioned.json constraints.html
+npx --yes @borg0ai/birdify compile-rules catalog.json reviewed-rules.json versioned.json /path/to/repository
+npx --yes @borg0ai/birdify render-constraints versioned.json constraints.html
 ```
 
 编译器对照固定快照检查来源文本，再逐条查询引用段落/列表项的 Git 行历史。记录 `history`，包含 `status: tracked`、`method: git-line-history`、`snapshot`、`sourcePath`、`line`、`endLine`、`version`、`lastEdited` 和真实 `{commit,date}` 数组 `commits`。这是原文行段的历史条目数，不是语义发布版本或 AI 解释的修订次数。移动、格式修改或多条义务共用一个段落会影响计数。不得手工编造这些字段，也不能用整份文件历史代替。渲染器校验来源一致性，不证明手写 Git 证据真实，须使用采集器。重新编译作者输入时丢弃旧历史，防止复用过期数据。
@@ -71,7 +71,7 @@ node scripts/render-constraints.mjs versioned.json constraints.html
 用户要求组合页面时，复用现有架构 JSON，一次渲染两个视图：
 
 ```sh
-node scripts/render.mjs architecture.json project.html --constraints versioned.json
+npx --yes @borg0ai/birdify render architecture.json project.html --constraints versioned.json
 ```
 
 活动 JSONL 与 `--repo` 仍为可选参数。CLI 写出 `project.html` 和辅助索引 `project.sources.html`，两者一起交付。不传 `--constraints` 时原架构输出不变。渲染器 API 的第三个参数支持 `constraintCatalog` 和可选的 `constraintSourceHref`；API 调用方自行生成辅助来源索引。

@@ -1,7 +1,7 @@
-// Generated from src/viewer/theme.mts. Do not edit directly.
+// Generated from templates/viewer/theme.ts. Do not edit directly.
 "use strict";
 (() => {
-  // src/viewer/theme.mts
+  // templates/viewer/theme.ts
   try {
     if (localStorage.getItem("birdify-theme") === "light") document.documentElement.dataset.theme = "light";
   } catch {

@@ -18,8 +18,8 @@
 ## 校验与显示
 
 ```sh
-node <skill-root>/scripts/validate.mjs <map.json> --bilingual
-node <skill-root>/scripts/render.mjs <map.json> <architecture.html>
+npx --yes @borg0ai/birdify validate <map.json> --bilingual
+npx --yes @borg0ai/birdify render <map.json> <architecture.html>
 ```
 
 仅中英双语交付使用 `--bilingual`。单语言不加该参数；其他组合在结构校验后手动检查语言覆盖。严格检查验证架构文本覆盖与问题数量，不验证翻译准确性或活动翻译。通过前不声称中英完整覆盖；在浏览器检查两种语言的提示、详情和关系，另行核对活动覆盖。

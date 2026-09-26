@@ -1,0 +1,29 @@
+{
+  "name": "@birdify/core",
+  "version": "0.1.1-dev.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "skill-runtime", "index.d.ts"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && birdify-dev build-viewer && node ../../tools/stage-runtime.mjs && node ../../tools/contracts/export.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "0.34.41",
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "@birdify/birdify-dev": "workspace:*",
+    "@types/node": "22.20.4",
+    "typescript": "5.9.3"
+  }
+}

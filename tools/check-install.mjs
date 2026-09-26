@@ -22,14 +22,43 @@ function verifyPayload(installDir, label) {
   if (release.skillId !== 'birdify' || !release.version || !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(release.version)) {
     throw new Error(`[${label}] skill-release.json has invalid Birdify release identity.`);
   }
-  // Exercise shipped JS before any build, from an unrelated working directory
-  const testProject = path.join(temporary, `project-${path.basename(installDir)}`);
-  fs.mkdirSync(testProject, { recursive: true });
-  const cli = path.join(installDir, 'scripts/birdify.mjs');
-  run(process.execPath, [cli, 'doctor'], testProject);
-  run(process.execPath, [cli, 'setup', '--project', testProject], testProject);
-  run(process.execPath, [cli, 'uninstall', '--project', testProject], testProject);
+  const legacy = path.join(installDir, 'scripts/birdify.mjs');
+  if (fs.existsSync(legacy)) {
+    const testProject = path.join(temporary, `project-${path.basename(installDir)}`);
+    fs.mkdirSync(testProject, { recursive: true });
+    run(process.execPath, [legacy, 'doctor'], testProject);
+    run(process.execPath, [legacy, 'setup', '--project', testProject], testProject);
+    run(process.execPath, [legacy, 'uninstall', '--project', testProject], testProject);
+  }
   console.log(`[${label}] Verified shipped artifacts in temporary environment.`);
+}
+
+function verifyPackedCli() {
+  const packed = spawnSync(process.execPath, [path.join(repository, 'tools/pack-cli.mjs'), path.join(temporary, 'pack')], { cwd: repository, encoding: 'utf8' });
+  if (packed.status !== 0) throw new Error(packed.stdout + packed.stderr);
+  const tarball = packed.stdout.trim().split(/\r?\n/).at(-1);
+  const consumer = path.join(temporary, 'consumer');
+  fs.mkdirSync(consumer);
+  run('npm', ['install', '--ignore-scripts', tarball], consumer);
+  const bin = path.join(consumer, 'node_modules/birdify/dist/birdify.mjs');
+  const project = path.join(temporary, 'packed-project');
+  fs.mkdirSync(project);
+  run(process.execPath, [bin, '--help'], project);
+  run(process.execPath, [bin, 'doctor'], project);
+  const map = path.join(repository, 'birdify/examples/architecture.json');
+  const html = path.join(project, 'map.html');
+  run(process.execPath, [bin, 'validate', map, path.join(repository, 'birdify/examples/activity.jsonl')], project);
+  run(process.execPath, [bin, 'render', map, html], project);
+  run(process.execPath, [bin, 'setup', '--project', project], project);
+  run(process.execPath, [bin, 'uninstall', '--project', project], project);
+  const sample = path.join(temporary, 'sample-repo');
+  fs.mkdirSync(sample);
+  fs.writeFileSync(path.join(sample, 'README.md'), '# Sample\n');
+  run('git', ['init'], sample);
+  run('git', ['add', 'README.md'], sample);
+  run('git', ['-c', 'user.email=birdify@example.com', '-c', 'user.name=Birdify', 'commit', '-m', 'sample'], sample);
+  run(process.execPath, [bin, 'discover', sample, path.join(project, 'catalog.json'), 'Sample'], project);
+  console.log('[packed-cli] Verified the packed CLI without a source checkout.');
 }
 
 try {
@@ -44,6 +73,7 @@ try {
     const isolatedPackage = path.join(temporary, 'working-tree', 'birdify');
     fs.cpSync(workingPackage, isolatedPackage, { recursive: true });
     verifyPayload(isolatedPackage, 'working-tree-copy');
+    verifyPackedCli();
   }
 
   // 2. Audit committed git archive (distinguishing working-tree from committed state)

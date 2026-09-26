@@ -102,12 +102,6 @@ if (!release || typeof release !== 'object' || Array.isArray(release)) {
 
 // 7. Shipped runtime scripts & resources
 const requiredRuntime = [
-  'scripts/birdify.mjs',
-  'scripts/validate.mjs',
-  'scripts/render.mjs',
-  'scripts/discover-constraints.mjs',
-  'scripts/compile-constraint-rules.mjs',
-  'scripts/render-constraints.mjs',
   'schemas/architecture.schema.json',
   'schemas/activity.schema.json',
   'assets/viewer.js',
@@ -118,6 +112,9 @@ const requiredRuntime = [
 ];
 for (const rel of requiredRuntime) {
   if (!exists(rel)) errors.push(`Missing required runtime artifact: ${rel}`);
+}
+for (const rel of ['scripts/birdify.mjs', 'scripts/validate.mjs', 'scripts/render.mjs', 'scripts/discover-constraints.mjs', 'scripts/compile-constraint-rules.mjs', 'scripts/render-constraints.mjs', 'scripts/constraint-freshness.mjs']) {
+  if (exists(rel)) errors.push(`CLI implementation must not ship in the skill: ${rel}`);
 }
 
 // 8. Machine-specific absolute paths

@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [18, 22]
+        node: [22, 24]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -29,10 +29,9 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
       - run: pnpm run typecheck
-      - run: pnpm exec tsc --project tsconfig.tools.json
       - run: pnpm run check:build
-      - run: pnpm run build:site
       - run: pnpm test
       - run: pnpm run validate:examples
       - run: pnpm run validate:skill
@@ -55,6 +54,5 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run build:site
       - run: npx playwright install --with-deps chromium
       - run: pnpm run test:browser

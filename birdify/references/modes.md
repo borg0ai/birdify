@@ -11,12 +11,12 @@ Use the host skill selector or explicitly request Birdify. Slash-command support
 ## Configuration and migration
 
 ```sh
-node <skill-root>/scripts/birdify.mjs setup --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode auto --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode on-demand --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode off --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode --project <project-root>
-node <skill-root>/scripts/birdify.mjs uninstall --project <project-root>
+npx --yes @borg0ai/birdify setup --project <project-root>
+npx --yes @borg0ai/birdify mode auto --project <project-root>
+npx --yes @borg0ai/birdify mode on-demand --project <project-root>
+npx --yes @borg0ai/birdify mode off --project <project-root>
+npx --yes @borg0ai/birdify mode --project <project-root>
+npx --yes @borg0ai/birdify uninstall --project <project-root>
 ```
 
 `setup` defaults new projects to `on-demand` and preserves any existing `auto`, `on-demand` or `off` mode. Use `mode auto` to opt in to activation before every code-changing task, including small edits, and planning that explicitly analyzes affected modules. Use `mode on-demand` to return to explicit invocation. Queries are read-only. Updating skill files does not rewrite other projects; verify the selected mode in a fresh task.
@@ -25,7 +25,7 @@ Foundation rules are separate from map activation. `setup`, `mode auto` and `mod
 
 ## Storage and boundaries
 
-Use absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. A source checkout can optionally run `pnpm link` and use `birdify mode`; Node commands do not require linking.
+Use absolute paths for installed skill and target project root. Without `--project`, only current directory is used; parents are not searched. Birdify always manages `AGENTS.md`; files are not synchronized. From any directory, run `npx --yes @borg0ai/birdify mode`. Node.js 22 or newer is required; the skill directory does not contain the command.
 
 Only the block between `<!-- birdify:mode:start -->` and `<!-- birdify:mode:end -->` is modified; surrounding bytes are preserved. Repeated configuration is idempotent; malformed or duplicate markers and non-regular files prevent writes. Managed blocks contain English machine instructions.
 

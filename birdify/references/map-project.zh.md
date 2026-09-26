@@ -21,7 +21,7 @@
 
 字段、角色、归属、证据、状态与布局遵循[契约](contract.zh.md)。模块角色依据已检查职责，不明确用 `generic`，不为配色轮换；角色独立于归属与分组。外部服务仅用于解释真实关系，不分配本地文件归属。无充分支持的结论标为 `uncertain` 并列出具体问题；`supported` 表示检查过证据，不是静态证明。
 
-新地图须逐模块显式分类，渲染前运行 `node <skill-root>/scripts/validate.mjs <map.json> --authoring`（中英双语交付追加 `--bilingual`）。通用模块按契约填写 `roleAssessment`，说明现有类别为何不适用或缺少什么证据；证据不足须标待确认并给出具体问题。不得为省事批量使用 generic。全通用提醒须逐模块结合源码复核并报告原因，不为过检查编造不同角色。复用时保留已有分类，仅在新证据支持时更改；降为通用须说明理由并遵循版本规则。更新旧地图时核对新增/变化模块的分类，不强制迁移未变化的旧字段。
+新地图须逐模块显式分类，渲染前运行 `npx --yes @borg0ai/birdify validate <map.json> --authoring`（中英双语交付追加 `--bilingual`）。通用模块按契约填写 `roleAssessment`，说明现有类别为何不适用或缺少什么证据；证据不足须标待确认并给出具体问题。不得为省事批量使用 generic。全通用提醒须逐模块结合源码复核并报告原因，不为过检查编造不同角色。复用时保留已有分类，仅在新证据支持时更改；降为通用须说明理由并遵循版本规则。更新旧地图时核对新增/变化模块的分类，不强制迁移未变化的旧字段。
 
 有向关系填写具体标签、证据、状态、`kind` 与 `visibility`。核心执行、必要结果/工具反馈、基础依赖和必需审批放在 `overview`；恢复、重试和诊断可放在 `detail`，除非它们就是主题。不明确时用 `overview`。检查孤立概览模块是否缺少连接，保留真正的辅助模块及隐藏关系计数。所有关系保留在数据中；类型/可见性不代表修改范围，也不能仅为减少拥挤而改变。
 
@@ -53,7 +53,7 @@
 使用自带渲染器；从用户项目运行时用绝对路径，`<skill-root>` 是包含 SKILL.md 的目录。按实际约定位置替换路径：
 
 ```sh
-node <skill-root>/scripts/render.mjs <project-root>/.birdify/architecture.json <project-root>/.birdify/architecture.html --constraints <project-root>/.birdify/constraints.reviewed.json
+npx --yes @borg0ai/birdify render <project-root>/.birdify/architecture.json <project-root>/.birdify/architecture.html --constraints <project-root>/.birdify/constraints.reviewed.json
 ```
 
 仅在明确的仅架构请求或已披露规则清单不可用时省略 `--constraints`。检查最终页面具有架构/约束切换、来源依据、规则版本标识和来源索引链接，并一起交付 `.sources.html` 文件。架构检查面板只统计架构数据中的规则，不统计独立清单；缺少模块关联不等于项目没有规则。

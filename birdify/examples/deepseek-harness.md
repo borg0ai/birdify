@@ -7,7 +7,7 @@ Source: [DeepSeek Harness architecture documentation](https://github.com/deepsee
 The timeline is a hypothetical change scenario; no feature implementation or tests took place. Render with simulation enabled:
 
 ```sh
-node scripts/render.mjs examples/deepseek-harness.architecture.json /tmp/deepseek-harness.html examples/session-timeline.activity.jsonl --simulation
+npx --yes @borg0ai/birdify render examples/deepseek-harness.architecture.json ./deepseek-harness.html examples/session-timeline.activity.jsonl --simulation
 ```
 
 Choose a writable HTML output path on your platform. The generated view supports architecture, changes and comparison. JSON fixtures remain in the repository; the HTML is also attached to the release.

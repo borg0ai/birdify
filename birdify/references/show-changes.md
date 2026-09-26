@@ -22,7 +22,7 @@ One active task per session; sequences start at 1 and stay contiguous. After a t
 ## Render and deliver
 
 ```sh
-node <skill-root>/scripts/render.mjs <map.json> <activity.html> <activity.jsonl>
+npx --yes @borg0ai/birdify render <map.json> <activity.html> <activity.jsonl>
 ```
 
 The renderer validates the full stream before replacing output. Deliver only after success; follow Stage 1's preview checks.

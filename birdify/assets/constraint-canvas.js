@@ -1,4 +1,4 @@
-// Generated from src/viewer/constraint-canvas.mts. Do not edit directly.
+// Generated from templates/viewer/constraint-canvas.ts. Do not edit directly.
 "use strict";
 var BirdifyConstraintCanvas = (() => {
   var __defProp = Object.defineProperty;
@@ -19,7 +19,7 @@ var BirdifyConstraintCanvas = (() => {
   };
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-  // src/viewer/constraint-canvas.mts
+  // templates/viewer/constraint-canvas.ts
   var constraint_canvas_exports = {};
   __export(constraint_canvas_exports, {
     mountConstraintCanvas: () => mountConstraintCanvas

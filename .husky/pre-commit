@@ -1,0 +1,11 @@
+echo "==> [pre-commit] Building skill viewer assets..."
+pnpm run build:viewer
+
+# Stage generated viewer assets if there were changes
+git add birdify/assets
+
+echo "==> [pre-commit] Running post-build check..."
+pnpm run check:build
+pnpm run validate:skill
+
+echo "==> [pre-commit] Checks passed successfully."

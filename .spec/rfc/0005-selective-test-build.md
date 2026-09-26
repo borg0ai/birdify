@@ -1,6 +1,8 @@
 # RFC 0005: Build only the selected test suite
 
-**Status:** Draft
+**Status:** Withdrawn
+
+Vitest runs the selected suite directly. `pnpm test` is `vitest run --project unit` (`test/**/*.test.ts`). `pnpm run test:browser` is `vitest run --project browser` (`test/**/*.browser.ts`, one file at a time). There is no esbuild prebuild and no `.test-build/` output. `tsc --project tsconfig.test.json` still typechecks the test sources. The design below is not implemented.
 
 ## Summary
 
@@ -8,7 +10,7 @@ Select unit or browser test entries before invoking esbuild so each test command
 
 ## Problem
 
-`tools/build-tests.mjs` currently bundles every `.test.mts` and `.browser.mts` entry before reading `--unit` or `--browser`. It selects the execution list afterward. Unit-only runs therefore transform browser tests unnecessarily, and invalid arguments can write output before rejection.
+`tools/build-tests.mjs` currently bundles every `.test.ts` and `.browser.ts` entry before reading `--unit` or `--browser`. It selects the execution list afterward. Unit-only runs therefore transform browser tests unnecessarily, and invalid arguments can write output before rejection.
 
 ## Goals
 
@@ -20,7 +22,7 @@ No conversion of test source to `.mjs`, no removal or narrowing of `tsc --noEmit
 
 ## Design
 
-In `tools/build-tests.mjs`, validate the mode before building. Discover entries once, then select `.test.mts` for `--unit`, `.browser.mts` for `--browser`, and both for no mode. Feed the selected list to esbuild and derive execution paths from that same list.
+In `tools/build-tests.mjs`, validate the mode before building. Discover entries once, then select `.test.ts` for `--unit`, `.browser.ts` for `--browser`, and both for no mode. Feed the selected list to esbuild and derive execution paths from that same list.
 
 Keep no-mode behavior: build both suites without executing. Preserve Node test runner invocation for unit tests, sequential browser execution, non-zero failure propagation, output paths, and the distributed-source resolution plugin. Reject an explicit suite with no entries rather than report a successful empty run.
 

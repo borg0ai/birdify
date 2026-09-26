@@ -22,7 +22,7 @@
 ## 渲染与交付
 
 ```sh
-node <skill-root>/scripts/render.mjs <map.json> <activity.html> <activity.jsonl>
+npx --yes @borg0ai/birdify render <map.json> <activity.html> <activity.jsonl>
 ```
 
 渲染器校验完整事件流后才替换输出。成功后交付，遵循阶段 1 的预览检查。

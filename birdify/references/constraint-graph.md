@@ -2,15 +2,15 @@
 
 [中文](constraint-graph.zh.md)
 
-Use this route for a standalone constraint graph, a repository-wide inventory or the constraint portion of the default integrated delivery. Preserve the architecture viewer. All commands below are relative to the installed skill, not the target repository; Node.js and Git are required, no frontend build or pnpm install is needed.
+Use this route for a standalone constraint graph, a repository-wide inventory or the constraint portion of the default integrated delivery. Preserve the architecture viewer. Commands invoke the published CLI with `npx --yes @borg0ai/birdify`. Node.js 22 or newer and Git are required. The first `npx` call needs network access. No frontend build is required.
 
 ## Discover the declared scope
 
 ```sh
-node scripts/discover-constraints.mjs /path/to/repository /output/constraints.catalog.json "Project name"
-node scripts/render-constraints.mjs /output/constraints.catalog.json /output/sources.html --sources
-node scripts/compile-constraint-rules.mjs /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json
-node scripts/render-constraints.mjs /output/constraints.reviewed.json /output/constraints.html
+npx --yes @borg0ai/birdify discover /path/to/repository /output/constraints.catalog.json "Project name"
+npx --yes @borg0ai/birdify render-constraints /output/constraints.catalog.json /output/sources.html --sources
+npx --yes @borg0ai/birdify compile-rules /output/constraints.catalog.json /output/reviewed-rules.json /output/constraints.reviewed.json
+npx --yes @borg0ai/birdify render-constraints /output/constraints.reviewed.json /output/constraints.html
 ```
 
 The collector reads committed HEAD without modifying the repository. It enumerates tracked AGENTS.md, AGENTS.md, GEMINI.md, SKILL.md, root CONTRIBUTING.md, GitHub Copilot instructions and Cursor rules, then follows local Markdown links and quoted Markdown paths recursively. It preserves source text, heading hierarchy, line ranges and file history. It excludes recognized fixtures, archives and duplicate Chinese translations, retaining reasons. References indicate discovery, not authority or automatic activation. A skill is conditional on its task; a directory instruction applies only under the host's inheritance rules. Implemented decision notes remain reference evidence, not automatically current rules.
@@ -51,8 +51,8 @@ Line numbers here are illustrative: inspect the target snapshot. Supported appli
 Keep three identities separate: stable `rule.id` (the displayed R-number is only a presentation ordinal), rule source-history `vN`, and the full project snapshot commit. To populate history, pass the repository as the fourth compiler argument:
 
 ```sh
-node scripts/compile-constraint-rules.mjs catalog.json reviewed-rules.json versioned.json /path/to/repository
-node scripts/render-constraints.mjs versioned.json constraints.html
+npx --yes @borg0ai/birdify compile-rules catalog.json reviewed-rules.json versioned.json /path/to/repository
+npx --yes @borg0ai/birdify render-constraints versioned.json constraints.html
 ```
 
 The compiler checks source text against the fixed snapshot and runs Git line history for each quoted paragraph/list item. It records `history` with `status: tracked`, `method: git-line-history`, `snapshot`, `sourcePath`, `line`, `endLine`, `version`, `lastEdited`, and the actual `commits` array of `{commit,date}`. This is the count of source-range history entries, not semantic releases or revisions of the agent's explanation. Moving/reformatting text or sharing one paragraph between obligations can affect the count. Do not manually manufacture these fields or substitute the whole-file history. Rendering validates provenance consistency, not the truth of authored Git evidence; use the collector. Existing source history is discarded when recompiling author input to prevent stale reuse.
@@ -71,7 +71,7 @@ Keep the architecture page's original horizontal toolbar and canvas layout. The 
 When the user requests a combined page, reuse the existing architecture JSON and render both views:
 
 ```sh
-node scripts/render.mjs architecture.json project.html --constraints versioned.json
+npx --yes @borg0ai/birdify render architecture.json project.html --constraints versioned.json
 ```
 
 Activity JSONL and `--repo` remain optional. The CLI writes `project.html` and the auxiliary `project.sources.html`; distribute both together. Without `--constraints`, existing architecture output is unchanged. The renderer API accepts `constraintCatalog` and optional `constraintSourceHref` in its third argument; API callers generate the auxiliary source index themselves.

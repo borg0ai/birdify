@@ -9,13 +9,6 @@
     "noEmitOnError": true,
     "forceConsistentCasingInFileNames": true,
     "newLine": "lf",
-    "rootDir": "src",
-    "outDir": "birdify/scripts",
     "types": ["node"]
-  },
-  "include": ["src/**/*.mts"],
-  "exclude": [
-    "src/viewer/**",
-    "src/site/**"
-  ]
+  }
 }

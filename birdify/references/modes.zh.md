@@ -11,12 +11,12 @@ Birdify 默认按需调用，默认 `on-demand`。用户选择技能、明确要
 ## 配置与迁移
 
 ```sh
-node <skill-root>/scripts/birdify.mjs setup --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode auto --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode on-demand --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode off --project <project-root>
-node <skill-root>/scripts/birdify.mjs mode --project <project-root>
-node <skill-root>/scripts/birdify.mjs uninstall --project <project-root>
+npx --yes @borg0ai/birdify setup --project <project-root>
+npx --yes @borg0ai/birdify mode auto --project <project-root>
+npx --yes @borg0ai/birdify mode on-demand --project <project-root>
+npx --yes @borg0ai/birdify mode off --project <project-root>
+npx --yes @borg0ai/birdify mode --project <project-root>
+npx --yes @borg0ai/birdify uninstall --project <project-root>
 ```
 
 `setup` 为新项目默认选择 `on-demand`，保留已有 `auto`、`on-demand` 或 `off`。使用 `mode auto` 主动开启每次改代码（含小改动）及明确分析涉及模块的规划前自动介入；使用 `mode on-demand` 恢复按需调用。查询只读。更新技能不会重写其他项目，请在新任务中验证所选模式。
@@ -25,7 +25,7 @@ node <skill-root>/scripts/birdify.mjs uninstall --project <project-root>
 
 ## 存储与边界
 
-使用已安装技能和目标项目根目录的绝对路径。省略 `--project` 时只使用当前目录，不搜索父目录。Birdify 始终管理 `AGENTS.md`，不跨文件同步。源码仓库可选执行 `pnpm link` 后使用 `birdify mode`；Node 命令不需要 link。
+使用已安装技能和目标项目根目录的绝对路径。省略 `--project` 时只使用当前目录，不搜索父目录。Birdify 始终管理 `AGENTS.md`，不跨文件同步。在任意目录运行 `npx --yes @borg0ai/birdify mode`。需要 Node.js 22 或更新版本；技能目录里没有这条命令。
 
 只修改 `<!-- birdify:mode:start -->` 与 `<!-- birdify:mode:end -->` 间的管理段，保留周围字节。重复配置不产生变化；损坏或重复标记、非普通文件导致拒绝写入。管理段为英文机器指令。
 

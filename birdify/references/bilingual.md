@@ -18,8 +18,8 @@ Describe the same inspected architecture in all languages:
 ## Validate and display
 
 ```sh
-node <skill-root>/scripts/validate.mjs <map.json> --bilingual
-node <skill-root>/scripts/render.mjs <map.json> <architecture.html>
+npx --yes @borg0ai/birdify validate <map.json> --bilingual
+npx --yes @borg0ai/birdify render <map.json> <architecture.html>
 ```
 
 Use `--bilingual` for Chinese/English delivery only. Single-language maps validate without it; other combinations require manual language-coverage review after structural validation. The strict check verifies architecture text coverage and question counts, not translation accuracy or activity translations. Do not claim complete Chinese/English coverage before it passes; inspect both languages' tooltips, details and relationships in the browser, and check activity coverage separately.

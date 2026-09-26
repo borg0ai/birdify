@@ -37,7 +37,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build site
-        run: pnpm run build:site
+        env:
+          GITHUB_PAGES: 'true'
+        run: pnpm --filter @birdify/site build
 
       - uses: actions/configure-pages@v5
 

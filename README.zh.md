@@ -53,21 +53,21 @@ Agent 声明 ─────> activity.jsonl ────┘
 直接校验与渲染架构文件：
 
 ```sh
-node birdify/scripts/validate.mjs .birdify/architecture.json
-node birdify/scripts/render.mjs .birdify/architecture.json .birdify/architecture.html
+pnpm exec birdify validate .birdify/architecture.json
+pnpm exec birdify render .birdify/architecture.json .birdify/architecture.html
 ```
 
 附带任务活动记录：
 
 ```sh
-node birdify/scripts/validate.mjs .birdify/architecture.json .birdify/activity.jsonl
-node birdify/scripts/render.mjs .birdify/architecture.json .birdify/activity.html .birdify/activity.jsonl
+pnpm exec birdify validate .birdify/architecture.json .birdify/activity.jsonl
+pnpm exec birdify render .birdify/architecture.json .birdify/activity.html .birdify/activity.jsonl
 ```
 
 ## 目录结构
 
 - [`birdify/schemas/`](birdify/schemas) — 架构与活动 JSON Schema
-- [`birdify/scripts/`](birdify/scripts) — 校验器与独立渲染脚本
+- [`apps/cli/`](apps/cli) — 校验器与独立渲染 CLI
 - [`birdify/assets/`](birdify/assets) — 查看器模板与前端资源
 - [`birdify/examples/`](birdify/examples) — 架构与活动示例文件
 - [`birdify/references/`](birdify/references) — 契约规范与流程参考

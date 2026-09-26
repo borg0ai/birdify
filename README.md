@@ -53,21 +53,21 @@ agent declarations ─> activity.jsonl ┘
 Validate and render architecture files directly:
 
 ```sh
-node birdify/scripts/validate.mjs .birdify/architecture.json
-node birdify/scripts/render.mjs .birdify/architecture.json .birdify/architecture.html
+pnpm exec birdify validate .birdify/architecture.json
+pnpm exec birdify render .birdify/architecture.json .birdify/architecture.html
 ```
 
 With activity history:
 
 ```sh
-node birdify/scripts/validate.mjs .birdify/architecture.json .birdify/activity.jsonl
-node birdify/scripts/render.mjs .birdify/architecture.json .birdify/activity.html .birdify/activity.jsonl
+pnpm exec birdify validate .birdify/architecture.json .birdify/activity.jsonl
+pnpm exec birdify render .birdify/architecture.json .birdify/activity.html .birdify/activity.jsonl
 ```
 
 ## Project Structure
 
 - [`birdify/schemas/`](birdify/schemas) — Architecture and activity JSON schemas
-- [`birdify/scripts/`](birdify/scripts) — CLI validator and HTML renderer
+- [`apps/cli/`](apps/cli) — CLI validator and HTML renderer
 - [`birdify/assets/`](birdify/assets) — Interactive viewer template and assets
 - [`birdify/examples/`](birdify/examples) — Sample architecture and activity files
 - [`birdify/references/`](birdify/references) — Workflow contracts and specifications

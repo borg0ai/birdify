@@ -23,19 +23,5 @@
   "assets/constraint-canvas.js",
   "assets/viewer.js",
   "schemas/activity.schema.json",
-  "schemas/architecture.schema.json",
-  "scripts/birdify.mjs",
-  "scripts/compile-constraint-rules.mjs",
-  "scripts/constraint-freshness.mjs",
-  "scripts/constraint-rule-history.mjs",
-  "scripts/constraint-rule-view.mjs",
-  "scripts/constraint-types.mjs",
-  "scripts/contracts/models.mjs",
-  "scripts/contracts/parse.mjs",
-  "scripts/discover-constraints.mjs",
-  "scripts/render.mjs",
-  "scripts/render-constraints.mjs",
-  "scripts/validate.mjs",
-  "scripts/viewer/i18n.mjs",
-  "scripts/viewer/routing.mjs"
+  "schemas/architecture.schema.json"
 ]

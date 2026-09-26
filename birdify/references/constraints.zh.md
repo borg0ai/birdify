@@ -29,8 +29,8 @@
 检查规则及关联文件后，可用项目的完整 Git 提交记录 `baselineCommit`。它是比较基准，不是合规声明。规划前及修改后比较已声明的来源和代码文件：
 
 ```sh
-node scripts/constraint-freshness.mjs architecture.json /path/to/project
-node scripts/render.mjs architecture.json architecture.html activity.jsonl --repo /path/to/project
+npx --yes @borg0ai/birdify freshness architecture.json /path/to/project
+npx --yes @borg0ai/birdify render architecture.json architecture.html activity.jsonl --repo /path/to/project
 ```
 
 使用仓库根目录。第一条命令输出只读 JSON 报告，第二条将带时间的报告嵌入独立查看器。二者均比较基准与暂存区、工作区，不修改 Git 状态、地图或活动记录。比较粒度为整个文件；行号、符号只是定位信息，不是 AST 范围。文件变化或缺失表示待复核，不表示违反约束。基准不可用、路径无法检查或索引标记跳过检查时保持未核对。文件未变不证明合规；未建立关联的文件不在覆盖范围内。不传 `--repo` 时，渲染不检查 Git，并显示未核对变化。页面不监听文件系统，后续修改后需重新渲染。任务回放中的文件报告描述渲染时状态，与选中的历史事件独立。

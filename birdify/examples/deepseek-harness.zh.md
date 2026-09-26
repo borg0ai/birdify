@@ -7,7 +7,7 @@
 时间线是假设的改动场景，没有实施功能或执行测试。渲染时开启模拟标记：
 
 ```sh
-node scripts/render.mjs examples/deepseek-harness.architecture.json /tmp/deepseek-harness.html examples/session-timeline.activity.jsonl --simulation
+npx --yes @borg0ai/birdify render examples/deepseek-harness.architecture.json ./deepseek-harness.html examples/session-timeline.activity.jsonl --simulation
 ```
 
 请为所在平台选择可写的 HTML 输出路径。生成页面支持完整架构、更改视图和并排对照。仓库保留 JSON 样例，HTML 同时作为发布附件提供。
