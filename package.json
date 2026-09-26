@@ -24,7 +24,10 @@
     "validate:skill": "node tools/validate-skill.mjs birdify",
     "test": "vitest run -c test/vitest.config.ts --project unit",
     "test:browser": "vitest run -c test/vitest.config.ts --project browser --no-file-parallelism",
-    "check:install": "node tools/check-install.mjs"
+    "check:install": "node tools/check-install.mjs",
+    "lint": "node tools/check-build.mjs && node tools/check-docs.mjs && node tools/validate-skill.mjs birdify",
+    "format": "node tools/check-docs.mjs --update",
+    "format:check": "node tools/check-docs.mjs"
   },
   "devDependencies": {
     "@birdify/birdify-dev": "workspace:*",
