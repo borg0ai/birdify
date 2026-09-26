@@ -11,4 +11,6 @@ RFC proposals and delivery status.
 | 0007 | [Rebuild Birdify Site with Vue and Night City Theme](rfc/0007-vue-night-city-site.md) | Draft |
 | 0009 | [CLI command to install the Birdify skill globally](rfc/0009-cli-install-global-skill.md) | Implemented |
 | 0010 | [Standalone CLI bundle for @borg0ai/birdify](rfc/0010-standalone-cli-bundle.md) | Implemented |
-| 0011 | [Agent-first CLI asset discovery and direct-use boundary](rfc/0011-agent-first-cli-boundary.md) | Implemented |
+| 0011 | [Agent-first CLI asset discovery and direct-use boundary](rfc/completed/0011-agent-first-cli-boundary.md) | Implemented |
+| 0012 | [Night City Theme for Birdify Interactive Viewer](rfc/completed/0012-nightcity-viewer-theme.md) | Implemented |
+| 0013 | [Viewer Asset Generation Guardrails and Source Clarity](rfc/0013-viewer-asset-generation-guardrails.md) | Draft |

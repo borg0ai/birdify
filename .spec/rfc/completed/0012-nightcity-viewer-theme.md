@@ -1,6 +1,6 @@
 # RFC 0012: Night City Theme for Birdify Interactive Viewer
 
-**Status:** Draft
+**Status:** Implemented
 
 ## Summary
 

@@ -17,7 +17,10 @@ RFC implementation tasks.
 ## Active
 
 - [ ] Implement RFC 0007: Rebuild Birdify Site with Vue and Night City Theme (RFC 0007)
+- [ ] Implement RFC 0013: Viewer Asset Generation Guardrails and Source Clarity (RFC 0013)
 
 ## Done
 - [x] Implement RFC 0009: CLI command to install the Birdify skill globally (RFC 0009)
+- [x] Implement RFC 0012: Night City Theme for Birdify Interactive Viewer (RFC 0012)
+
 
