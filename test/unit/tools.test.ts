@@ -162,7 +162,7 @@ test('skill release validator accepts release package and rejects forbidden cont
     { ...JSON.parse(releaseContent), updateManifestUrl: 'invalid' },
     { ...JSON.parse(releaseContent), version: '01.0.0-dev.0' },
     { ...JSON.parse(releaseContent), version: '1.0.0-01' },
-    { ...JSON.parse(releaseContent), version: '1.0.0' }]) {
+    { ...JSON.parse(releaseContent), channel: 'development', version: '1.0.0' }]) {
     fs.writeFileSync(releaseFile, JSON.stringify(invalid));
     const rejected = run(pkg);
     assert.equal(rejected.status, 1, JSON.stringify(invalid));
