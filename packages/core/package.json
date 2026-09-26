@@ -1,6 +1,6 @@
 {
   "name": "@birdify/core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "engines": {
     "node": ">=22"
@@ -12,7 +12,11 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "skill-runtime", "index.d.ts"],
+  "files": [
+    "dist",
+    "skill-runtime",
+    "index.d.ts"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json && birdify-dev build-viewer && node ../../tools/stage-runtime.mjs && node ../../tools/contracts/export.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
