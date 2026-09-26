@@ -14,11 +14,10 @@
   },
   "files": [
     "dist",
-    "skill-runtime",
     "index.d.ts"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json && birdify-dev build-viewer && node ../../tools/stage-runtime.mjs && node ../../tools/contracts/export.mjs",
+    "build": "tsc -p tsconfig.json && birdify-dev build-viewer && node ../../tools/contracts/export.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

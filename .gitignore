@@ -1,6 +1,5 @@
 node_modules/
 packages/core/dist/
-packages/core/skill-runtime/
 apps/cli/dist/
 toolings/birdify-dev/dist/
 .test-build/

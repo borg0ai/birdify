@@ -3,7 +3,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "skill-runtime/**"]
+      "outputs": ["dist/**"]
     },
     "typecheck": {
       "dependsOn": ["^build"]

@@ -1,46 +1,41 @@
-# RFC 0011: Agent-First CLI Asset Discovery and Direct-Use Boundary
+# RFC 0011:  Agent-First CLI Asset Discovery and Direct-Use Boundary
 
 **Status:** Implemented
 
 ## Summary
 
-Establish that the Birdify CLI is an auxiliary execution tool designed exclusively for AI coding agents invoking the Birdify skill, not for standalone manual human usage. The published CLI package does not bundle or distribute skill assets (`birdify/assets/`). Instead, the CLI locates the installed skill dynamically from the agent environment, and gracefully rejects unassisted direct human invocation with an explicit notice directing the user to install the agent skill.
+Keep the Birdify CLI agent-first: it is an execution tool for agents using the Birdify skill, not a standalone human workflow. Resolve runtime assets from the separately installed skill. Prefer explicit `BIRDIFY_SKILL_DIR` for development, then project and monorepo paths, then global agent skill directories such as `~/.agents/skills/birdify`. If no skill is found, report the missing agent skill and direct installation; do not infer caller identity.
 
 ## Problem
 
 1. **Conflation of CLI and Skill Boundaries**:
    - The Birdify skill (`birdify/`) contains usage instructions, data schemas, and the interactive viewer assets (`assets/architecture.html`, `viewer.js`, `theme.js`, and SVG icons).
-   - Past packaging scripts (`tools/stage-runtime.mjs`, `tools/pack-cli.mjs`) attempted to vendor these assets under arbitrary directories (e.g. `skill-runtime`), violating the principle that the npm package `@borg0ai/birdify` is strictly an executable tool and the skill lives independently.
-   - When stripped of bundled assets, the CLI must still know where to find the viewer templates when an AI agent requests an architecture render.
-
+   - The former `tools/stage-runtime.mjs` copied skill assets into `packages/core/skill-runtime/`, and `tools/pack-cli.mjs` copied that duplicate into a packed CLI. The staging copy is unnecessary: the skill already owns these assets and can be installed independently. `tools/pack-cli.mjs` is marked for removal in RFC 0010.
+   - The CLI still needs to find the installed skill assets when rendering architecture or constraint views.
 2. **Module-Level Startup Crashes**:
    - In `packages/core/src/render.ts` and `render-constraints.ts`, top-level module statements eagerly evaluated `runtimeRoot()`.
    - Any invocation of the CLI (such as `birdify --help`, `birdify validate`, or `birdify install`) would crash before executing if the template directory was absent from the current working tree, even when the command had nothing to do with HTML rendering.
-
-3. **Ambiguity for Direct Human Invocations**:
-   - If a human user runs `birdify render` directly without an AI coding agent or without having installed the Birdify skill, generic file errors (`ENOENT` or `Missing runtime assets`) provide misleading feedback rather than informing the user that the CLI is an agent-companion tool.
+3. **Missing Skill Diagnostics**:
+   - When no skill assets exist in configured locations, generic file errors (`ENOENT` or `Missing runtime assets`) hide the actual setup problem. The error should identify the missing Birdify agent skill and give the install command.
 
 ## Goals
 
 - Keep the published `@borg0ai/birdify` CLI package strictly minimal and free of duplicate skill assets (`files: ["bin", "dist", "README.md"]`).
 - Defer all skill asset resolution in `packages/core` to runtime rendering calls rather than top-level module evaluation.
-- Dynamically resolve the installed Birdify skill assets from agent environments:
-  1. Environment variable: `BIRDIFY_SKILL_DIR`
-  2. Project-local skill directory: `./birdify`
-  3. Monorepo development path (for tests and local development)
-  4. Standard AI coding agent skill install directories (`~/.gemini/antigravity-cli/skills/birdify`, `~/.claude/skills/birdify`, `~/.cursor/skills/birdify`, etc.)
-- Clearly reject manual human direct use when the skill is not installed:
-  `This CLI is designed for AI coding agents using the Birdify skill, not for direct manual use. Birdify skill assets not found. Install the skill into your agent first (e.g. npx --yes @borg0ai/birdify install).`
+- Resolve assets in this order: `BIRDIFY_SKILL_DIR`, project `./birdify`, monorepo development source, then supported global agent skill directories including `~/.agents/skills/birdify`.
+- If no assets are found, report a missing Birdify agent skill and direct the user to `npx --yes @borg0ai/birdify install`; mention `BIRDIFY_SKILL_DIR` as the development override.
+- Keep tests pointed at assets sourced from the repository while exercising both the global agent path and explicit environment override.
 
 ## Non-goals
 
 - Do not bundle `birdify/assets` into the published npm CLI package.
+- Do not attempt to detect whether caller is human or agent; asset availability controls rendering readiness.
 - Do not provide an interactive human wizard or standalone human-facing UI for the CLI.
 - Do not modify the data contracts or command-line syntax for `validate`, `render`, `install`, or `doctor`.
 
 ## Design
 
-### 1. Lazy Asset Evaluation (`render.ts` & `render-constraints.ts`)
+### 1. Lazy Asset Evaluation (`render.ts` &amp; `render-constraints.ts`)
 
 Asset root discovery is moved from module scope into the body of the rendering functions:
 
@@ -58,16 +53,19 @@ This guarantees that non-rendering operations (`birdify --help`, `birdify valida
 
 `packages/core/src/runtime-root.ts` resolves skill assets using the following hierarchy:
 
-1. `process.env.BIRDIFY_SKILL_DIR`: Explicit override by tooling or custom environments.
+1. `process.env.BIRDIFY_SKILL_DIR`: Explicit override for development and custom environments.
 2. `path.resolve(process.cwd(), 'birdify')`: Project-level installed skill.
 3. Monorepo development source checkout relative to module directory.
-4. Standard AI coding agent global skill paths (`~/.gemini/antigravity-cli/skills/birdify`, `~/.claude/skills/birdify`, `~/.cursor/skills/birdify`, etc.).
-5. If none are found, throw an informative error explaining that the CLI is designed for AI coding agents and directing the user to install the skill.
+4. Global agent skill paths, in order: `~/.agents/skills/birdify`, `~/.gemini/antigravity-cli/skills/birdify`, `~/.claude/skills/birdify`, `~/.cursor/skills/birdify`, and `~/.config/opencode/skills/birdify`.
+5. If none are found, throw: `Birdify agent skill not found. Install it with npx --yes @borg0ai/birdify install, or set BIRDIFY_SKILL_DIR to the skill directory for development.`
 
-## Verification
+The `skill-runtime` staging directory, its build step, and its runtime fallback are removed. Tests load assets from the repository skill directory by copying it into a temporary agent home or by setting `BIRDIFY_SKILL_DIR`.
 
-1. **Agent Skill Execution**:
-   - `pnpm test` and `pnpm --filter @borg0ai/birdify test` pass against the monorepo skill assets.
-2. **Pristine Smoke Test**:
-   - In an isolated environment without local skill assets, `npx birdify --help` and `npx birdify validate` execute cleanly.
-   - Attempting `render` in an empty directory without the skill correctly returns the agent-first error message.
+## Acceptance
+
+1. The published CLI package contains no duplicated `birdify/assets` or `skill-runtime` payload.
+2. `runtimeRoot()` honors `BIRDIFY_SKILL_DIR`, project-local assets, monorepo development assets, and global agent skill paths in the documented order.
+3. Packed CLI smoke checks source assets from repository `birdify/` and succeed through `~/.agents/skills/birdify` with `BIRDIFY_SKILL_DIR` unset.
+4. A separate packed CLI smoke check succeeds with `BIRDIFY_SKILL_DIR` set and no skill in the temporary home.
+5. With no skill in any search location, rendering reports that the Birdify agent skill is missing and directs installation with `npx --yes @borg0ai/birdify install`.
+6. Asset lookup remains lazy: `--help`, `validate`, and `install` work without skill assets.

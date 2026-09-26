@@ -38,8 +38,12 @@ Bundle the internal `@birdify/core` workspace package directly into the `@borg0a
 - Ensure `apps/cli` only declares public, published npm packages in `dependencies` (`@sinclair/typebox`, `ajv`).
 - Add a stable `./bin/birdify.mjs` executable wrapper in `apps/cli` to fix fresh-install symlinking in CI.
 - Update `apps/cli/src/__tests__/cli-bundle.test.ts` to assert that `@birdify/core` is bundled and NOT external.
-- Deprecate or align `tools/pack-cli.mjs` with the standard `apps/cli` build.
+- Remove `tools/pack-cli.mjs`. It is not on the publish path.
 - Verify through automated packaging smoke testing (`npm pack` + installing in a pristine temporary folder without access to the workspace) that the packaged CLI installs and executes via npm/npx without registry errors.
+
+## Removal
+
+`tools/pack-cli.mjs` is marked for removal. `pnpm publish` on `apps/cli` is the release path. The only remaining caller is `tools/check-install.mjs`, which must run `npm pack` in `apps/cli` and install that tarball. Delete `tools/pack-cli.mjs` in that change. Do not keep a second packager.
 
 ## Non-goals
 

@@ -10,3 +10,5 @@ RFC proposals and delivery status.
 | 0006 | [CLI-first Birdify skill delivery](rfc/0006-cli-first-skill-delivery.md) | Draft |
 | 0007 | [Rebuild Birdify Site with Vue and Night City Theme](rfc/0007-vue-night-city-site.md) | Draft |
 | 0009 | [CLI command to install the Birdify skill globally](rfc/0009-cli-install-global-skill.md) | Implemented |
+| 0010 | [Standalone CLI bundle for @borg0ai/birdify](rfc/0010-standalone-cli-bundle.md) | Implemented |
+| 0011 | [Agent-first CLI asset discovery and direct-use boundary](rfc/0011-agent-first-cli-boundary.md) | Implemented |
