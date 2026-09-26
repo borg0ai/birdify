@@ -1,6 +1,6 @@
 {
   "name": "@borg0ai/birdify",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Architecture-first visibility for AI coding agents.",
   "publishConfig": {
     "access": "public"
