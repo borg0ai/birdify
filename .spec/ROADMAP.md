@@ -14,6 +14,6 @@ RFC proposals and delivery status.
 | 0010 | [Standalone CLI bundle for @borg0ai/birdify](rfc/completed/0010-standalone-cli-bundle.md) | Implemented |
 | 0011 | [Agent-first CLI asset discovery and direct-use boundary](rfc/completed/0011-agent-first-cli-boundary.md) | Implemented |
 | 0012 | [Night City Theme for Birdify Interactive Viewer](rfc/completed/0012-nightcity-viewer-theme.md) | Implemented |
-| 0013 | [Viewer Asset Generation Guardrails and Source Clarity](rfc/0013-viewer-asset-generation-guardrails.md) | Draft |
+| 0013 | [Viewer Asset Generation Guardrails and Source Clarity](rfc/0013-viewer-asset-generation-guardrails.md) | Approved |
 | 0014 | [Move Repository Tools into the birdify-dev CLI](rfc/completed/0014-repository-tools-in-dev-cli.md) | Implemented |
-| 0015 | [Publish @birdify/core as @borg0ai/birdify-core](rfc/0015-publish-birdify-core.md) | Implemented |
+| 0015 | [Publish @birdify/core as @borg0ai/birdify-core](rfc/completed/0015-publish-birdify-core.md) | Implemented |

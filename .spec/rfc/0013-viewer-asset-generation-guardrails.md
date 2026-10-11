@@ -1,6 +1,6 @@
 # RFC 0013: Viewer Asset Generation Guardrails and Source Clarity
 
-**Status:** Draft
+**Status:** Approved
 
 ## Summary
 
