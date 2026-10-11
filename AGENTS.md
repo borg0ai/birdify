@@ -4,6 +4,12 @@
 
 Follow the commit rules and documentation maintenance requirements in [CONTRIBUTING.md](CONTRIBUTING.md). These apply to maintaining this repository, not to projects using the Birdify skill.
 
+## Golden Rule: Zero API Keys & Standalone Execution
+
+- **The Golden Rule — Zero API Keys**: Birdify is strictly a 100% deterministic, local-first engineering tool. It requires **NO** external LLM API keys, makes **ZERO** remote model API calls, incurs **NO** token costs, and operates fully offline without network access. Under no circumstances should any feature or dependency require or invoke a remote AI model API key.
+- **Dual-mode operation**: Birdify is both an AI coding agent skill and a standalone CLI tool that developers can run directly outside of any AI agent (via `npx @borg0ai/birdify validate`, `render`, `init`, etc.).
+
+
 <!-- birdify:mode:start -->
 Birdify mode: auto
 Birdify foundation: on
