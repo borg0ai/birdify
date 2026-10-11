@@ -8,7 +8,7 @@ import {
   renderConstraintCatalog,
   type ConstraintCatalog,
   type ReviewedSelection,
-} from '@birdify/core';
+} from '@borg0ai/birdify-core';
 
 const DISCOVER_USAGE = 'Usage: birdify discover repository catalog.json [project-name]';
 const RENDER_USAGE = 'Usage: birdify render-constraints catalog.json constraints.html [--sources]';

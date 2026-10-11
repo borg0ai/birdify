@@ -30,11 +30,11 @@ The installable payload is `birdify/`. A full repository archive also contains d
 | `birdify/skill-release.json`, licenses and notices | Release identity and redistribution terms | Yes |
 | `templates/viewer/` | Viewer TypeScript compiled into `birdify/assets` | No |
 | `toolings/birdify-dev/` | Development CLI `birdify-dev`, including the viewer asset build | No |
-| `tools/`, `config/` | Internal tools and development metadata, including the artifact inventory | No |
+| `config/` | Development metadata, including the artifact inventory | No |
 | `.build-tools/`, `test/`, `node_modules/` | Generated tooling, tests and development dependencies | No |
 | `apps/`, `docs/`, `.spec/`, `.github/`, root manifests and guides | Website, repository documentation, proposals and CI | No |
 
-Small internal tools belong in `tools/*.mjs` and run directly with Node. They need no TypeScript compilation. Viewer assets are the exception: `toolings/birdify-dev` is the Vite-built `birdify-dev` CLI, and `birdify-dev build-viewer` compiles `templates/viewer` into `birdify/assets`. Schema export is `tools/contracts/export.mjs`: it reads the built `@birdify/core` contracts and does not compile a second module tree. Release packaging validation is `tools/validate-skill.mjs`. User commands are the `birdify` executable from npm package `@borg0ai/birdify` in `apps/cli`, which calls `packages/core`. The skill tells agents to run `npx --yes @borg0ai/birdify`.
+Repository maintenance commands live in the private `toolings/birdify-dev` CLI. Its `build-viewer` command compiles `templates/viewer` into `birdify/assets`; `export-schemas` reads the already-built `@birdify/core` contracts; `check-build`, `check-docs`, `check-install` and `validate-skill` provide repository checks. Root `pnpm` scripts keep their stable names and call these commands. User commands are the `birdify` executable from npm package `@borg0ai/birdify` in `apps/cli`, which calls `packages/core`. The skill tells agents to run `npx --yes @borg0ai/birdify`.
 
 `birdify/SKILL.md` is the skill entrypoint. Shared runtime TypeScript lives in `packages/core/src/`; the published CLI lives in `apps/cli/`; viewer source lives in `templates/viewer/` and is compiled by `birdify-dev`; viewer assets live in `birdify/assets/`; schemas, examples and references stay inside `birdify/`; tests live in `test/`. Do not add host-specific installation branches or legacy brand aliases.
 

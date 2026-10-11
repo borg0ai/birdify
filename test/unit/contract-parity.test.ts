@@ -2,7 +2,7 @@ import { test } from 'vitest';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { Ajv2020, type ValidateFunction } from 'ajv/dist/2020.js';
-import { checkArchitecture, checkActivity } from '@birdify/core';
+import { checkArchitecture, checkActivity } from '@borg0ai/birdify-core';
 
 const read = (file: string): Record<string, unknown> => JSON.parse(fs.readFileSync(new URL(file, import.meta.url), 'utf8'));
 const old = new Ajv2020({ allErrors: true, strict: true, formats: { 'date-time': true } });

@@ -1,6 +1,6 @@
 {
   "name": "@borg0ai/birdify",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Architecture-first visibility for AI coding agents.",
   "publishConfig": {
     "access": "public"
@@ -24,11 +24,11 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@borg0ai/birdify-core": "workspace:*",
     "@sinclair/typebox": "0.34.41",
     "ajv": "8.20.0"
   },
   "devDependencies": {
-    "@birdify/core": "workspace:*",
     "@types/node": "22.20.4",
     "typescript": "5.9.3",
     "vite": "6.4.3"

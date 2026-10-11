@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { checkArchitecture, checkActivity } from '@birdify/core';
+import { checkArchitecture, checkActivity } from '@borg0ai/birdify-core';
 
 export function architecture(text: string) {
   const value: unknown = JSON.parse(text);

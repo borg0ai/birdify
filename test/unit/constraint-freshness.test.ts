@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { architecture } from '../fixtures.js';
-import { inspectConstraintFreshness } from '@birdify/core';
+import { inspectConstraintFreshness } from '@borg0ai/birdify-core';
 
 function fixture() {
   const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-freshness-'));

@@ -1,6 +1,6 @@
 # RFC 0005: Build only the selected test suite
 
-**Status:** Withdrawn
+**Status:** Rejected
 
 Vitest runs the selected suite directly. `pnpm test` is `vitest run --project unit` (`test/**/*.test.ts`). `pnpm run test:browser` is `vitest run --project browser` (`test/**/*.browser.ts`, one file at a time). There is no esbuild prebuild and no `.test-build/` output. `tsc --project tsconfig.test.json` still typechecks the test sources. The design below is not implemented.
 

@@ -2,7 +2,7 @@ import { architecture, activity, present } from '../fixtures.js';
 import { test, vi } from 'vitest';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { renderArchitecture, validate } from '@birdify/core';
+import { renderArchitecture, validate } from '@borg0ai/birdify-core';
 
 const example = architecture(fs.readFileSync(new URL('../../birdify/examples/architecture.json', import.meta.url), 'utf8'));
 const bilingual = architecture(fs.readFileSync(new URL('../../birdify/examples/bilingual.architecture.json', import.meta.url), 'utf8'));

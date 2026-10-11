@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "mapId": "birdify-monorepo-architecture",
-  "revision": 3,
+  "revision": 6,
   "language": "en",
   "project": {
     "id": "birdify",
@@ -225,32 +225,20 @@
       "role": "generic",
       "roleAssessment": {
         "basis": "out-of-taxonomy",
-        "note": "Repository-only developer CLI and scripts that build viewer assets and check package behavior.",
+        "note": "Repository-only development CLI and maintenance commands, outside the product role taxonomy.",
         "translations": {
           "zh": {
-            "note": "仓库内部开发 CLI 与脚本，负责构建查看器资源及校验打包行为。"
+            "note": "仓库内部开发 CLI 与维护命令，不属于产品角色分类。"
           }
         }
       },
       "name": "Birdify Dev Tooling",
       "kind": "local",
-      "responsibility": "Repository tooling that compiles viewer templates and verifies built assets and packed CLI behavior.",
+      "responsibility": "Repository-only development CLI that builds viewer assets, exports Core schemas, and runs build, documentation, and package checks.",
       "ownership": [
         {
-          "kind": "file",
-          "path": "toolings/birdify-dev/src/birdify-dev.ts"
-        },
-        {
-          "kind": "file",
-          "path": "toolings/birdify-dev/src/commands/build-viewer.ts"
-        },
-        {
-          "kind": "file",
-          "path": "tools/check-install.mjs"
-        },
-        {
-          "kind": "file",
-          "path": "tools/pack-cli.mjs"
+          "kind": "directory",
+          "path": "toolings/birdify-dev/src"
         }
       ],
       "evidence": [
@@ -265,7 +253,7 @@
           }
         },
         {
-          "path": "tools/check-install.mjs",
+          "path": "toolings/birdify-dev/src/commands/check-install.ts",
           "symbol": "verifyPackedCli",
           "note": "Checks packed CLI against repository skill assets copied into an isolated .agents/skills/birdify home.",
           "translations": {
@@ -280,7 +268,7 @@
       "translations": {
         "zh": {
           "name": "开发脚手架工具",
-          "responsibility": "仓库内部工具，编译查看器模板并验证构建资源与打包后 CLI 行为。"
+          "responsibility": "仓库内部开发 CLI，负责构建查看器资源、导出 Core Schema，并运行构建、文档和打包检查。"
         }
       },
       "layout": {
@@ -504,6 +492,43 @@
       "translations": {
         "zh": {
           "label": "展示技能命令与规范"
+        }
+      }
+    },
+    {
+      "id": "rel-dev-to-core",
+      "from": "dev-tooling",
+      "to": "core",
+      "kind": "dependency",
+      "visibility": "overview",
+      "label": "reads Core build outputs",
+      "evidence": [
+        {
+          "path": "toolings/birdify-dev/src/commands/export-schemas.ts",
+          "symbol": "runExportSchemas",
+          "note": "Schema export reads the built Core runtime contracts.",
+          "translations": {
+            "zh": {
+              "note": "Schema 导出器读取已构建的 Core 运行时契约。"
+            }
+          }
+        },
+        {
+          "path": "packages/core/package.json",
+          "symbol": "scripts.build",
+          "note": "Core build runs schema export after compiling its runtime contracts.",
+          "translations": {
+            "zh": {
+              "note": "Core 构建在编译运行时契约后执行 Schema 导出。"
+            }
+          }
+        }
+      ],
+      "status": "supported",
+      "openQuestions": [],
+      "translations": {
+        "zh": {
+          "label": "读取 Core 构建产物"
         }
       }
     }

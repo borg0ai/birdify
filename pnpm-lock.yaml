@@ -11,12 +11,12 @@ importers:
       '@birdify/birdify-dev':
         specifier: workspace:*
         version: link:toolings/birdify-dev
-      '@birdify/core':
-        specifier: workspace:*
-        version: link:packages/core
       '@borg0ai/birdify':
         specifier: workspace:*
         version: link:apps/cli
+      '@borg0ai/birdify-core':
+        specifier: workspace:*
+        version: link:packages/core
       '@changesets/cli':
         specifier: ^2.31.1
         version: 2.31.1(@types/node@22.20.4)
@@ -56,6 +56,9 @@ importers:
 
   apps/cli:
     dependencies:
+      '@borg0ai/birdify-core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@sinclair/typebox':
         specifier: 0.34.41
         version: 0.34.41
@@ -63,9 +66,6 @@ importers:
         specifier: 8.20.0
         version: 8.20.0
     devDependencies:
-      '@birdify/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@types/node':
         specifier: 22.20.4
         version: 22.20.4

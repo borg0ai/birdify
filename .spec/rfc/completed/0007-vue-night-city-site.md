@@ -1,6 +1,6 @@
 # RFC 0007: Rebuild Birdify Site with Vue and Night City Theme
 
-**Status:** Draft
+**Status:** Implemented
 
 ## Summary
 

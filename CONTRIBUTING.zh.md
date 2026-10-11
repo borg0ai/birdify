@@ -30,11 +30,11 @@ pnpm run check:docs
 | `birdify/skill-release.json`、许可证与声明 | 发布身份和再分发条款 | 是 |
 | `templates/viewer/` | 编译进 `birdify/assets` 的查看器 TypeScript | 否 |
 | `toolings/birdify-dev/` | 开发 CLI `birdify-dev`，包含查看器资源构建 | 否 |
-| `tools/`、`config/` | 内部工具与开发元数据，包括构建产物清单 | 否 |
+| `config/` | 开发元数据，包括构建产物清单 | 否 |
 | `.build-tools/`、`test/`、`node_modules/` | 生成的工具、测试和开发依赖 | 否 |
 | `apps/`、`docs/`、`.spec/`、`.github/`、根目录清单与指南 | 网站、仓库文档、提案和 CI | 否 |
 
-小型内部工具统一归入 `tools/*.mjs`，通过 Node 直接运行，无需 TypeScript 编译。查看器资源是例外：`toolings/birdify-dev` 是用 Vite 构建的 `birdify-dev` CLI，`birdify-dev build-viewer` 把 `templates/viewer` 编译进 `birdify/assets`。Schema 导出由 `tools/contracts/export.mjs` 直接运行，读取已构建的 `@birdify/core` 契约，不再单独编译。发布包结构校验由 `tools/validate-skill.mjs` 执行。用户命令是 `apps/cli` 中 npm 包 `@borg0ai/birdify` 提供的 `birdify`，它调用 `packages/core`。技能要求 agent 运行 `npx --yes @borg0ai/birdify`。
+仓库维护命令统一由内部 `toolings/birdify-dev` CLI 提供。其 `build-viewer` 命令把 `templates/viewer` 编译进 `birdify/assets`；`export-schemas` 读取已构建的 `@birdify/core` 契约；`check-build`、`check-docs`、`check-install` 与 `validate-skill` 提供仓库检查能力。根目录 `pnpm` 脚本保持稳定名称并调用这些命令。用户命令是 `apps/cli` 中 npm 包 `@borg0ai/birdify` 提供的 `birdify`，它调用 `packages/core`。技能要求 agent 运行 `npx --yes @borg0ai/birdify`。
 
 `birdify/SKILL.md` 是技能入口。共享运行时 TypeScript 在 `packages/core/src/`，发布的 CLI 在 `apps/cli/`，查看器源码在 `templates/viewer/` 并由 `birdify-dev` 编译，查看器资源在 `birdify/assets/`；Schema、示例和参考文档在 `birdify/` 内，测试在 `test/`。不得新增宿主专属安装分支或旧品牌别名。
 

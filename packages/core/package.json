@@ -1,7 +1,10 @@
 {
-  "name": "@birdify/core",
-  "version": "0.1.5",
-  "private": true,
+  "name": "@borg0ai/birdify-core",
+  "version": "0.1.6",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
   "engines": {
     "node": ">=22"
   },
@@ -17,7 +20,7 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json && birdify-dev build-viewer && node ../../tools/contracts/export.mjs",
+    "build": "tsc -p tsconfig.json && birdify-dev build-viewer && birdify-dev export-schemas",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

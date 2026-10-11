@@ -5,12 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 const bundle = fs.readFileSync(fileURLToPath(new URL('../../dist/birdify.mjs', import.meta.url)), 'utf8');
 
-test('vite cli bundle inlines core and keeps npm dependencies external', () => {
+test('vite cli bundle keeps core and npm dependencies external', () => {
   assert.match(bundle, /^#!\/usr\/bin\/env node\n/);
-  assert.equal(/from ['"]@birdify\/core['"]/.test(bundle), false);
-  assert.match(bundle, /from ['"]@sinclair\/typebox['"]/);
+  assert.match(bundle, /from ['"]@borg0ai\/birdify-core['"]/);
   assert.equal(bundle.includes('TypeRegistry'), false);
   assert.equal(bundle.includes('skill-runtime'), false);
-  assert.match(bundle, /Birdify agent skill not found\. Install it with npx --yes @borg0ai\/birdify install/);
-  assert.match(bundle, /\.agents\/skills\/birdify/);
 });

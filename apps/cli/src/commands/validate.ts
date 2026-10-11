@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { validate } from '@birdify/core';
+import { validate } from '@borg0ai/birdify-core';
 
 const USAGE = 'Usage: birdify validate architecture.json [activity.jsonl] [--bilingual] [--authoring]';
 

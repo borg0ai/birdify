@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const SKILL_DIR = 'birdify';
 const TEMPLATE_DIR = 'templates/viewer';
@@ -16,5 +17,13 @@ export function findRepoRoot(start: string): string {
       throw new Error(`Cannot find the Birdify repository from ${start}. Expected ${SKILL_DIR}/ and ${TEMPLATE_DIR}/.`);
     }
     current = parent;
+  }
+}
+
+export function findRepoRootForCommand(start = process.cwd()): string {
+  try {
+    return findRepoRoot(start);
+  } catch {
+    return findRepoRoot(path.dirname(fileURLToPath(import.meta.url)));
   }
 }

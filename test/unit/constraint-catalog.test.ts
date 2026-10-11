@@ -14,7 +14,7 @@ import {
   renderArchitecture,
   type ConstraintGraph,
   type ConstraintRule,
-} from '@birdify/core';
+} from '@borg0ai/birdify-core';
 
 test('discovers reference closure, records exclusions, ignores fenced examples and separates review', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'birdify-catalog-'));

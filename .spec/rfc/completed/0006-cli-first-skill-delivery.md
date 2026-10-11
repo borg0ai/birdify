@@ -1,6 +1,6 @@
 # RFC 0006: CLI-first Birdify skill delivery
 
-**Status:** Draft
+**Status:** Implemented
 
 ## Summary
 

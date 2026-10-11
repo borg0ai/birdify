@@ -1,4 +1,4 @@
-import { checkArchitecture, checkActivity, type Module, type ActivityEvent } from '@birdify/core';
+import { checkArchitecture, checkActivity, type Module, type ActivityEvent } from '@borg0ai/birdify-core';
 
 function narrowedInputs(map: unknown, event: unknown) {
   if (checkArchitecture(map)) {

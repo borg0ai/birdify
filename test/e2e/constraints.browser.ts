@@ -1,5 +1,5 @@
 import { architecture, activity, present } from '../fixtures.js';
-import { renderArchitecture, type Architecture, type ActivityEvent, type RenderOptions } from '@birdify/core';
+import { renderArchitecture, type Architecture, type ActivityEvent, type RenderOptions } from '@borg0ai/birdify-core';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';

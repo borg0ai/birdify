@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { renderArchitecture, renderConstraintCatalog, type ReviewedConstraintCatalog } from '@birdify/core';
+import { renderArchitecture, renderConstraintCatalog, type ReviewedConstraintCatalog } from '@borg0ai/birdify-core';
 
 const USAGE = 'Usage: birdify render architecture.json architecture.html [activity.jsonl] [--simulation] [--repo repository-root] [--constraints reviewed.json]';
 

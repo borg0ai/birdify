@@ -1,5 +1,5 @@
 import { architecture, activity, present } from '../fixtures.js';
-import { validate, type Architecture, type ActivityEvent } from '@birdify/core';
+import { validate, type Architecture, type ActivityEvent } from '@borg0ai/birdify-core';
 import { test, onTestFinished } from 'vitest';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';

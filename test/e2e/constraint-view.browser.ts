@@ -1,5 +1,5 @@
 import { architecture } from '../fixtures.js';
-import { renderArchitecture, renderConstraintCatalog, type ReviewedConstraintCatalog } from '@birdify/core';
+import { renderArchitecture, renderConstraintCatalog, type ReviewedConstraintCatalog } from '@borg0ai/birdify-core';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';

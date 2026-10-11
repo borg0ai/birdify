@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { renderArchitecture, runtimeRoot } from '@birdify/core';
+import { renderArchitecture, runtimeRoot } from '@borg0ai/birdify-core';
 
 type Mode = 'auto' | 'on-demand' | 'off';
 

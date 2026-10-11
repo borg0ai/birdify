@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { renderArchitecture } from '@birdify/core';
+import { renderArchitecture } from '@borg0ai/birdify-core';
 import { test } from 'vitest';
 
 const GUIDE_TEST = 'guide walkthrough restores page state';
